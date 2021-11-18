@@ -1,9 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 html,
 body {
+  --font-primary : #F2F2F2;
+  --flashy-blue: #70CCE0;
+  --dark : #16141c;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  color: #F2F2F2;
+  background: #16141c;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Antonio', sans-serif;
+}
+
+h1 {
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+h1 span {
+  color: transparent;
+  font-weight: 500;
+  -webkit-text-stroke: 1px var(--font-primary);
+}
+
+p {
+  text-align: justify;
+  text-justify: newspaper;
 }
 
 a {
@@ -13,4 +42,6 @@ a {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
