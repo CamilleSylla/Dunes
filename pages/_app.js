@@ -4,6 +4,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/dist/client/router";
 import { useEffect } from "react";
 import "../styles/globals.css";
+import Nav from "./components/global/nav/Nav";
 
 function MyApp({ Component, pageProps }) {
   const route = useRouter();
@@ -21,13 +22,14 @@ function MyApp({ Component, pageProps }) {
         pinSpacing: false 
       });
     });
-    //auto scroll to section
-    // ScrollTrigger.create({
-    //   snap: 1 / 4 // snap whole page to the closest section!
-    // });
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+    <Nav/>
+  <Component {...pageProps} />
+    </>
+  );
 }
 
 export default MyApp;
