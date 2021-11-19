@@ -1,12 +1,12 @@
 import Head from "next/head";
-import Banner from "./components/layouts/Home/Banner/Banner";
-import LeftLayout from "./components/layouts/Home/leftLayoiut/LeftLayout";
-import RightLayout from "./components/layouts/Home/rightLayout/rightLayout";
+import Banner from "../components/global/Banner/Banner";
+import LeftLayout from "../components/layouts/Home/leftLayoiut/LeftLayout";
+import RightLayout from "../components/layouts/Home/rightLayout/rightLayout";
 
 export default function Home() {
   const layouts = [
     {
-      title: "Une haute <span>intensité</span>",
+      title: "haute <span>intensité</span>",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
       img: "/assets/img/intensity.jpeg",
       button: {
@@ -16,12 +16,12 @@ export default function Home() {
       left: false,
     },
     {
-      title: "La crème des <span>coachs</span>",
+      title: "staff de <span>qualité</span>",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
       img: "/assets/img/coach.jpeg",
       button: {
         link: "",
-        label: "Nos coachs",
+        label: "Voir le staff",
       },
       left: true,
     },
@@ -57,7 +57,7 @@ export default function Home() {
       </Head>
 
       <main id="scroll">
-        <Banner />
+        <Banner videoSrc="/assets/video/banner.mp4"/>
         {layouts.map((el, i) => {
           return el.left ? (
             <LeftLayout

@@ -1,10 +1,11 @@
 import gsap from "gsap";
-import CSSRulePlugin from "gsap/dist/CSSRulePlugin";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/dist/client/router";
 import { useEffect } from "react";
 import "../styles/globals.css";
-import Nav from "./components/global/nav/Nav";
+import Footer from "../components/global/footer/Footer";
+import Nav from "../components/global/nav/Nav";
+import Social from "../components/global/social/Social";
 
 function MyApp({ Component, pageProps }) {
   const route = useRouter();
@@ -17,17 +18,19 @@ function MyApp({ Component, pageProps }) {
     gsap.utils.toArray(mainChildrens).forEach((child, i) => {
       ScrollTrigger.create({
         trigger: child,
-        start: "top top", 
-        pin: true, 
-        pinSpacing: false 
+        start: "top top",
+        pin: true,
+        pinSpacing: false,
       });
     });
   }, []);
 
   return (
     <>
-    <Nav/>
-  <Component {...pageProps} />
+      <Nav />
+      <Social />
+      <Component {...pageProps} />
+      <Footer />
     </>
   );
 }

@@ -1,0 +1,19 @@
+.wrapper {
+    position: fixed;
+    bottom: 6vh;
+    left: 5vh;
+    width: 8vw;
+    height:3.5vh;
+    background: #0085FF;
+    border-radius: 50px;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    img {
+        height: 60%;
+        filter: invert(99%) sepia(4%) saturate(515%) hue-rotate(210deg) brightness(115%) contrast(90%);
+
+
+    }
+}

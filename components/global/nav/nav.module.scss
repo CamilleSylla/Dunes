@@ -1,0 +1,42 @@
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 6.5vh;
+    width: 100%;
+    z-index: 200;
+    .menu {
+        position: absolute;
+        right: 0;
+        height: 100%;
+        width: 75%;
+        display: flex;
+        background: var(--ocean-blue);
+        ul {
+            width: 85%;
+            height: 100%;
+            list-style: none;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            li {
+                width: 15%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                text-align: center;
+                font-family: 'Antonio', sans-serif;
+                -webkit-text-stroke: .7px var(--dark);
+                font-weight: 600;
+            }
+        }
+        .login {
+            width: 15%;
+            background: var(--font-primary);
+        }
+    }
+    
+}
