@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
   const route = useRouter();
 
   useEffect(() => {
+
     gsap.registerPlugin(ScrollTrigger);
     const mainChildrens = [
       ...document.body.getElementsByTagName("main")[0].children,

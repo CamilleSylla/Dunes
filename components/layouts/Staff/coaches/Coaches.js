@@ -20,24 +20,24 @@ export default function Coaches () {
         },
         {
             id: 1,
-            name: "Darnell <span>Williams</span>",
+            name: "Sylvain <span>Deleau</span>",
             role: "Fondateur de Dunes",
             carrere : "Ancien joueur proffessionel de basket-ball",
-            profile_url: "/assets/img/darnell.png"
+            profile_url: "/assets/img/sylvain.png"
         },
         {
             id: 1,
-            name: "Darnell <span>Williams</span>",
+            name: "Quentin <span>Williams</span>",
             role: "Fondateur de Dunes",
             carrere : "Ancien joueur proffessionel de basket-ball",
-            profile_url: "/assets/img/darnell.png"
+            profile_url: "/assets/img/quentin.png"
         },
         {
             id: 1,
-            name: "Darnell <span>Williams</span>",
+            name: "Yannis <span>Williams</span>",
             role: "Fondateur de Dunes",
             carrere : "Ancien joueur proffessionel de basket-ball",
-            profile_url: "/assets/img/darnell.png"
+            profile_url: "/assets/img/yannis.png"
         },
     ]
     
@@ -70,7 +70,7 @@ export default function Coaches () {
 
     return (
         // <Layout height="auto">
-            <div className={style.wrapper}>
+            <div style={{background: "#F2F2F2"}} className={style.wrapper}>
                 <Title/>
                 <CardsGrid/>
             </div>
