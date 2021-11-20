@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
         pinSpacing: false,
       });
     });
-  }, []);
+  }, [route]);
 
   return (
     <>
