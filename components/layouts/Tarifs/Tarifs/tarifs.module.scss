@@ -1,0 +1,47 @@
+.wrapper {
+    width: 100%;
+    height: 100%;
+    background: var(--dark);
+    .title {
+        position: absolute;
+        left: 10%;
+        top: 10vh;
+    }
+    .cardWrapper {
+        position: absolute;
+        left: 10%;
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 2vh;
+        .card {
+            width: 17vw;
+            height: 17vw;
+            background: var(--ocean-blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .container {
+                width: 85%;
+                height: 90%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                p {
+                    &:first-of-type {
+                        width: 90%;
+                    }
+                    &:last-of-type {
+                        text-transform: uppercase;
+                        font-weight: 400;
+                    }
+                }
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        
+    }
+}

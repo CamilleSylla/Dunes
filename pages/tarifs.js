@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Banner from "../components/global/Banner/Banner";
 import Coaches from "../components/layouts/Staff/coaches/Coaches";
+import Tarifs from "../components/layouts/Tarifs/Tarifs/Tarifs";
 
 export default function Tarif () {
   
@@ -15,6 +16,7 @@ export default function Tarif () {
 
       <main id="scroll">
         <Banner imgSrc="/assets/img/tarif.png"/>
+        <Tarifs/>
       </main>
     </div>
   );

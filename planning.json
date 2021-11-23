@@ -1,0 +1,107 @@
+[
+    {
+        "Lundi" : [
+            {
+                "start": 7,
+                "length": 45,
+                "activity" : "Cross Training",
+                "coach" : "Eddy"
+            },
+            {
+                "start": 7,
+                "length": 45,
+                "activity" : "Cross Training",
+                "coach" : "Eddy"
+            }
+        ]
+    },
+    {
+        "Mardi" : [
+            {
+                "start": 7,
+                "length": 45,
+                "activity" : "Cross Training",
+                "coach" : "Eddy"
+            },
+            {
+                "start": 8,
+                "length": 45,
+                "activity" : "Cross Training",
+                "coach" : "Eddy"
+            },
+            {
+                "start": 9,
+                "length": 45,
+                "activity" : "Cross Training",
+                "coach" : "Eddy"
+            },
+            {
+                "start": 10,
+                "length": 45,
+                "activity" : "Cross Training",
+                "coach" : "Eddy"
+            },
+            {
+                "start": 11,
+                "length": 45,
+                "activity" : "Cross Training",
+                "coach" : "Eddy"
+            },
+            {
+                "start": 12,
+                "length": 45,
+                "activity" : "Cross Training",
+                "coach" : "Eddy"
+            }
+        ]
+    },
+    {
+        "Mercredi" : [
+            {
+                "start": 7,
+                "length": 45,
+                "activity" : "Cross Training",
+                "coach" : "Eddy"
+            }
+        ]
+    },
+    {
+        "Jeudi" : [
+            {
+                "start": 7,
+                "length": 45,
+                "activity" : "Cross Training",
+                "coach" : "Eddy"
+            }
+        ]
+    },{
+        "Vendredi" : [
+            {
+                "start": 7,
+                "length": 45,
+                "activity" : "Cross Training",
+                "coach" : "Eddy"
+            }
+        ]
+    },
+    {
+        "Samedi" : [
+            {
+                "start": 7,
+                "length": 45,
+                "activity" : "Cross Training",
+                "coach" : "Eddy"
+            }
+        ]
+    },
+    {
+        "Dimanche" : [
+            {
+                "start": 7,
+                "length": 45,
+                "activity" : "Cross Training",
+                "coach" : "Eddy"
+            }
+        ]
+    }
+]
