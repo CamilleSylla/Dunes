@@ -4,8 +4,16 @@ import Link from 'next/link'
 export default function Nav () {
     const navContent  = [
         {
+            label: "accueil",
+            link: "/"
+        },
+        {
             label: "le staff",
             link: "/staff"
+        },
+        {
+            label: "nos programmes",
+            link: "/programmes"
         },
         {
             label: "les plannings",

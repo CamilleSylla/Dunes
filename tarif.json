@@ -1,0 +1,105 @@
+[
+    {
+        "label": "Engagement annuel",
+        "tarifs": [
+            {
+                "label" : "Forfait individuel",
+                "2": 60, 
+                "3": 80, 
+                "5": 100 
+            },
+            {
+                "label": "Family Pack (2 adultes + 1 enfant)",
+                "2": 120, 
+                "3": 160, 
+                "5": 200 
+            },
+            {
+                "label": "Coaching Personel",
+                "2": 120, 
+                "3": 160, 
+                "5": 200
+            },
+            {
+                "label": "Enfants",
+                "1": 20 
+            }
+        ]
+    },
+    {
+        "label": "Engagement de 6 mois",
+        "tarifs": [
+            {
+                "label" : "Forfait individuel",
+                "2": 70, 
+                "3": 90, 
+                "5": 110 
+            },
+            {
+                "label": "Family Pack (2 adultes + 1 enfant)",
+                "2": 120, 
+                "3": 160, 
+                "5": 200 
+            },
+            {
+                "label": "Coaching Personel",
+                "2": 140, 
+                "3": 180, 
+                "5": 220
+            },
+            {
+                "label": "Enfants",
+                "1": 30 
+            }
+        ]
+    },
+    {
+        "label": "Engagement de 3 mois",
+        "tarifs": [
+            {
+                "label" : "Forfait individuel",
+                "2": 80, 
+                "3": 100, 
+                "5": 120 
+            },
+            {
+                "label": "Family Pack (2 adultes + 1 enfant)",
+                "2": 160, 
+                "3": 200, 
+                "5": 240 
+            },
+            {
+                "label": "Coaching Personel",
+                "2": 160, 
+                "3": 180, 
+                "5": 200
+            },
+            {
+                "label": "Enfants",
+                "1": 40 
+            }
+        ]
+    },
+    {
+        "label": "Sans engagement",
+        "tarifs": [
+            {
+                "label" : "Forfait individuel",
+                "2": 100, 
+                "3": 120, 
+                "5": 140 
+            },
+            {
+                "label": "Coaching Personel",
+                "2": 170, 
+                "3": 190, 
+                "5": 230
+            },
+            {
+                "label": "Enfants",
+                "1": 50 
+            }
+        ]
+    }
+    
+]

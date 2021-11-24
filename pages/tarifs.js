@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Banner from "../components/global/Banner/Banner";
+import PageEnd from "../components/global/pageEnd/PageEnd";
 import Coaches from "../components/layouts/Staff/coaches/Coaches";
 import Tarifs from "../components/layouts/Tarifs/Tarifs/Tarifs";
+import bareme from '../tarif.json'
 
 export default function Tarif () {
   
@@ -15,8 +17,11 @@ export default function Tarif () {
       </Head>
 
       <main id="scroll">
-        <Banner imgSrc="/assets/img/tarif.png"/>
-        <Tarifs/>
+        <Banner imgSrc="/assets/img/tarifs.jpg"/>
+        {bareme.map((el, i) => {
+          return <Tarifs data={el} i={i}/>
+        })}
+        <PageEnd video_url='/assets/video/tarif.mp4' desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis.' title="Reservez votre essaie gratuit"/>
       </main>
     </div>
   );
