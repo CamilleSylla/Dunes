@@ -14,7 +14,7 @@ export default function Plannings () {
           </Head>
     
           <main id="scroll">
-            <Banner imgSrc="/assets/img/coach.jpeg"/>
+            <Banner imgSrc="/assets/img/plannings.jpg"/>
             <Planning data={planning_data}/>
           </main>
         </div>

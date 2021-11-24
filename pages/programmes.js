@@ -118,7 +118,7 @@ export default function Programmes () {
       </Head>
 
       <main id="scroll">
-        <Banner imgSrc="/assets/img/coach.jpeg"/>
+        <Banner imgSrc="/assets/img/programmes.jpg"/>
         {layouts.map((el, i) => {
           return el.left ? (
             <LeftLayout

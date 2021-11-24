@@ -6,6 +6,8 @@ import "../styles/globals.css";
 import Footer from "../components/global/footer/Footer";
 import Nav from "../components/global/nav/Nav";
 import Social from "../components/global/social/Social";
+import Promote from "../components/global/Promote/promote";
+import {PromoteProvider} from '../context/PromoteContext'
 
 function MyApp({ Component, pageProps }) {
   const route = useRouter();
@@ -27,12 +29,14 @@ function MyApp({ Component, pageProps }) {
   }, [route]);
 
   return (
-    <>
+    <PromoteProvider>
       <Nav />
+      <Promote/>
       <Social />
       <Component {...pageProps} />
       <Footer />
-    </>
+
+    </PromoteProvider>
   );
 }
 

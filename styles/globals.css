@@ -4,14 +4,14 @@
 html,
 body {
   --font-primary : #F2F2F2;
-  --flashy-blue: #70CCE0;
-  --ocean-blue: #0085FF;
-  --dark : #16141c;
+  --flashy-blue:  #11D2F5;
+  --ocean-blue:  #1196F5 ;
+  --dark : #042136;
   padding: 0;
   margin: 0;
   font-family: 'Poppins', sans-serif;
   color: #F2F2F2;
-  background: #16141c;
+  background: #042136;
 }
 
 h1,h2,h3,h4,h5,h6 {
