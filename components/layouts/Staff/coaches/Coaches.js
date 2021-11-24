@@ -1,11 +1,14 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+import { PresentationContext } from "../../../../context/PresentationContext";
 import Footer from "../../../global/footer/Footer";
 import Layout from "../../../global/wrappers/Layout/Layout";
 import style from "./coaches.module.scss";
 
 export default function Coaches() {
+
+  const [presentation, setPresentation] = useContext(PresentationContext)
   const coachesRef = useRef();
   const wrapper = useRef();
   const coaches = [
@@ -17,47 +20,33 @@ export default function Coaches() {
       profile_url: "/assets/img/darnell.png",
     },
     {
-      id: 1,
+      id: 2,
       name: "Eddy <span>Lemaire</span>",
       role: "Co-fondateur et coach pour Dunes",
       carrere: "Ancien joueur proffessionel de basket-ball",
       profile_url: "/assets/img/eddy.png",
     },
     {
-      id: 1,
+      id: 3,
       name: "Sylvain <span>Deleau</span>",
       role: "Fondateur de Dunes",
       carrere: "Ancien joueur proffessionel de basket-ball",
       profile_url: "/assets/img/sylvain.png",
     },
     {
-      id: 1,
+      id: 4,
       name: "Quentin <span>Williams</span>",
       role: "Fondateur de Dunes",
       carrere: "Ancien joueur proffessionel de basket-ball",
       profile_url: "/assets/img/quentin.png",
     },
     {
-      id: 1,
+      id: 5,
       name: "Yannis <span>Williams</span>",
       role: "Fondateur de Dunes",
       carrere: "Ancien joueur proffessionel de basket-ball",
       profile_url: "/assets/img/yannis.png",
-    },
-    {
-      id: 1,
-      name: "Quentin <span>Williams</span>",
-      role: "Fondateur de Dunes",
-      carrere: "Ancien joueur proffessionel de basket-ball",
-      profile_url: "/assets/img/quentin.png",
-    },
-    {
-      id: 1,
-      name: "Yannis <span>Williams</span>",
-      role: "Fondateur de Dunes",
-      carrere: "Ancien joueur proffessionel de basket-ball",
-      profile_url: "/assets/img/yannis.png",
-    },
+    }
   ];
 
   const Title = () => {
@@ -69,20 +58,29 @@ export default function Coaches() {
     );
   };
 
-  const Card = ({ name, imgSrc }) => {
+  const setPresentationTargetContext = e => {
+    setPresentation(e)
+  }
+
+  const Card = ({target, name, imgSrc }) => {
+
     return (
-      <article className={style.card}>
+      <article onClick={() => setPresentationTargetContext(target)} className={style.card}>
         <h1 dangerouslySetInnerHTML={{ __html: name }} />
         <img src={imgSrc} />
+        <div className={style.profileBtn}>
+          <p>Voir profile</p>
+        </div>
       </article>
     );
   };
+
 
   const CardsGrid = () => {
     return (
       <div ref={coachesRef} className={style.grid}>
         {coaches.map((el, i) => {
-          return <Card name={el.name} imgSrc={el.profile_url} />;
+          return <Card target={el} name={el.name} imgSrc={el.profile_url} />;
         })}
       </div>
     );

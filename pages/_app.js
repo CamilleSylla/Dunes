@@ -1,19 +1,30 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/dist/client/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "../styles/globals.css";
 import Footer from "../components/global/footer/Footer";
 import Nav from "../components/global/nav/Nav";
 import Social from "../components/global/social/Social";
 import Promote from "../components/global/Promote/promote";
-import {PromoteProvider} from '../context/PromoteContext'
+import { PromoteProvider } from "../context/PromoteContext";
+import Router from "next/router";
+import nProgress, { set } from "nprogress";
+import "../styles/globals.css";
+import "../styles/nprogress.css";
+import Transition from "../components/global/Transition/Transition";
+import { AnimatePresence } from "framer-motion";
+import { PresentationProvider } from "../context/PresentationContext";
+import Presentation from "../components/layouts/Staff/presentation/Presentation";
 
 function MyApp({ Component, pageProps }) {
   const route = useRouter();
 
-  useEffect(() => {
+  Router.events.on("routeChangeStart", nProgress.start);
+  Router.events.on("routeChangeError", nProgress.done);
+  Router.events.on("routeChangeComplete", nProgress.done);
 
+  useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const mainChildrens = [
       ...document.body.getElementsByTagName("main")[0].children,
@@ -30,12 +41,19 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <PromoteProvider>
+      
+      <PresentationProvider>
       <Nav />
-      <Promote/>
+      <Promote />
       <Social />
-      <Component {...pageProps} />
+      <Presentation/>
+      <AnimatePresence exitBeforeEnter>
+        <Transition>
+          <Component {...pageProps} />
+        </Transition>
+      </AnimatePresence>
       <Footer />
-
+      </PresentationProvider>
     </PromoteProvider>
   );
 }

@@ -65,7 +65,7 @@ export default function Tarifs({ data, i }) {
       opacity: 0,
       scrollTrigger: {
         trigger: wrapperRef.current,
-        start: "top+=25% top",
+        start: "top+=15% top",
         scrub: 0.5,
       },
     });

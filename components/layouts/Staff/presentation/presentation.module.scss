@@ -1,0 +1,53 @@
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    background: rgba(black, .3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    
+    .container {
+        
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        border-radius: 20px;
+        background: var(--font-primary);
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        overflow: hidden;
+        .head {
+            width: 100%;
+            height: 60%;
+            background: var(--flashy-blue);
+            position: relative;
+            .ferme {
+                position: absolute;
+                color: var(--dark);
+                top: 2%;
+                right: 2%;
+                z-index: 2;
+            }
+            h1 {
+                position: absolute;
+                top: 50%;
+                left: 35%;
+                transform: translate3d(0, -50%, 0);
+                color: var(--dark);
+                span {
+                    color: var(--dark);
+                    -webkit-text-stroke: var(--dark);
+                }
+            }
+            img {
+                height: 90%;
+                position: absolute;
+                bottom: 0;
+                left: 10%;
+            }
+        }
+    }
+}

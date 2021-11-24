@@ -3,6 +3,8 @@ import Banner from "../components/global/Banner/Banner";
 import PageEnd from "../components/global/pageEnd/PageEnd";
 import RightLayout from "../components/layouts/Home/rightLayout/rightLayout";
 import Coaches from "../components/layouts/Staff/coaches/Coaches";
+import Presentation from "../components/layouts/Staff/presentation/Presentation";
+import { PresentationProvider } from "../context/PresentationContext";
 
 export default function Home() {
   

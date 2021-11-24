@@ -25,7 +25,7 @@
             display: inline-block;
             min-width: 15vw;
             margin-right: 2vw;
-            background: rgb(195, 193, 193);
+            background:  #CFCFCF;
             position: relative;
             cursor: pointer;
             h1 {
@@ -44,6 +44,34 @@
                 position: absolute;
                 bottom: 0;
                 width: 100%;
+            }
+            .profileBtn {
+                opacity: 0;
+                cursor: pointer;
+                width: 80%;
+                height: 5vh;
+                border-radius: 50px;
+                background: var(--flashy-blue);
+                position: absolute;
+                bottom: 10%;
+                left: 50%;
+                transform: translate3d(-50%, 0, 0);
+                transition: all ease .5s;
+                border: 2px solid var(--dark);
+                p {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate3d(-50%, -50%,0);
+                    color: var(--dark);
+                    font-family: 'Antonio', sans-serif;
+                    text-transform: uppercase;
+                }
+            }
+            &:hover {
+                .profileBtn {
+                    opacity: 1;
+                }
             }
         }
     }
