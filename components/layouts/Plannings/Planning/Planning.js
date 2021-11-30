@@ -1,27 +1,34 @@
 import Layout from "../../../global/wrappers/Layout/Layout";
-import style from "./planning.module.scss"
+import style from "./planning.module.scss";
+import axios from "axios"
+import { getWeekDays, organisePlanningsSpotVue } from "../../../../tools/planning";
 
-export default function Planning ({data})  {
+export default function Planning ({data, trainings})  {
 
+    const weekDays = getWeekDays('fr');
+    const planning = organisePlanningsSpotVue(trainings, weekDays)
+    const Card = ({training, i}) => {
 
-    const Card = ({data, i}) => {
+        const formatTime = training.start.substring(0, 5);
+
         return (
             <article key={i} className={style.card}>
-                <h1>{data.activity}</h1>
-                <p>{data.coach}</p>
-                <p>{data.start}:00</p>
-                <p>{data.length}min</p>
+                <h1>{training.nom}</h1>
+                <p>Eddy</p>
+                <p>{formatTime}</p>
+                <p>60 min</p>
             </article>
         )
     }
 
-    const Day = ({el}) => {
-        const day = Object.keys(el)
+    const Day = ({day}) => {
+
+        const currentDay = Object.keys(day)
         return (
             <div className={style.days}>
-                <h1>{day}</h1>
-                {el[day].map((el, i) => {
-                    return <Card data={el} i={i}/>
+                <h1>{currentDay}</h1>
+                {day[currentDay].map((training, i) => {
+                    return <Card training={training} i={i}/>
                 })}
             </div>
         )
@@ -30,7 +37,7 @@ export default function Planning ({data})  {
     const Schedule = () => {
         return (
             <div className={style.schedule}>
-                {data.map(el => {return <Day el={el}/>})}
+                {planning.map(el => {return <Day day={el}/>})}
             </div>
         )
     }
@@ -53,3 +60,4 @@ export default function Planning ({data})  {
         </Layout>
     )
 }
+

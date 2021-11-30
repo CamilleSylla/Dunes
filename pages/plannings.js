@@ -2,8 +2,10 @@ import planning_data from "../planning.json"
 import Head from "next/head";
 import Banner from "../components/global/Banner/Banner";
 import Planning from "../components/layouts/Plannings/Planning/Planning";
+import axios from "axios";
 
-export default function Plannings () {
+export default function Plannings ({trainings}) {
+
 
     return (
         <div>
@@ -15,8 +17,29 @@ export default function Plannings () {
     
           <main id="scroll">
             <Banner imgSrc="/assets/img/plannings.jpg"/>
-            <Planning data={planning_data}/>
+            <Planning data={planning_data} trainings={trainings}/>
           </main>
         </div>
       );
+}
+
+export async function getServerSideProps() {
+  const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/trainings`)
+  const newData = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/creneaux`)
+  .then(res => res.data)
+
+  const formatData = newData.map(el => {
+      const formatted = {
+        id: el.id,
+        nom : el.entrainement.nom,
+        start : el.start,
+        day : el.jour.nom
+      }
+      return formatted
+    })
+  return {
+      props: {
+          trainings : formatData
+      }
+  }
 }
