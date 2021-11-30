@@ -46,7 +46,9 @@ export default function Nav () {
 
                 </ul>
                 <div className={style.login}>
-                    
+                    <Link href="/connection">
+                    <p>Connection</p>
+                    </Link>
                 </div>
             </div>
         </nav>

@@ -34,8 +34,15 @@
             }
         }
         .login {
+            cursor: pointer;
             width: 15%;
             background: var(--font-primary);
+            color: var(--dark);
+            font-weight: 800;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Antonio', sans-serif;
         }
     }
     

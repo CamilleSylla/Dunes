@@ -39,3 +39,27 @@
         }
     }
 }
+.validation {
+    position: absolute;
+    background: var(--dark);
+    right: 2%;
+    top: 10vh;
+    width: 21vw;
+    padding: 2vh 2vw 2vh 2vw;
+    background: var(--font-primary);
+    color: var(--dark);
+    border: 2px solid var(--dark);
+    border-radius: 10px;
+    h1 {
+        font-size: 2rem;
+    }
+    p {
+        margin-top: 1vh;
+        font-size: .8rem;
+        span {
+            font-weight: 700;
+
+        }
+    }
+
+}
