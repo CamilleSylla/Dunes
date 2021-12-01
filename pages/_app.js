@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/dist/client/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../styles/globals.css";
 import Footer from "../components/global/footer/Footer";
 import Nav from "../components/global/nav/Nav";
@@ -16,7 +16,7 @@ import Transition from "../components/global/Transition/Transition";
 import { AnimatePresence } from "framer-motion";
 import { PresentationProvider } from "../context/PresentationContext";
 import Presentation from "../components/layouts/Staff/presentation/Presentation";
-import { UserProvider } from "../context/UserContext";
+import { UserContext, UserProvider } from "../context/UserContext";
 
 function MyApp({ Component, pageProps }) {
   const route = useRouter();

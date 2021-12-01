@@ -1,7 +1,12 @@
 import style from './nav.module.scss'
 import Link from 'next/link'
+import { useContext, useEffect } from 'react'
+import { UserContext } from '../../../context/UserContext'
+import { getCurrentUser } from '../../../tools/user'
 
 export default function Nav () {
+
+    const [user, setUser] = useContext(UserContext)
     const navContent  = [
         {
             label: "accueil",
@@ -28,6 +33,10 @@ export default function Nav () {
             link: "/tarifs"
         },
     ]
+
+    useEffect(() => {
+        getCurrentUser(setUser)
+    }, [])
     
 
     return (
@@ -46,9 +55,7 @@ export default function Nav () {
 
                 </ul>
                 <div className={style.login}>
-                    <Link href="/connection">
-                    <p>Connection</p>
-                    </Link>
+                 {user ? user.prenom + " " + user.nom  : <Link href="/connection"><p>Connection</p></Link>}
                 </div>
             </div>
         </nav>

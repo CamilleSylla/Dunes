@@ -6,12 +6,9 @@ import axios from "axios";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
-export default function Plannings ({trainings}) {
+export default function Plannings ({trainings, currentWeek}) {
 
   const [user, setUser] = useContext(UserContext)
-
-  console.log(user);
-
 
     return (
         <div>
@@ -23,7 +20,7 @@ export default function Plannings ({trainings}) {
     
           <main id="scroll">
             <Banner imgSrc="/assets/img/plannings.jpg"/>
-            <Planning data={planning_data} trainings={trainings}/>
+            <Planning currentWeek={currentWeek} data={planning_data} trainings={trainings}/>
           </main>
         </div>
       );
@@ -33,7 +30,8 @@ export async function getServerSideProps() {
   const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/trainings`)
   const newData = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/creneaux`)
   .then(res => res.data)
-
+  const currentWeek = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/week`)
+  .then(res => res.data)
   const formatData = newData.map(el => {
       const formatted = {
         id: el.id,
@@ -45,7 +43,8 @@ export async function getServerSideProps() {
     })
   return {
       props: {
-          trainings : formatData
+          trainings : formatData,
+          currentWeek : currentWeek
       }
   }
 }

@@ -9,18 +9,18 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "../../../../context/UserContext";
 import gsap from "gsap";
 
-export default function Planning({ data, trainings }) {
-    const validationRef = useRef()
-  const weekDays = getWeekDays("fr");
+export default function Planning({ data, trainings, currentWeek }) {
+  const validationRef = useRef();
+  const weekDays = getWeekDays("fr", currentWeek);
   const planning = organisePlanningsSpotVue(trainings, weekDays);
   const [user, setUser] = useContext(UserContext);
-  const [validation, setValidation] = useState(null)
+  const [validation, setValidation] = useState(null);
 
   const targetSpot = (training) => {
     const spot = {
-      reservation_le: new Date(),
+      reservation_le: new Date(training.reservation_day),
       user_id: `${user.id}`,
-      user_name: user.username,
+      user_name: user.nom + " " + user.prenom,
       traning_name: training.nom,
       traning_day: training.day,
       traning_start: training.start,
@@ -35,20 +35,19 @@ export default function Planning({ data, trainings }) {
       },
     };
 
-    const {data} = await axios
-      .post(
-        `${process.env.NEXT_PUBLIC_API_URL}/reservations`,
-        targetSpot(training),
-        config
-      )
-      setValidation(data)
-      console.log(data);
-      return data
+    const { data } = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}/reservations`,
+      targetSpot(training),
+      config
+    );
+    setValidation(data);
+    console.log(data);
+    return data;
   }
 
-  const Card = ({ training, i }) => {
+  const Card = ({ training, i, reservation_date }) => {
     const formatTime = training.start.substring(0, 5);
-
+    training.reservation_day = reservation_date;
     return (
       <article
         onClick={() => {
@@ -66,12 +65,13 @@ export default function Planning({ data, trainings }) {
   };
 
   const Day = ({ day }) => {
-    const currentDay = Object.keys(day);
     return (
       <div className={style.days}>
-        <h1>{currentDay}</h1>
-        {day[currentDay].map((training, i) => {
-          return <Card training={training} i={i} />;
+        <h1>{day.day}</h1>
+        {day.trainings.map((training, i) => {
+          return (
+            <Card training={training} reservation_date={day.full_date} i={i} />
+          );
         })}
       </div>
     );
@@ -92,31 +92,33 @@ export default function Planning({ data, trainings }) {
   };
 
   const ReservationValidation = () => {
-
-        return (
-            <div ref={validationRef} className={style.validation}>
-                <h1>{validation ? validation.user_name : null},</h1>
-                <p>Tu viens de reserver ton spot a l'entrainement <span>{validation ? validation.traning_name : null}</span> du <span>{validation ? validation.traning_day : null}</span> à <span>{validation ? validation.traning_start.substring(0, 5) : null}</span></p>
-    
-    
-            </div>
-        )
-
-    
-  }
+    return (
+      <div ref={validationRef} className={style.validation}>
+        <h1>{validation ? validation.user_name : null},</h1>
+        <p>
+          Tu viens de reserver ton spot a l'entrainement{" "}
+          <span>{validation ? validation.traning_name : null}</span> du{" "}
+          <span>{validation ? validation.traning_day : null}</span> à{" "}
+          <span>
+            {validation ? validation.traning_start.substring(0, 5) : null}
+          </span>
+        </p>
+      </div>
+    );
+  };
 
   useEffect(() => {
-      if (validation) {
-          gsap.from(validationRef.current, {
-              x : "100%"
-          })
-      }
-  },[])
+    if (validation) {
+      gsap.from(validationRef.current, {
+        x: "100%",
+      });
+    }
+  }, []);
 
   return (
     <Layout>
-        <ReservationValidation/>
-        
+      <ReservationValidation />
+
       <div className={style.wrapper}>
         <Header />
         <Schedule />

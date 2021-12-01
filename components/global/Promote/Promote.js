@@ -1,10 +1,18 @@
+import { useContext, useEffect } from "react";
 import style from "./promote.module.scss";
 import Button from "../button/Button";
-import { useContext } from "react";
 import { PromoteContext } from "../../../context/PromoteContext";
+import { UserContext } from "../../../context/UserContext";
+// import {useEffect} from 'react'
 export default function Promote() {
   const [promote, setPromote] = useContext(PromoteContext);
+  const [user, setUser] = useContext(UserContext)
 
+  useEffect(() => {
+    if(user) {
+      setPromote(!promote)
+    }
+  },[user])
   const PopUp = () => {
     return (
       <div className={style.wrapper}>
