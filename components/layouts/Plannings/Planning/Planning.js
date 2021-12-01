@@ -65,9 +65,13 @@ export default function Planning({ data, trainings, currentWeek }) {
   };
 
   const Day = ({ day }) => {
+    const formattedDay = day.day.substring(0, 3)
+    const date = new Date(day.full_date)
+    const month = date.getUTCMonth() + 1;
+    const currentDay = date.getUTCDate();
     return (
       <div className={style.days}>
-        <h1>{day.day}</h1>
+        <h1>{formattedDay + "   " + `${currentDay} / ${month}` }</h1>
         {day.trainings.map((training, i) => {
           return (
             <Card training={training} reservation_date={day.full_date} i={i} />
