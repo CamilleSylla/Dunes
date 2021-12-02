@@ -17,6 +17,8 @@ import { AnimatePresence } from "framer-motion";
 import { PresentationProvider } from "../context/PresentationContext";
 import Presentation from "../components/layouts/Staff/presentation/Presentation";
 import { UserContext, UserProvider } from "../context/UserContext";
+import Welcome from "../components/global/Notifications/Welcome.js/Welcome";
+import { WelcomeProvider } from "../context/WelcomeContext";
 
 function MyApp({ Component, pageProps }) {
   const route = useRouter();
@@ -42,11 +44,13 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <UserProvider>
+      <WelcomeProvider>
       <PromoteProvider>
         <PresentationProvider>
           <Nav />
           <Promote />
           <Social />
+          <Welcome/>
           <Presentation />
           <AnimatePresence exitBeforeEnter>
             <Transition>
@@ -56,6 +60,7 @@ function MyApp({ Component, pageProps }) {
           {/* <Footer /> */}
         </PresentationProvider>
       </PromoteProvider>
+      </WelcomeProvider>
     </UserProvider>
   );
 }

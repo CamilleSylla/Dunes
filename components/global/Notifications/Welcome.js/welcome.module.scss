@@ -1,0 +1,33 @@
+.wrapper {
+    position: fixed;
+    bottom: 2%;
+    // right: 0%;
+    right: 2%;
+    width: 21vw;
+    background: var(--dark);
+    z-index: 20;
+    padding: 2vh 2vw 2vh 2vw;
+    border: 2px solid var(--flashy-blue);
+    border-radius: 10px;
+    h1 {
+        font-size: 2rem;
+        span {
+            color: var(--flashy-blue);
+            -webkit-text-stroke: unset;
+        }
+    }
+    p {
+        padding-top: 2vh;
+        font-size: .8rem;
+        text-align: left;
+        a {
+            cursor: pointer;
+            color: var(--flashy-blue);
+        }
+    }
+    .close {
+        text-align: right;
+        color: var(--flashy-blue);
+
+    }
+}
