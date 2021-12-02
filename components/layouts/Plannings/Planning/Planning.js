@@ -36,14 +36,17 @@ export default function Planning({ data, trainings, currentWeek }) {
       },
     };
 
-    const { data } = await axios.post(
+    const addNewCreneau = await axios.post(
       `${process.env.NEXT_PUBLIC_API_URL}/reservations`,
       targetSpot(training),
       config
-    );
-    setValidation(data);
-    console.log(data);
-    return data;
+    )
+    .then(res => res.status !== 500 ? setValidation(res.data) : null)
+    .catch(err => {
+      alert("Une erreur c'est produite, assurez vous de ne pas deja avoir reserver cette entrainement ou de ne pas avoir depasser votre limite de séance par semaine")
+      console.log(err)
+    });
+    return addNewCreneau;
   }
 
   const Card = ({ training, i, reservation_date }) => {
@@ -119,16 +122,24 @@ export default function Planning({ data, trainings, currentWeek }) {
   };
 
   useEffect(() => {
-    if (validation) {
       gsap.from(validationRef.current, {
         x: "100%",
+        opacity: 0,
+        onComplete(){
+          gsap.to(validationRef.current, {
+            delay: 4,
+            x: "100%",
+            opacity: 0,
+            onComplete(){
+              setValidation(null)
+            }})
+        } 
       });
-    }
-  }, []);
+  }, [validation]);
 
   return (
     <Layout>
-      {/* <ReservationValidation /> */}
+      {validation ? <ReservationValidation /> : null}
       <div className={style.wrapper}>
         <Header />
         <Schedule />
