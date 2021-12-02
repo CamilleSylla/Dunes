@@ -41,7 +41,6 @@ export default function Welcome() {
   };
 
   useEffect(() => {
-      console.log(close);
         gsap.from(notifRef.current, {
             x : "100%",
             opacity : 0

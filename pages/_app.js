@@ -45,21 +45,21 @@ function MyApp({ Component, pageProps }) {
   return (
     <UserProvider>
       <WelcomeProvider>
-      <PromoteProvider>
-        <PresentationProvider>
-          <Nav />
-          <Promote />
-          <Social />
-          <Welcome/>
-          <Presentation />
-          <AnimatePresence exitBeforeEnter>
-            <Transition>
-              <Component {...pageProps} />
-            </Transition>
-          </AnimatePresence>
-          {/* <Footer /> */}
-        </PresentationProvider>
-      </PromoteProvider>
+        <PromoteProvider>
+          <PresentationProvider>
+            <Nav />
+            <Promote />
+            <Social />
+            <Welcome />
+            <Presentation />
+            <AnimatePresence exitBeforeEnter>
+              <Transition>
+                <Component {...pageProps} />
+              </Transition>
+            </AnimatePresence>
+            {/* <Footer /> */}
+          </PresentationProvider>
+        </PromoteProvider>
       </WelcomeProvider>
     </UserProvider>
   );

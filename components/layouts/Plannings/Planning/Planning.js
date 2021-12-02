@@ -48,30 +48,38 @@ export default function Planning({ data, trainings, currentWeek }) {
   const Card = ({ training, i, reservation_date }) => {
     const formatTime = training.start.substring(0, 5);
     training.reservation_day = reservation_date;
-    return (
-      <article
-        onClick={() => {
-          user ? newCreaneau(training) : null;
-        }}
-        key={i}
-        className={style.card}
-      >
-        <h1>{training.nom}</h1>
-        <p>Eddy</p>
-        <p>{formatTime}</p>
-        <p>60 min</p>
-      </article>
-    );
+    const trainingStart = new Date("1970-01-01 " + training.start).getHours();
+    const currentTime = new Date().getHours();
+    const parentDay = training.day.toLowerCase();
+    const today = new Date().toLocaleDateString("fr", { weekday: "long" });
+    if (today === parentDay && currentTime >= trainingStart) {
+      return null;
+    } else {
+      return (
+        <article
+          onClick={() => {
+            user ? newCreaneau(training) : null;
+          }}
+          key={i}
+          className={style.card}
+        >
+          <h1>{training.nom}</h1>
+          <p>Eddy</p>
+          <p>{formatTime}</p>
+          <p>60 min</p>
+        </article>
+      );
+    }
   };
 
   const Day = ({ day }) => {
-    const formattedDay = day.day.substring(0, 3)
-    const date = new Date(day.full_date)
+    const formattedDay = day.day.substring(0, 3);
+    const date = new Date(day.full_date);
     const month = date.getUTCMonth() + 1;
     const currentDay = date.getUTCDate();
     return (
       <div className={style.days}>
-        <h1>{formattedDay + "   " + `${currentDay} / ${month}` }</h1>
+        <h1>{formattedDay + "   " + `${currentDay} / ${month}`}</h1>
         {day.trainings.map((training, i) => {
           return (
             <Card training={training} reservation_date={day.full_date} i={i} />
