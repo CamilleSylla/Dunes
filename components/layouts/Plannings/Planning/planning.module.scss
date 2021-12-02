@@ -16,6 +16,7 @@
         height: 70vh;
         overflow-y: scroll;
         .days {
+            width: calc(100%/7);
             h1 {
                 color: black;
                 font-size: .9rem;

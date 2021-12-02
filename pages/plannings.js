@@ -37,7 +37,8 @@ export async function getServerSideProps() {
         id: el.id,
         nom : el.entrainement.nom,
         start : el.start,
-        day : el.jour.nom
+        day : el.jour.nom,
+        color : el.entrainement.couleur
       }
       return formatted
     })

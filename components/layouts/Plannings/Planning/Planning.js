@@ -8,6 +8,7 @@ import {
 import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "../../../../context/UserContext";
 import gsap from "gsap";
+import Router  from "next/router";
 
 export default function Planning({ data, trainings, currentWeek }) {
   const validationRef = useRef();
@@ -57,13 +58,11 @@ export default function Planning({ data, trainings, currentWeek }) {
     } else {
       return (
         <article
-          onClick={() => {
-            user ? newCreaneau(training) : null;
-          }}
+          onClick={() => {user ? newCreaneau(training) : Router.push('/connection');}}
           key={i}
           className={style.card}
         >
-          <h1>{training.nom}</h1>
+          <h1 style={{color : training.color ? training.color : "var(--dark)"}}>{training.nom}</h1>
           <p>Eddy</p>
           <p>{formatTime}</p>
           <p>60 min</p>
@@ -72,14 +71,14 @@ export default function Planning({ data, trainings, currentWeek }) {
     }
   };
 
-  const Day = ({ day }) => {
+  const Day = ({ day, i }) => {
     const formattedDay = day.day.substring(0, 3);
     const date = new Date(day.full_date);
     const month = date.getUTCMonth() + 1;
     const currentDay = date.getUTCDate();
     return (
-      <div className={style.days}>
-        <h1>{formattedDay + "   " + `${currentDay} / ${month}`}</h1>
+      <div key={i} className={style.days}>
+        <h1>{i == 0 ? "Aujourd'hui, " : null}{formattedDay + "   " + `${currentDay} / ${month}`}</h1>
         {day.trainings.map((training, i) => {
           return (
             <Card training={training} reservation_date={day.full_date} i={i} />
@@ -92,8 +91,8 @@ export default function Planning({ data, trainings, currentWeek }) {
   const Schedule = () => {
     return (
       <div className={style.schedule}>
-        {planning.map((el) => {
-          return <Day day={el} />;
+        {planning.map((el, i) => {
+          return <Day day={el} i={i}/>;
         })}
       </div>
     );
@@ -129,8 +128,7 @@ export default function Planning({ data, trainings, currentWeek }) {
 
   return (
     <Layout>
-      <ReservationValidation />
-
+      {/* <ReservationValidation /> */}
       <div className={style.wrapper}>
         <Header />
         <Schedule />
