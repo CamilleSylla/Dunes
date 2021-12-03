@@ -22,6 +22,7 @@ export default function Login () {
         const { data, status } = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/local`, loginInfos)
         if (status === 200) {
             localStorage.setItem('dunes_token', data.jwt);
+            data.user.jwt = data.jwt
             Router.push('/plannings')
             setUser(data.user)
         }

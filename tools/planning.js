@@ -1,3 +1,5 @@
+import axios from "axios"
+
 export function getWeekDays(locale, currentWeek)
 {
     const formattedDays = currentWeek.map(day => {
@@ -26,3 +28,5 @@ export function organisePlanningsSpotVue(data, days) {
     });
     return result
 }
+
+ 

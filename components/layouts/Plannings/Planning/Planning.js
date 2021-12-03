@@ -2,20 +2,25 @@ import Layout from "../../../global/wrappers/Layout/Layout";
 import style from "./planning.module.scss";
 import axios from "axios";
 import {
+  allUserReservation,
   getWeekDays,
   organisePlanningsSpotVue,
 } from "../../../../tools/planning";
 import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "../../../../context/UserContext";
 import gsap from "gsap";
-import Router  from "next/router";
+import Router from "next/router";
+import Spacing from "../../../global/Spacing";
+import Button from "../../../global/button/Button";
 
-export default function Planning({ data, trainings, currentWeek }) {
+export default function Planning({ trainings, currentWeek }) {
   const validationRef = useRef();
   const weekDays = getWeekDays("fr", currentWeek);
   const planning = organisePlanningsSpotVue(trainings, weekDays);
   const [user, setUser] = useContext(UserContext);
   const [validation, setValidation] = useState(null);
+  const [config, setConfig] = useState(null);
+  const [userReservation, setUserReservation] = useState(null);
 
   const targetSpot = (training) => {
     const spot = {
@@ -30,22 +35,19 @@ export default function Planning({ data, trainings, currentWeek }) {
   };
 
   async function newCreaneau(training) {
-    let config = {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("dunes_token")}`,
-      },
-    };
-
-    const addNewCreneau = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/reservations`,
-      targetSpot(training),
-      config
-    )
-    .then(res => res.status !== 500 ? setValidation(res.data) : null)
-    .catch(err => {
-      alert("Une erreur c'est produite, assurez vous de ne pas deja avoir reserver cette entrainement ou de ne pas avoir depasser votre limite de séance par semaine")
-      console.log(err)
-    });
+    const addNewCreneau = await axios
+      .post(
+        `${process.env.NEXT_PUBLIC_API_URL}/reservations`,
+        targetSpot(training),
+        config
+      )
+      .then((res) => (res.status !== 500 ? setValidation(res.data) : null))
+      .catch((err) => {
+        alert(
+          "Une erreur c'est produite, assurez vous de ne pas deja avoir reserver cette entrainement ou de ne pas avoir depasser votre limite de séance par semaine"
+        );
+        console.log(err);
+      });
     return addNewCreneau;
   }
 
@@ -56,19 +58,38 @@ export default function Planning({ data, trainings, currentWeek }) {
     const currentTime = new Date().getHours();
     const parentDay = training.day.toLowerCase();
     const today = new Date().toLocaleDateString("fr", { weekday: "long" });
+    let isAlreadyTook = [];
+    if (userReservation) {
+      const result = userReservation.filter(
+        (el) =>
+          new Date(el.reservation_le).toLocaleDateString() ===
+            new Date(training.reservation_day).toLocaleDateString() &&
+          training.start === el.traning_start
+      );
+      isAlreadyTook = result;
+    }
     if (today === parentDay && currentTime >= trainingStart) {
       return null;
     } else {
       return (
         <article
-          onClick={() => {user ? newCreaneau(training) : Router.push('/connection');}}
+          onClick={() => {
+            user ? newCreaneau(training) : Router.push("/connection");
+          }}
           key={i}
           className={style.card}
         >
-          <h1 style={{color : training.color ? training.color : "var(--dark)"}}>{training.nom}</h1>
+          <h1
+            style={{ color: training.color ? training.color : "var(--dark)" }}
+          >
+            {training.nom}
+          </h1>
           <p>Eddy</p>
           <p>{formatTime}</p>
           <p>60 min</p>
+          {isAlreadyTook.length ? (
+            <div className={style.reservation_marker}>Réserve</div>
+          ) : null}
         </article>
       );
     }
@@ -81,7 +102,11 @@ export default function Planning({ data, trainings, currentWeek }) {
     const currentDay = date.getUTCDate();
     return (
       <div key={i} className={style.days}>
-        <h1>{i == 0 ? "Aujourd'hui, " : null}{formattedDay + "   " + `${currentDay} / ${month}`}</h1>
+        <h1 style={{position : "fixed"}}>
+          {i == 0 ? "Aujourd'hui, " : null}
+          {formattedDay + "   " + `${currentDay} / ${month}`}
+        </h1>
+        <Spacing height="5vh"/>
         {day.trainings.map((training, i) => {
           return (
             <Card training={training} reservation_date={day.full_date} i={i} />
@@ -95,15 +120,53 @@ export default function Planning({ data, trainings, currentWeek }) {
     return (
       <div className={style.schedule}>
         {planning.map((el, i) => {
-          return <Day day={el} i={i}/>;
+          return <Day day={el} i={i} />;
         })}
       </div>
     );
   };
 
-  const Header = () => {
-    return <section className={style.header}></section>;
+  const HeaderProfile = () => {
+    const comingPractice = userReservation.sort(function (a, b) {
+      return new Date(a.reservation_le) - new Date(b.reservation_le);
+    })[0];
+
+    return (
+      <section className={style.header}>
+        <article>
+          <h1>{user.prenom + " " + user.nom}</h1>
+          <p>
+            Nombre de séances maximum par semaine :{" "}
+            <span>{user.book_limit}</span>{" "}
+          </p>
+          <p>
+            Prochain entrainement :{" "}
+            <span>
+              { comingPractice ? comingPractice.traning_name : 0}
+              {comingPractice ? "  le  " : null}
+              {comingPractice ? new Date(comingPractice.reservation_le).toLocaleDateString() : null}
+            </span>
+          </p>
+          <p>
+            Nombre de reservations active :{" "}
+            <span>{userReservation.length}</span>
+          </p>
+        </article>
+      </section>
+    );
   };
+
+  const PublicHeader = () => {
+    return (
+      <div className={style.header}>
+        <article>
+        <h1>Notre programmation des prochains jours</h1>
+        <Spacing height="1vh"/>
+          <Button text="Réserver Gratuitement"/>
+          </article>
+      </div>
+    )
+  }
 
   const ReservationValidation = () => {
     return (
@@ -122,26 +185,39 @@ export default function Planning({ data, trainings, currentWeek }) {
   };
 
   useEffect(() => {
-      gsap.from(validationRef.current, {
-        x: "100%",
-        opacity: 0,
-        onComplete(){
-          gsap.to(validationRef.current, {
-            delay: 4,
-            x: "100%",
-            opacity: 0,
-            onComplete(){
-              setValidation(null)
-            }})
-        } 
-      });
-  }, [validation]);
+    gsap.from(validationRef.current, {
+      x: "100%",
+      opacity: 0,
+      onComplete() {
+        gsap.to(validationRef.current, {
+          delay: 4,
+          x: "100%",
+          opacity: 0,
+          onComplete() {
+            setValidation(null);
+          },
+        });
+      },
+    });
+    let config = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("dunes_token")}`,
+      },
+    };
+    setConfig(config);
+
+    if (user) {
+      const allUserReservation = axios
+        .get(`${process.env.NEXT_PUBLIC_API_URL}/reservations`, config)
+        .then((res) => setUserReservation(res.data));
+    }
+  }, [validation, user]);
 
   return (
     <Layout>
       {validation ? <ReservationValidation /> : null}
       <div className={style.wrapper}>
-        <Header />
+        {userReservation ? <HeaderProfile /> : <PublicHeader/>}
         <Schedule />
       </div>
     </Layout>
