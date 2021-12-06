@@ -21,6 +21,7 @@ import Welcome from "../components/global/Notifications/Welcome.js/Welcome";
 import { WelcomeProvider } from "../context/WelcomeContext";
 import FreeUser from "../components/global/freeUser/FreeUser";
 import { FreeReservationsProvider } from "../context/FreeReservation";
+import { PlanningProvider } from "../context/PlanningContext";
 
 function MyApp({ Component, pageProps }) {
   const route = useRouter();
@@ -46,6 +47,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <UserProvider>
+      <PlanningProvider>
       <FreeReservationsProvider>
       <WelcomeProvider>
         <PromoteProvider>
@@ -66,6 +68,7 @@ function MyApp({ Component, pageProps }) {
         </PromoteProvider>
       </WelcomeProvider>
       </FreeReservationsProvider>
+      </PlanningProvider>
     </UserProvider>
   );
 }
