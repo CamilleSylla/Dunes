@@ -19,6 +19,8 @@ import Presentation from "../components/layouts/Staff/presentation/Presentation"
 import { UserContext, UserProvider } from "../context/UserContext";
 import Welcome from "../components/global/Notifications/Welcome.js/Welcome";
 import { WelcomeProvider } from "../context/WelcomeContext";
+import FreeUser from "../components/global/freeUser/FreeUser";
+import { FreeReservationsProvider } from "../context/FreeReservation";
 
 function MyApp({ Component, pageProps }) {
   const route = useRouter();
@@ -44,11 +46,13 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <UserProvider>
+      <FreeReservationsProvider>
       <WelcomeProvider>
         <PromoteProvider>
           <PresentationProvider>
             <Nav />
             <Promote />
+            <FreeUser/>
             <Social />
             <Welcome />
             <Presentation />
@@ -61,6 +65,7 @@ function MyApp({ Component, pageProps }) {
           </PresentationProvider>
         </PromoteProvider>
       </WelcomeProvider>
+      </FreeReservationsProvider>
     </UserProvider>
   );
 }
