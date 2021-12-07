@@ -1,145 +1,125 @@
-import gsap from "gsap"
-import { useContext, useEffect, useRef, useState } from "react"
-import { FreeReservationsContext } from "../../../context/FreeReservation"
-import { PlanningContext } from "../../../context/PlanningContext"
-import Button from "../button/Button"
-import style from "./freeuser.module.scss"
+import axios from "axios";
+import gsap from "gsap";
+import { useContext, useEffect, useRef, useState } from "react";
+import { FreeReservationsContext } from "../../../context/FreeReservation";
+import { PlanningContext } from "../../../context/PlanningContext";
+import Button from "../button/Button";
+import style from "./freeuser.module.scss";
+import { Formik, Field, Form } from "formik";
 // import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 
+export default function FreeUser() {
+  const [active, setActive] = useContext(FreeReservationsContext);
+  const [planning, setPlanning] = useContext(PlanningContext);
+  const [form, setForm] = useState({
+    selectedDayTraings: [],
+    nom: null
+  });
+  // const [freeInfo, setFreeInfo] = useState({captcha : false})
+  const wrapperRef = useRef();
+  const nameInput = useRef();
+  const lastnameInput = useRef();
+  const mailInput = useRef();
+  const spotRef = useRef();
 
-export default function FreeUser () {
-    const [active, setActive] = useContext(FreeReservationsContext)
-    const [planning, setPlanning] = useContext(PlanningContext)
-    const [form, setForm] = useState({
-        selectedDay : null,
-        selectedDayTraings : [],
-        selectedSpot : null
-    })
-    // const [freeInfo, setFreeInfo] = useState({captcha : false})
-    const wrapperRef = useRef()
+  const Windows = () => {
+    return (
+      <div className={style.window}>
+        <WindowLeft />
+        <WindowRight />
+      </div>
+    );
+  };
 
-    // const captchaSubmit = () => {
-    //     let user_captcha_value = document.getElementById('user_captcha_input').value;
+  const WindowLeft = () => {
+    return (
+      <article className={style.left}>
+        <div className={style.content}>
+          <h1>Reservation d'essais</h1>
+          <p>
+            Venez vous faire votre propre avis gratuitement en reservant une
+            séance.
+          </p>
+          <p>
+            SI vous avez besoin de plus amples informations, n'hesitez pas a
+            nous contacter !
+          </p>
+          <Button text="Nous contacter" />
+        </div>
+      </article>
+    );
+  };
 
-    //     if (validateCaptcha(user_captcha_value)==true) {
-    //         alert('Captcha Matched');
-    //     }
-   
-    //     else {
-    //         alert('Captcha Does Not Match');
-    //     }
+  async function onSubmit () {
+      const req = {
+          nom: nameInput.current.value + " " + lastnameInput.current.value,
+          email: mailInput.current.value,
+          spot_id : spotRef.current.value
+      }
 
-    // }
+      const post = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/reservation-essaies`, req)
+      .then(res => res.data)
 
-    const Captcha = () => {
-        return (
-            <>
-                
-            </>
-        )
+      if (typeof post === 'object') {
+          console.log("save");
+      } else {
+          alert(post)
+      }
+  }
+
+  const WindowRight = () => {
+    return (
+      <div className={style.right}>
+          <input type="text" ref={nameInput}/>
+          <input type="text" ref={lastnameInput}/>
+          <input type="email" ref={mailInput}/>
+          <select onChange={e => {
+              const Daytrainings = planning.filter(el => el.day == e.target.value)
+                const createOptions = Daytrainings[0].trainings.map((el, i) => {
+                    console.log(el);
+                    const options = document.createElement('option')
+                    options.innerHTML = el.nom + " - " + el.start
+                    options.value = el.id
+                    spotRef.current.appendChild(options)
+                })
+          }}>
+              {
+              planning ? planning.map((el, i) => {
+                  return <option value={el.day}>{el.day}</option>
+              }) 
+              : null}
+          </select>
+          <select ref={spotRef}/>
+          <button onClick={() => onSubmit()}>Validate</button>
+      </div>
+    );
+  };
+
+  const CloseBtn = () => {
+    return (
+      <div onClick={() => setActive(!active)} className={style.closeBtn}></div>
+    );
+  };
+
+  useEffect(() => {
+    // loadCaptchaEnginge(6)
+    if (active) {
+      gsap.from(wrapperRef.current, {
+        opacity: 0,
+      });
     }
- 
-    const Windows = () => {
+  }, []);
 
-        return (
-            <div className={style.window}>
-                <WindowLeft/>
-                <WindowRight/>
-            </div>
-        )
-    }
-
-    const WindowLeft = () => {
-
-        return (
-            <article className={style.left}>
-                <div className={style.content}>
-                <h1>Reservation d'essais</h1>
-                <p>Venez vous faire votre propre avis gratuitement en reservant une séance.</p> 
-                <p>SI vous avez besoin de plus amples informations, n'hesitez pas a nous contacter !</p> 
-                <Button text="Nous contacter"/>
-                </div>    
-            </article>
-        )
-    }
-
-    function onDaySelectChange (day) {
-        console.log("change", day);
-        setForm({...form, selectedDay : day})
-        const setChildrenSelect = planning.filter(el => {
-            if (el.day == day) {
-                return el.trainings
-            }
-        }).map((el, i) => {
-            console.log("traing",el);
-            setForm({...form, selectedDayTraings : el.trainings})
-        })
-    }
-
-    function onSpotSelectChange (target) {
-
-    }
-    const WindowRight = () => {
-        return(
-            <form className={style.right}>
-                <label for="name" value="Nom et Prénom">Nom et Prénom</label>
-                <input name="name" type="text" />
-                <label for="name" >Votre adresse e-mail</label>
-                <input name="mail" type="email" />
-                <select onChange={e => onDaySelectChange(e.target.value)}>
-                    {planning ? planning.map((spot, i) => {
-                        console.log(spot);
-                        return <option value={spot.day}>{spot.day.charAt(0).toUpperCase() + spot.day.slice(1)}</option>
-                    }) : null}
-                </select>
-                <select>
-                    {
-                        form.selectedDayTraings ? form.selectedDayTraings.map((el, i) => {
-                            console.log(el);
-                            return <option>{el.nom} - {el.start}</option>
-                        })  : null
-                    }
-                </select>
-
-                <input type="checkbox"/>
-                <button>Valider</button>
-                {/* <LoadCanvasTemplate /> */}
-                {/* <input name="text" id="user_captcha_input" type="text" /> */}
-
-            </form>
-        )
-    }
-
-    const CloseBtn = () => {
-
-        return (
-            <div onClick={() => setActive(!active)} className={style.closeBtn}>
-
-            </div>
-        )
-    }
-
-    useEffect(() => {
-        // loadCaptchaEnginge(6)
-        if (active) {
-            gsap.from(wrapperRef.current, {
-                opacity : 0
-            })
-        }
-
-    }, [])
-
-    return(
-        <>
-        {/* {active ? <div ref={wrapperRef} className={style.wrapper}>
+  return (
+    <>
+      {/* {active ? <div ref={wrapperRef} className={style.wrapper}>
             <Windows/>
             <CloseBtn/>
         </div> : null} */}
-        <div ref={wrapperRef} className={style.wrapper}>
-            <Windows/>
-            <CloseBtn/>
-        </div>
-        </>
-        
-    )
+      <div ref={wrapperRef} className={style.wrapper}>
+        <Windows />
+        <CloseBtn />
+      </div>
+    </>
+  );
 }
