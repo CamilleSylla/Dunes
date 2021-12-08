@@ -70,9 +70,10 @@ export default function FreeUser() {
   const WindowRight = () => {
     return (
       <div className={style.right}>
-          <input type="text" ref={nameInput}/>
-          <input type="text" ref={lastnameInput}/>
-          <input type="email" ref={mailInput}/>
+          <div className={style.container}>
+          <input type="text" placeholder="Nom" ref={nameInput}/>
+          <input type="text" placeholder="Prénom" ref={lastnameInput}/>
+          <input type="email" placeholder="Votre adresse Email" ref={mailInput}/>
           <select onChange={e => {
               const Daytrainings = planning.filter(el => el.day == e.target.value)
                 const createOptions = Daytrainings[0].trainings.map((el, i) => {
@@ -90,7 +91,8 @@ export default function FreeUser() {
               : null}
           </select>
           <select ref={spotRef}/>
-          <button onClick={() => onSubmit()}>Validate</button>
+          <button onClick={() => onSubmit()}>Reserver mon essaie</button>
+          </div>
       </div>
     );
   };

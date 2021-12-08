@@ -31,7 +31,16 @@ h1 span {
   font-weight: 500;
   -webkit-text-stroke: 1px var(--font-primary);
 }
+select {
+  font-family: 'Poppins', sans-serif;
+  color: var(--font-primary);
+}
+button {
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  font-weight: bolder;
 
+}
 p {
   text-align: justify;
   text-justify: newspaper;
