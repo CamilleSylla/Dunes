@@ -12,6 +12,7 @@ import gsap from "gsap";
 import Router from "next/router";
 import Spacing from "../../../global/Spacing";
 import Button from "../../../global/button/Button";
+import { FreeReservationsContext } from "../../../../context/FreeReservation";
 
 export default function Planning({ trainings, currentWeek }) {
   const validationRef = useRef();
@@ -21,6 +22,7 @@ export default function Planning({ trainings, currentWeek }) {
   const [validation, setValidation] = useState(null);
   const [config, setConfig] = useState(null);
   const [userReservation, setUserReservation] = useState(null);
+  const [active, setActive] = useContext(FreeReservationsContext)
 
   const targetSpot = (training) => {
     const spot = {
@@ -162,7 +164,9 @@ export default function Planning({ trainings, currentWeek }) {
         <article>
         <h1>Notre programmation des prochains jours</h1>
         <Spacing height="1vh"/>
+        <div onClick={() => setActive(true)}>
           <Button text="Réserver Gratuitement"/>
+        </div>  
           </article>
       </div>
     )

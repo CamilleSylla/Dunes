@@ -77,7 +77,6 @@ export default function FreeUser() {
           <select onChange={e => {
               const Daytrainings = planning.filter(el => el.day == e.target.value)
                 const createOptions = Daytrainings[0].trainings.map((el, i) => {
-                    console.log(el);
                     const options = document.createElement('option')
                     options.innerHTML = el.nom + " - " + el.start
                     options.value = el.id
@@ -99,7 +98,7 @@ export default function FreeUser() {
 
   const CloseBtn = () => {
     return (
-      <div onClick={() => setActive(!active)} className={style.closeBtn}></div>
+      <div onClick={() => setActive(null)} className={style.closeBtn}></div>
     );
   };
 
@@ -110,18 +109,19 @@ export default function FreeUser() {
         opacity: 0,
       });
     }
-  }, []);
-
-  return (
-    <>
-      {/* {active ? <div ref={wrapperRef} className={style.wrapper}>
-            <Windows/>
-            <CloseBtn/>
-        </div> : null} */}
-      <div ref={wrapperRef} className={style.wrapper}>
+  }, [active]);
+  const Form = () => {
+    return (
+<div ref={wrapperRef} className={style.wrapper}>
         <Windows />
         <CloseBtn />
       </div>
+    )
+  }
+  return (
+    <>
+      {active !== true ? null : <Form/>}
+      
     </>
   );
 }

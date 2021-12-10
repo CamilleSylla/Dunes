@@ -32,6 +32,10 @@ export default function Nav () {
             label: "nos tarifs",
             link: "/tarifs"
         },
+        {
+            label: "contact",
+            link: "/contact"
+        },
     ]
 
     useEffect(() => {

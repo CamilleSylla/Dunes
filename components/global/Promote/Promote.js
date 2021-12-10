@@ -3,16 +3,19 @@ import style from "./promote.module.scss";
 import Button from "../button/Button";
 import { PromoteContext } from "../../../context/PromoteContext";
 import { UserContext } from "../../../context/UserContext";
+import { FreeReservationsContext } from "../../../context/FreeReservation";
 // import {useEffect} from 'react'
 export default function Promote() {
   const [promote, setPromote] = useContext(PromoteContext);
   const [user, setUser] = useContext(UserContext)
+  const [active, setActive] = useContext(FreeReservationsContext)
 
   useEffect(() => {
     if(user) {
       setPromote(!promote)
     }
-  },[user])
+    console.log(active);
+  },[user,active])
   const PopUp = () => {
     return (
       <div className={style.wrapper}>
@@ -23,7 +26,9 @@ export default function Promote() {
             directement en ligne
           </p>
           <div className={style.action}>
-            <Button text="Réserver" />
+            <div onClick={() => setActive(true)} className={style.btn_wrapper}>
+            <Button text="Réserver" onClick={setActive} active={true}/>
+            </div>
             <p className={style.close} onClick={() => setPromote(!promote)}>Ferme</p>
           </div>
         </div>

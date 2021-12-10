@@ -29,6 +29,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        .btn_wrapper {
+          width: auto;
+          height: auto;
+        }
         .close {
             cursor: pointer;
         }

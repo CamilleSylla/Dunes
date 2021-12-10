@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+import { FreeReservationsContext } from "../../../context/FreeReservation";
 import Button from "../button/Button";
 import Spacing from "../Spacing";
 import Layout from "../wrappers/Layout/Layout";
@@ -8,7 +9,7 @@ import style from './pageend.module.scss'
 
 export default function PageEnd ({video_url, title, desc}) {
 
-
+  const [active, setActive] = useContext(FreeReservationsContext)
     const video = useRef();
 
   const Content = () => {
@@ -20,7 +21,9 @@ export default function PageEnd ({video_url, title, desc}) {
             <Spacing height="2vh"/>
             <p>{desc}</p>
             <Spacing height="4vh"/>
-            <Button text="Contact"/>
+            <div onClick={() => setActive(true)}>
+            <Button text="Réserver"/>
+            </div>    
                 </div>
         </article>
     )
