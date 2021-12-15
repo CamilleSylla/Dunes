@@ -53,6 +53,32 @@ export default function Planning({ trainings, currentWeek }) {
     return addNewCreneau;
   }
 
+  async function deletePracticeOrRedirect(isTaken){
+    let token = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("dunes_token")}`,
+      },
+    };
+    if (isTaken.length > 0) {
+      // console.log({id : isTaken[0].id});
+      const deleteReservation = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/annulation`,
+        {id : isTaken[0].id},
+        token
+      )
+
+      const deleteFromUserReservation = userReservation.filter((reservation, i )=> {
+        if (reservation.id === isTaken[0].id) {
+          userReservation.splice(i,1)
+          isTaken=[]
+        }
+      })
+      // location.reload();
+    } else {
+      Router.push("/connection")
+    }
+  }
+
   const Card = ({ training, i, reservation_date }) => {
     const formatTime = training.start.substring(0, 5);
     training.reservation_day = reservation_date;
@@ -76,7 +102,7 @@ export default function Planning({ trainings, currentWeek }) {
       return (
         <article
           onClick={() => {
-            user ? newCreaneau(training) : Router.push("/connection");
+            user && isAlreadyTook.length == 0 ? newCreaneau(training) : deletePracticeOrRedirect(isAlreadyTook);
           }}
           key={i}
           className={style.card}
@@ -92,6 +118,7 @@ export default function Planning({ trainings, currentWeek }) {
           {isAlreadyTook.length ? (
             <div className={style.reservation_marker}>Réserve</div>
           ) : null}
+          {isAlreadyTook.length ? (<div className={style.reservation_annuler}>Annuler ma seance</div>) : null}
         </article>
       );
     }

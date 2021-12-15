@@ -45,19 +45,17 @@
                 width: 100%;
             }
             .card {
+                cursor: pointer;
                 padding: 0 1vw 2vh 0;
                 border-left:1px transparent solid;
                 transition: all ease .5s;
                 color: black;
                 position: relative;
+                overflow: hidden;
                 h1 {
                     font-size: .9rem;
                     padding: 0;
                     font-weight: 900;
-                    &:hover {
-                        cursor: pointer;
-                            text-decoration: underline;
-                    }
                 }
                 P {
                     font-size: .8rem;
@@ -74,6 +72,29 @@
                     padding: 1% 5% 1% 5%;
                     background: var(--dark);
                     color: var(--font-primary);
+                }
+                .reservation_annuler {
+                    position: absolute;
+                    background: red;
+                    text-align: center;
+                    width: 100%;
+                    cursor: pointer;
+                    text-transform: uppercase;
+                    color: #F2F2F2;
+                    font-family: 'Antonio', sans-serif;
+                    top: 0;
+                    left: 0;
+                    transform: translate3d(0, -100%, 0);
+                    transition: all ease .5s;
+                }
+                &:hover {
+                    h1 {
+                        cursor: pointer;
+                            text-decoration: underline;
+                    }
+                    .reservation_annuler {
+                        transform: translate3d(0,0,0);
+                    }
                 }
             }
         }
