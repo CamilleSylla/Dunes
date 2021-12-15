@@ -32,6 +32,7 @@ export default function Planning({ trainings, currentWeek }) {
       traning_name: training.nom,
       traning_day: training.day,
       traning_start: training.start,
+      creneau_id : training.id
     };
     return spot;
   };
@@ -78,6 +79,14 @@ export default function Planning({ trainings, currentWeek }) {
       Router.push("/connection")
     }
   }
+  function bookingLimit (active_reservations) {
+    const limit = 8
+    if (active_reservations >= limit) {
+      return <p style={{color: "red", fontFamily: "'Antonio', sans-serif;"}}>COMPLET</p>
+    } else {
+      return <p>Places : { 8 - active_reservations}</p>
+    }
+  }
 
   const Card = ({ training, i, reservation_date }) => {
     const formatTime = training.start.substring(0, 5);
@@ -87,6 +96,7 @@ export default function Planning({ trainings, currentWeek }) {
     const parentDay = training.day.toLowerCase();
     const today = new Date().toLocaleDateString("fr", { weekday: "long" });
     let isAlreadyTook = [];
+    console.log(training);
     if (userReservation) {
       const result = userReservation.filter(
         (el) =>
@@ -119,6 +129,7 @@ export default function Planning({ trainings, currentWeek }) {
             <div className={style.reservation_marker}>Réserve</div>
           ) : null}
           {isAlreadyTook.length ? (<div className={style.reservation_annuler}>Annuler ma seance</div>) : null}
+          {user ? bookingLimit(training.active_reservations) : null}
         </article>
       );
     }
@@ -171,7 +182,7 @@ export default function Planning({ trainings, currentWeek }) {
           <p>
             Prochain entrainement :{" "}
             <span>
-              { comingPractice ? comingPractice.traning_name : 0}
+              { comingPractice ? comingPractice.traning_name : "Aucun entrainement de prevue prochainement"}
               {comingPractice ? "  le  " : null}
               {comingPractice ? new Date(comingPractice.reservation_le).toLocaleDateString() : null}
             </span>

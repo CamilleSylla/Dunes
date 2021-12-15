@@ -28,7 +28,7 @@ export default function Plannings ({trainings, currentWeek}) {
     
     export async function getServerSideProps() {
   
-  const newData = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/creneaux`)
+  const newData = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/creneaux/all`)
   .then(res => res.data)
 
   const currentWeek = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/week`)
@@ -40,7 +40,8 @@ export default function Plannings ({trainings, currentWeek}) {
         nom : el.entrainement.nom,
         start : el.start,
         day : el.jour.nom,
-        color : el.entrainement.couleur
+        color : el.entrainement.couleur,
+        active_reservations : el.active_reservations
       }
       return formatted
     })
