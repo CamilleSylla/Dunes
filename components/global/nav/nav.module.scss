@@ -1,4 +1,5 @@
 .wrapper {
+    overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
@@ -43,6 +44,29 @@
             justify-content: center;
             align-items: center;
             font-family: 'Antonio', sans-serif;
+            position: relative;
+            .logout {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 0;
+                left: 0;
+                background: red;
+                height: 100%;
+                width: 100%;
+                color: #F2F2F2;
+                transition: all ease .5s;
+                transform: translate3d(100%, 0, 0);
+                p {
+                    text-align: center;
+                }
+            }
+            &:hover {
+                .logout {
+                    transform: translate3d(0, 0, 0);
+                }
+            }
         }
     }
     

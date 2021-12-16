@@ -1,13 +1,13 @@
 .illustration {
     position: absolute;
-    width: 43%;
+    width: 40%;
     height: 100%;
     top: 0;
     right: 0;
     object-fit: cover;
 }
 .content {
-    width: 57%;
+    width: 60%;
     height: 100%;
     background: var(--font-primary);
     position: absolute;
@@ -22,9 +22,9 @@
         color: var(--dark);
         h1 {
             width: 60%;
+            font-size: 7rem;
             span {
                 -webkit-text-stroke: 1.5px var(--dark);
-
             }
         }
     }

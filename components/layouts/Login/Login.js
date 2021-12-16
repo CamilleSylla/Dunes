@@ -52,7 +52,7 @@ export default function Login () {
     const Window = () => {
         return (
             <div className={style.wrapper}>
-                <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"/>
+                <img src="/assets/img/login.webp"/>
                 <Form/>
             </div>
         )

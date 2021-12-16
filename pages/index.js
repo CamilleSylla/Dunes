@@ -8,7 +8,7 @@ export default function Home() {
     {
       title: "haute <span>intensité</span>",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
-      img: "/assets/img/intensity.jpeg",
+      img: "/assets/img/intensity.webp",
       button: {
         link: "",
         label: "Decouvrir nos programme",
@@ -17,8 +17,8 @@ export default function Home() {
     },
     {
       title: "staff de <span>qualité</span>",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
-      img: "/assets/img/coach.jpeg",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit.  Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit.",
+      img: "/assets/img/staff.webp",
       button: {
         link: "",
         label: "Voir le staff",
@@ -29,7 +29,7 @@ export default function Home() {
     {
       title: "Notre <span>complexe</span>",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
-      img: "/assets/img/dunes.jpeg",
+      img: "/assets/img/complexe.webp",
       button: {
         link: "",
         label: "Le complexe",
@@ -37,9 +37,9 @@ export default function Home() {
       left: false,
     },
     {
-      title: "prix <br/><span>adapté</span>",
+      title: "prix <br/><span>flexibles</span>",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
-      img: "/assets/img/tarifsgirl.jpg",
+      img: "/assets/img/prix.webp",
       button: {
         link: "",
         label: "Decouvrir nos programme",

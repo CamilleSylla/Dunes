@@ -96,7 +96,6 @@ export default function Planning({ trainings, currentWeek }) {
     const parentDay = training.day.toLowerCase();
     const today = new Date().toLocaleDateString("fr", { weekday: "long" });
     let isAlreadyTook = [];
-    console.log(training);
     if (userReservation) {
       const result = userReservation.filter(
         (el) =>
@@ -128,7 +127,7 @@ export default function Planning({ trainings, currentWeek }) {
           {isAlreadyTook.length ? (
             <div className={style.reservation_marker}>Réserve</div>
           ) : null}
-          {isAlreadyTook.length ? (<div className={style.reservation_annuler}>Annuler ma seance</div>) : null}
+          {isAlreadyTook.length ? (<div className={style.reservation_annuler}>Annuler ma réservation</div>) : null}
           {user ? bookingLimit(training.active_reservations) : null}
         </article>
       );

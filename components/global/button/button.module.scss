@@ -12,9 +12,13 @@
     align-self: flex-start;
 
     span {
-        font-weight: 600;
+        font-weight: 900;
+        letter-spacing: .25rem;
         position: relative;
         z-index: 2;
+        text-transform: uppercase;
+        font-size: .8rem;
+        font-family: 'Antonio', sans-serif;
     }
     .filter {
         position: absolute;

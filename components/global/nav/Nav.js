@@ -38,6 +38,11 @@ export default function Nav () {
         },
     ]
 
+    function logOut () {
+        localStorage.clear()
+        location.reload()
+    }
+
     useEffect(() => {
         getCurrentUser(setUser)
     }, [])
@@ -59,7 +64,14 @@ export default function Nav () {
 
                 </ul>
                 <div className={style.login}>
-                 {user ? user.prenom + " " + user.nom  : <Link href="/connection"><p>Connection</p></Link>}
+                 {user ? user.prenom + " " + user.nom  : <Link href="/connection"><p>Connexion</p></Link>}
+                 {user ?
+                 (
+                     <div onClick={() => logOut()} className={style.logout}>
+                    <p>Déconnexion</p>
+                    </div>
+                 )
+                 : null}
                 </div>
             </div>
         </nav>
