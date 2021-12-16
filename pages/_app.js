@@ -22,6 +22,7 @@ import { WelcomeProvider } from "../context/WelcomeContext";
 import FreeUser from "../components/global/freeUser/FreeUser";
 import { FreeReservationsProvider } from "../context/FreeReservation";
 import { PlanningProvider } from "../context/PlanningContext";
+import Cursor from "../components/global/cursor/Cursor";
 
 function MyApp({ Component, pageProps }) {
   const route = useRouter();
@@ -53,6 +54,7 @@ function MyApp({ Component, pageProps }) {
         <PromoteProvider>
           <PresentationProvider>
             <Nav />
+            <Cursor/>
             <Promote />
             <FreeUser/>
             <Social />
