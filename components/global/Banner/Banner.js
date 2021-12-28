@@ -1,6 +1,7 @@
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import { useEffect, useRef } from 'react'
+import { userDevice } from '../../../tools/global'
 import Button from '../button/Button'
 import Spacing from '../Spacing'
 import Layout from '../wrappers/Layout/Layout'
@@ -42,32 +43,36 @@ export default function Banner ({videoSrc, imgSrc}) {
     }
 
     useEffect(() => {
+        const isMobile = userDevice()
         gsap.registerPlugin(ScrollTrigger)
+        if (isMobile == null) {
+            gsap.to(wrapper.current, {
+                y: "+=40%",
+                scrollTrigger : {
+                    trigger: wrapper.current,
+                    start : "top top",
+                    scrub: .2,
+                }
+            })
+            gsap.to(video.current, {
+                scale: "1.5",
+                scrollTrigger : {
+                    trigger: wrapper.current,
+                    start : "top top",
+                    scrub: .2,
+                }
+            })
+        }
 
-        gsap.to(wrapper.current, {
-            y: "+=40%",
-            scrollTrigger : {
-                trigger: wrapper.current,
-                start : "top top",
-                scrub: .2,
-            }
-        })
-        gsap.to(video.current, {
-            scale: "1.5",
-            scrollTrigger : {
-                trigger: wrapper.current,
-                start : "top top",
-                scrub: .2,
-            }
-        })
+        
     },[])
 
     return (
-        <Layout>
+        <div style={{width: "100%", height: "100vh", position: "relative"}}>
             {videoSrc ? <Video/> : null}
             {imgSrc ? <Image/> : null}
             <Content/>
             <div className={style.filter}/>
-        </Layout>
+        </div>
     )
 }

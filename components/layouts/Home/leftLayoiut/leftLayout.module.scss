@@ -14,7 +14,7 @@
     left: 0;
     top: 0;
     .container {
-        width: 70%;
+        width: 60%;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -27,5 +27,30 @@
                 -webkit-text-stroke: 1.5px var(--dark);
             }
         }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .content, .illustration {
+        position: initial;
+        width: 100%;
+    }
+    .content {
+        height: auto;
+        .container {       
+            position: initial;     
+            transform: initial;
+            margin: 0 auto;
+            width: 80%;
+            padding: 10vh 0 10vh 0;
+            h1 {
+                width: 100%;
+                font-size: 4rem;
+            }
+        }
+    }
+    .illustration {
+        height: 65vh;
+        margin-bottom: -1vh;
     }
 }

@@ -12,65 +12,53 @@
     }
     .grid {
         width: 75%;
-        overflow-x: scroll;
-        overflow-y: hidden;
-        height: 50vh;
+        overflow: hidden;
+        height: 80vh;
         position: absolute;
         top: 50%;
         left: 25%;
         transform: translate3d(0,-50%,0);
         display: flex;
+        gap: 2rem;
         .card {
-            vertical-align: top;
-            display: inline-block;
-            min-width: 15vw;
-            margin-right: 2vw;
-            background:  #CFCFCF;
+            background: var(--font-primary);
+            width: 10%;
+            height: 100%;
+            flex-grow: 1;
+            transition: width 300ms ease;
+            border-radius: 10px;
+            overflow: hidden;
             position: relative;
-            cursor: pointer;
-            h1 {
+            .title {
                 position: absolute;
-                left: 10%;
-                top: 5%;
-                font-size: 2rem;
-                width: auto;
-                text-align: left;
-                span {
-                    color: transparent;
-                    -webkit-text-stroke: 1px var(--dark);
-                }
+                bottom: 2rem;
+                font-weight: 800;
+                transform: rotate(-90deg);
+                left: 5%;
+                font-size: 3rem;
+                transform-origin:20% 40%;
+                color: var(--font-primary);
+                z-index: 3;
+                transition: transform 300ms ease;
             }
             img {
-                position: absolute;
-                bottom: 0;
+                height: 100%;
                 width: 100%;
+                object-fit: cover;
             }
-            .profileBtn {
-                opacity: 0;
-                cursor: pointer;
-                width: 80%;
-                height: 5vh;
-                border-radius: 50px;
-                background: var(--flashy-blue);
+            .filter {
                 position: absolute;
-                bottom: 10%;
-                left: 50%;
-                transform: translate3d(-50%, 0, 0);
-                transition: all ease .5s;
-                border: 2px solid var(--dark);
-                p {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate3d(-50%, -50%,0);
-                    color: var(--dark);
-                    font-family: 'Antonio', sans-serif;
-                    text-transform: uppercase;
-                }
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(0deg, #042136 0%, rgba(0,0,0,0) 75%);
             }
             &:hover {
-                .profileBtn {
-                    opacity: 1;
+                width: 33%;
+                .title {
+                    transform: rotate(0deg);
+
                 }
             }
         }

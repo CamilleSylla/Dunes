@@ -1,0 +1,62 @@
+.wrapper {
+    position: absolute;
+    width: 50%;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    background: var(--font-primary);
+    z-index: 2;
+    form {
+        width: 80%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        * {
+            margin-bottom: 3vh;
+            outline: none;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        h1 {
+            color: var(--ocean-blue);
+            font-size: 2rem;
+            margin-bottom: 5vh;
+        }
+        input, textarea, select {
+            display: block;
+            width: 100%;
+            padding-left: 1vw;
+            
+        }
+        input, select {
+            height: 7vh;
+        }
+        input {
+            color: var(--dark);
+            border-bottom: 3px solid var(--ocean-blue);
+            transition: all ease .5s;
+            &:focus {
+                background: var(--ocean-blue);
+                color: var(--font-primary);
+            }
+        }
+        select {
+            background: transparent;
+            border-radius: 10px;
+            color: var(--dark);
+            border: 3px solid transparent;
+            transition: border ease .5s;
+            &:focus {
+                border: 3px solid var(--ocean-blue);
+            }
+        }
+        textarea {
+            background: transparent;
+            height: 20vh;
+            border: none;
+            border-bottom: 3px solid var(--ocean-blue);
+        }
+    }
+}

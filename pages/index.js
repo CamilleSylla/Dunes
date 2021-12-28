@@ -6,18 +6,18 @@ import RightLayout from "../components/layouts/Home/rightLayout/rightLayout";
 export default function Home() {
   const layouts = [
     {
-      title: "haute <span>intensité</span>",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
+      title: "Accompagnement vers <span>vos objectifs</span>",
+      desc: "Tu veux perdre du poids? Tu veux prendre de la masse musculaire? Tu veux passer un cap dans ta pratique sportive ? Tu désires découvrir les entraînements fonctionnels ?",
       img: "/assets/img/intensity.webp",
       button: {
         link: "",
-        label: "Decouvrir nos programme",
+        label: "Nos programmes",
       },
       left: false,
     },
     {
       title: "staff de <span>qualité</span>",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit.  Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit.",
+      desc: "Nos coachs vous accompagnent lors des classes afin de vous aider à atteindre vos objectifs grâce à leur méthode unique sur la ville de Saint-Quentin.",
       img: "/assets/img/staff.webp",
       button: {
         link: "",
@@ -28,7 +28,7 @@ export default function Home() {
 
     {
       title: "Notre <span>complexe</span>",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
+      desc: "Dunes vous accueille du lundi au samedi, dans un espace de 200 m2. Un lieu chaleureux,familial où vous pourrez développer et découvrir votre plein potentiel.",
       img: "/assets/img/complexe.webp",
       button: {
         link: "",
@@ -38,11 +38,11 @@ export default function Home() {
     },
     {
       title: "prix <br/><span>flexibles</span>",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
+      desc: "Dunes propose à ses adhérents des forfait adapté en fonction des seances que vous voulez effectuez dans la semaine. Qu'attendez vous pour atteindre vos objectifs ?",
       img: "/assets/img/prix.webp",
       button: {
         link: "",
-        label: "Decouvrir nos programme",
+        label: "Decouvrir nos forfaits",
       },
       left: true,
     },

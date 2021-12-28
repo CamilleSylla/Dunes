@@ -37,3 +37,18 @@
     left: 0;
     background: radial-gradient(circle, rgba(0,0,0,0.5214460784313726) 0%, rgba(0,0,0,0.6026785714285714) 100%);
 }
+
+@media screen and (max-width: 600px) {
+    .content_wrapper {
+        width: 90%;
+        .container {
+            width: 100%;
+            h1 {
+                width: 100%;
+            }
+            p {
+                width: 90%;
+            }
+        }
+    }
+}

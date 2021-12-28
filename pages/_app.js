@@ -23,6 +23,8 @@ import FreeUser from "../components/global/freeUser/FreeUser";
 import { FreeReservationsProvider } from "../context/FreeReservation";
 import { PlanningProvider } from "../context/PlanningContext";
 import Cursor from "../components/global/cursor/Cursor";
+import { ResponsiveProvider } from "../context/MobileContext";
+import { userDevice } from "../tools/global";
 
 function MyApp({ Component, pageProps }) {
   const route = useRouter();
@@ -32,21 +34,26 @@ function MyApp({ Component, pageProps }) {
   Router.events.on("routeChangeComplete", nProgress.done);
 
   useEffect(() => {
+    const isMobile = userDevice()
     gsap.registerPlugin(ScrollTrigger);
-    const mainChildrens = [
-      ...document.body.getElementsByTagName("main")[0].children,
-    ];
-    gsap.utils.toArray(mainChildrens).forEach((child, i) => {
-      ScrollTrigger.create({
-        trigger: child,
-        start: "top top",
-        pin: true,
-        pinSpacing: false,
+    if (isMobile == null) {
+      const mainChildrens = [
+        ...document.body.getElementsByTagName("main")[0].children,
+      ];
+      gsap.utils.toArray(mainChildrens).forEach((child, i) => {
+        ScrollTrigger.create({
+          trigger: child,
+          start: "top top",
+          pin: true,
+          pinSpacing: false,
+        });
       });
-    });
+    }
+    
   }, [route]);
 
   return (
+    <ResponsiveProvider>
     <UserProvider>
       <PlanningProvider>
       <FreeReservationsProvider>
@@ -54,7 +61,7 @@ function MyApp({ Component, pageProps }) {
         <PromoteProvider>
           <PresentationProvider>
             <Nav />
-            <Cursor/>
+            {/* <Cursor/> */}
             <Promote />
             <FreeUser/>
             <Social />
@@ -72,6 +79,7 @@ function MyApp({ Component, pageProps }) {
       </FreeReservationsProvider>
       </PlanningProvider>
     </UserProvider>
+    </ResponsiveProvider>
   );
 }
 

@@ -1,12 +1,15 @@
 import style from './nav.module.scss'
 import Link from 'next/link'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../../context/UserContext'
 import { getCurrentUser } from '../../../tools/user'
+import { ResponsiveContext } from '../../../context/MobileContext'
+import { userDevice } from '../../../tools/global'
 
 export default function Nav () {
 
     const [user, setUser] = useContext(UserContext)
+    const [responsive, setResponsive] = useState(null)
     const navContent  = [
         {
             label: "accueil",
@@ -44,12 +47,13 @@ export default function Nav () {
     }
 
     useEffect(() => {
+        setResponsive(userDevice())
         getCurrentUser(setUser)
     }, [])
     
-
-    return (
-        <nav className={style.wrapper}>
+    const LaptopNav = () => {
+        return (
+<nav className={style.wrapper}>
             <div className={style.menu}>
                 <ul>
                     {navContent.map((el, i) => {
@@ -75,5 +79,12 @@ export default function Nav () {
                 </div>
             </div>
         </nav>
+        )
+    }
+
+    return (
+        <>
+        {responsive ? null : <LaptopNav/>}
+        </>
     )
 }

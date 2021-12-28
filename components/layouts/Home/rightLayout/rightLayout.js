@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useEffect, useRef } from "react";
+import { userDevice } from "../../../../tools/global";
 import Button from "../../../global/button/Button";
 import Spacing from "../../../global/Spacing";
 import Layout from "../../../global/wrappers/Layout/Layout";
@@ -29,24 +30,26 @@ export default function RightLayout({ i ,img, title, desc, buttonString }) {
   };
 
   useEffect(() => {
+    const isMobile = userDevice()
     gsap.registerPlugin(ScrollTrigger);
-
-    gsap.from(contentRef.current, {
-      y: "+=80%",
-      scrollTrigger: {
-        trigger: start.current,
-        start: "top bottom",
-        end: "bottom top+=50%",
-        scrub: 0.2,
-      },
-    });
+    if (isMobile == null) {
+      gsap.from(contentRef.current, {
+        y: "+=80%",
+        scrollTrigger: {
+          trigger: start.current,
+          start: "top bottom",
+          end: "bottom top+=50%",
+          scrub: 0.2,
+        },
+      });
+    }
   }, []);
 
   return (
     <div key={i}>
       <Layout>
-        <Content />
         <img className={style.illustration} src={img} />
+        <Content />
       </Layout>
     </div>
   );

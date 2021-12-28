@@ -14,7 +14,6 @@ export default function Promote() {
     if(user) {
       setPromote(!promote)
     }
-    console.log(active);
   },[user,active])
   const PopUp = () => {
     return (

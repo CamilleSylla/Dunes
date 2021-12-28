@@ -14,35 +14,35 @@ export default function Coaches() {
   const coaches = [
     {
       id: 1,
-      name: "Darnell <span>Williams</span>",
+      name: "Darnell",
       role: "Fondateur de Dunes",
       carrere: "Ancien joueur proffessionel de basket-ball",
       profile_url: "/assets/img/darnell.png",
     },
     {
       id: 2,
-      name: "Eddy <span>Lemaire</span>",
+      name: "Eddy",
       role: "Co-fondateur et coach pour Dunes",
       carrere: "Ancien joueur proffessionel de basket-ball",
       profile_url: "/assets/img/eddy.png",
     },
     {
       id: 3,
-      name: "Sylvain <span>Deleau</span>",
+      name: "Sylvain",
       role: "Fondateur de Dunes",
       carrere: "Ancien joueur proffessionel de basket-ball",
       profile_url: "/assets/img/sylvain.png",
     },
     {
       id: 4,
-      name: "Quentin <span>Williams</span>",
+      name: "Quentin",
       role: "Fondateur de Dunes",
       carrere: "Ancien joueur proffessionel de basket-ball",
       profile_url: "/assets/img/quentin.png",
     },
     {
       id: 5,
-      name: "Yannis <span>Williams</span>",
+      name: "Yannis",
       role: "Fondateur de Dunes",
       carrere: "Ancien joueur proffessionel de basket-ball",
       profile_url: "/assets/img/yannis.png",
@@ -66,11 +66,12 @@ export default function Coaches() {
 
     return (
       <article onClick={() => setPresentationTargetContext(target)} className={style.card}>
-        <h1 dangerouslySetInnerHTML={{ __html: name }} />
+        <p className={style.title} dangerouslySetInnerHTML={{ __html: name }} />
         <img src={imgSrc} />
         <div className={style.profileBtn}>
           <p>Voir profile</p>
         </div>
+        <div className={style.filter}/>
       </article>
     );
   };
@@ -93,7 +94,7 @@ export default function Coaches() {
     gsap.from(coachesRef.current.children, {
         opacity: 0,
         scale: .8,
-        y : "+=20%",
+        x : "+=20%",
         stagger: .3,
         scrollTrigger: {
             trigger: wrapper.current,

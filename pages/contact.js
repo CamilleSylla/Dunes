@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Form from '../components/layouts/contact/Form/Form'
 
 export default function Contact () {
     
@@ -10,8 +11,9 @@ export default function Contact () {
             <link rel="icon" href="/favicon.ico" />
           </Head>
     
-          <main id="scroll">
-
+          <main style={{position: "relative", height: "100vh", width: "100%"}} id="scroll">
+              <Form/>
+              <img src="/assets/img/complexe.webp" style={{position: "absolute", left: "0", top:"0", height: "100%", width:"50%", objectFit:"cover"}}/>
           </main>
         </div>
     )
