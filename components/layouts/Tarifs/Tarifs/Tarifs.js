@@ -32,7 +32,7 @@ export default function Tarifs({ data, i }) {
             <p>A partir de :</p>
             <p><span>{data["1"] ? data["1"] : data["2"]}€</span>/mois</p>
           </div>
-          <Button text="En savoir plus" />
+          <Button link="/contact" text="En savoir plus" />
         </div>
       </article>
     );

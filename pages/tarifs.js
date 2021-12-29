@@ -17,7 +17,7 @@ export default function Tarif () {
       </Head>
 
       <main id="scroll">
-        <Banner imgSrc="/assets/img/tarifs.jpg"/>
+        <Banner title="tarifs ajusté pour tous" imgSrc="/assets/img/staffbanner.webp"/>
         {bareme.map((el, i) => {
           return <Tarifs data={el} i={i}/>
         })}

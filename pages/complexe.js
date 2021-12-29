@@ -77,7 +77,7 @@ export default function Complexe () {
       </Head>
 
       <main id="scroll">
-        <Banner imgSrc="/assets/img/complexe.jpg"/>
+        <Banner title="Environnement de qualité" imgSrc="/assets/img/complexe.jpg"/>
         {layouts.map((el, i) => {
           return el.left ? (
             <LeftLayout

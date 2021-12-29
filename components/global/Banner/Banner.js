@@ -7,7 +7,7 @@ import Spacing from '../Spacing'
 import Layout from '../wrappers/Layout/Layout'
 import style from './banner.module.scss'
 
-export default function Banner ({videoSrc, imgSrc}) {
+export default function Banner ({videoSrc, imgSrc, title}) {
 
     const wrapper = useRef()
     const video = useRef()
@@ -17,7 +17,7 @@ export default function Banner ({videoSrc, imgSrc}) {
         return (
             <div ref={wrapper} className={style.content_wrapper}>
                 <div className={style.container}>
-                    <h1>Global sport training</h1>
+                    <h1>{title ? title : "Global sport training"}</h1>
                     <Spacing height="1vh"/>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam.</p>
                     <Spacing height="2.5vh"/>

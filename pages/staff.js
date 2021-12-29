@@ -18,7 +18,7 @@ export default function Home() {
       </Head>
 
       <main id="scroll">
-        <Banner imgSrc="/assets/img/coach.jpeg"/>
+        <Banner imgSrc="/assets/img/staffbanner.webp" title="Un encadrement idéal"/>
         <RightLayout
       i="1" 
       title="Le mot de <span>Darnell</span>"

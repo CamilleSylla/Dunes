@@ -118,7 +118,7 @@ export default function Programmes () {
       </Head>
 
       <main id="scroll">
-        <Banner imgSrc="/assets/img/programmes.jpg"/>
+        <Banner imgSrc="/assets/img/programmes.webp" title="Adaptée votre entrainement" />
         {layouts.map((el, i) => {
           return el.left ? (
             <LeftLayout
