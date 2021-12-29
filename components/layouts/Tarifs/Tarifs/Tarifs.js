@@ -28,20 +28,10 @@ export default function Tarifs({ data, i }) {
       >
         <div className={style.container}>
           <h1>{data.label}</h1>
-          <ul>
-            {data["1"] ? (
-              <li>1 séance / semaine : {data["1"]}€ / mois</li>
-            ) : null}
-            {data["2"] ? (
-              <li>2 séances / semaine : {data["2"]}€ / mois</li>
-            ) : null}
-            {data["3"] ? (
-              <li>3 séances / semaine : {data["3"]}€ / mois</li>
-            ) : null}
-            {data["5"] ? (
-              <li>5 séances / semaine : {data["5"]}€ / mois</li>
-            ) : null}
-          </ul>
+          <div className={style.price}>
+            <p>A partir de :</p>
+            <p><span>{data["1"] ? data["1"] : data["2"]}€</span>/mois</p>
+          </div>
           <Button text="En savoir plus" />
         </div>
       </article>
@@ -103,6 +93,7 @@ export default function Tarifs({ data, i }) {
           <CardWrapper
             cardColor={isOdd(i) ? "var(--dark)" : "var(--ocean-blue)"}
           />
+          <p className={style.asterix}>*Family Pack : 2 Adultes et 1 enfant</p>
         </div>
       </Layout>
     </div>

@@ -7,6 +7,11 @@
         left: 10%;
         top: 10vh;
     }
+    .asterix {
+        position: absolute;
+        left: 10%;
+        bottom: 10vh;
+    }
     .cardWrapper {
         position: absolute;
         left: 10%;
@@ -16,31 +21,35 @@
         grid-template-columns: repeat(4, 1fr);
         column-gap: 2vh;
         .card {
+            border-radius: 10px;
+            border: 5px solid var(--font-primary);
             width: 17vw;
             height: 17vw;
             background: var(--ocean-blue);
             display: flex;
             justify-content: center;
             align-items: center;
-            ul {
-                position: absolute;
-                top: 50%;
-                transform: translate3d(0, -50%,0);
-                list-style: inside;
-            }
             .container {
                 width: 85%;
                 height: 90%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                p {
-                    &:first-of-type {
-                        width: 90%;
-                    }
-                    &:last-of-type {
-                        text-transform: uppercase;
-                        font-weight: 400;
+                text-align: center;
+                position: relative;
+                .price {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate3d(-50%,-50%,0);
+                    width: 80%;
+                    p {
+                        width: 100%;
+                        text-align: center;
+                        span {
+                            font-size: 4rem;
+                            font-weight: 900;
+                        }
                     }
                 }
             }
