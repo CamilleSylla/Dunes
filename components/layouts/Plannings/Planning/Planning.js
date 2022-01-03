@@ -13,6 +13,16 @@ import Router from "next/router";
 import Spacing from "../../../global/Spacing";
 import Button from "../../../global/button/Button";
 import { FreeReservationsContext } from "../../../../context/FreeReservation";
+import { ResponsiveContext } from "../../../../context/MobileContext";
+import { userDevice } from "../../../../tools/global";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from "react-accessible-accordion";
+import "react-accessible-accordion/dist/fancy-example.css";
 
 export default function Planning({ trainings, currentWeek }) {
   const validationRef = useRef();
@@ -22,7 +32,9 @@ export default function Planning({ trainings, currentWeek }) {
   const [validation, setValidation] = useState(null);
   const [config, setConfig] = useState(null);
   const [userReservation, setUserReservation] = useState(null);
-  const [active, setActive] = useContext(FreeReservationsContext)
+  const [active, setActive] = useContext(FreeReservationsContext);
+  const [responsive, setResponsive] = useContext(ResponsiveContext);
+  const [mobileDaySelection, setMobileDaySelection] = useState([]);
 
   const targetSpot = (training) => {
     const spot = {
@@ -32,7 +44,7 @@ export default function Planning({ trainings, currentWeek }) {
       traning_name: training.nom,
       traning_day: training.day,
       traning_start: training.start,
-      creneau_id : training.id
+      creneau_id: training.id,
     };
     return spot;
   };
@@ -54,7 +66,7 @@ export default function Planning({ trainings, currentWeek }) {
     return addNewCreneau;
   }
 
-  async function deletePracticeOrRedirect(isTaken){
+  async function deletePracticeOrRedirect(isTaken) {
     let token = {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("dunes_token")}`,
@@ -64,27 +76,33 @@ export default function Planning({ trainings, currentWeek }) {
       // console.log({id : isTaken[0].id});
       const deleteReservation = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/annulation`,
-        {id : isTaken[0].id},
+        { id: isTaken[0].id },
         token
-      )
+      );
 
-      const deleteFromUserReservation = userReservation.filter((reservation, i )=> {
-        if (reservation.id === isTaken[0].id) {
-          userReservation.splice(i,1)
-          isTaken=[]
+      const deleteFromUserReservation = userReservation.filter(
+        (reservation, i) => {
+          if (reservation.id === isTaken[0].id) {
+            userReservation.splice(i, 1);
+            isTaken = [];
+          }
         }
-      })
+      );
       // location.reload();
     } else {
-      Router.push("/connection")
+      Router.push("/connection");
     }
   }
-  function bookingLimit (active_reservations) {
-    const limit = 8
+  function bookingLimit(active_reservations) {
+    const limit = 8;
     if (active_reservations >= limit) {
-      return <p style={{color: "red", fontFamily: "'Antonio', sans-serif;"}}>COMPLET</p>
+      return (
+        <p style={{ color: "red", fontFamily: "'Antonio', sans-serif;" }}>
+          COMPLET
+        </p>
+      );
     } else {
-      return <p>Places : { 8 - active_reservations}</p>
+      return <p>Places : {8 - active_reservations}</p>;
     }
   }
 
@@ -111,7 +129,9 @@ export default function Planning({ trainings, currentWeek }) {
       return (
         <article
           onClick={() => {
-            user && isAlreadyTook.length == 0 ? newCreaneau(training) : deletePracticeOrRedirect(isAlreadyTook);
+            user && isAlreadyTook.length == 0
+              ? newCreaneau(training)
+              : deletePracticeOrRedirect(isAlreadyTook);
           }}
           key={i}
           className={style.card}
@@ -122,13 +142,17 @@ export default function Planning({ trainings, currentWeek }) {
             {training.nom}
           </h1>
           <p>Eddy</p>
-          <p>{formatTime}</p>
+          <p style={{ fontWeight: "bold" }}>{formatTime}</p>
           <p>60 min</p>
           {isAlreadyTook.length ? (
             <div className={style.reservation_marker}>Réserve</div>
           ) : null}
-          {isAlreadyTook.length ? (<div className={style.reservation_annuler}>Annuler ma réservation</div>) : null}
           {user ? bookingLimit(training.active_reservations) : null}
+          {isAlreadyTook.length ? (
+            <div className={style.reservation_annuler}>
+              Annuler ma réservation
+            </div>
+          ) : null}
         </article>
       );
     }
@@ -141,11 +165,11 @@ export default function Planning({ trainings, currentWeek }) {
     const currentDay = date.getUTCDate();
     return (
       <div key={i} className={style.days}>
-        <h1 style={{position : "fixed"}}>
+        <h1 style={{ position: "fixed" }}>
           {i == 0 ? "Aujourd'hui, " : null}
           {formattedDay + "   " + `${currentDay} / ${month}`}
         </h1>
-        <Spacing height="5vh"/>
+        {responsive ? null : <Spacing height="5vh" />}
         {day.trainings.map((training, i) => {
           return (
             <Card training={training} reservation_date={day.full_date} i={i} />
@@ -181,9 +205,13 @@ export default function Planning({ trainings, currentWeek }) {
           <p>
             Prochain entrainement :{" "}
             <span>
-              { comingPractice ? comingPractice.traning_name : "Aucun entrainement de prevue prochainement"}
+              {comingPractice
+                ? comingPractice.traning_name
+                : "Aucun entrainement de prevue prochainement"}
               {comingPractice ? "  le  " : null}
-              {comingPractice ? new Date(comingPractice.reservation_le).toLocaleDateString() : null}
+              {comingPractice
+                ? new Date(comingPractice.reservation_le).toLocaleDateString()
+                : null}
             </span>
           </p>
           <p>
@@ -199,15 +227,15 @@ export default function Planning({ trainings, currentWeek }) {
     return (
       <div className={style.header}>
         <article>
-        <h1>Notre programmation des prochains jours</h1>
-        <Spacing height="1vh"/>
-        <div onClick={() => setActive(true)}>
-          <Button text="Réserver Gratuitement"/>
-        </div>  
-          </article>
+          <h1>Notre programmation des prochains jours</h1>
+          <Spacing height="1vh" />
+          <div onClick={() => setActive(true)}>
+            <Button text="Réserver Gratuitement" />
+          </div>
+        </article>
       </div>
-    )
-  }
+    );
+  };
 
   const ReservationValidation = () => {
     return (
@@ -252,14 +280,44 @@ export default function Planning({ trainings, currentWeek }) {
         .get(`${process.env.NEXT_PUBLIC_API_URL}/reservations`, config)
         .then((res) => setUserReservation(res.data));
     }
+    setResponsive(userDevice());
   }, [validation, user]);
 
+  const MobilePlanning = () => {
+    return (
+      <div>
+        {planning.map((el, i) => {
+          const fullLetterDay = el.day;
+          return (
+            <Accordion className={style.accordion}>
+              <AccordionItem>
+                <AccordionItemHeading>
+                  <AccordionItemButton>{fullLetterDay}</AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel>
+                  {el.trainings.map((training, i) => {
+                    return (
+                      <Card
+                        training={training}
+                        reservation_date={el.full_date}
+                        i={i}
+                      />
+                    );
+                  })}
+                </AccordionItemPanel>
+              </AccordionItem>
+            </Accordion>
+          );
+        })}
+      </div>
+    );
+  };
   return (
     <Layout>
       {validation ? <ReservationValidation /> : null}
       <div className={style.wrapper}>
-        {userReservation ? <HeaderProfile /> : <PublicHeader/>}
-        <Schedule />
+        {userReservation ? <HeaderProfile /> : <PublicHeader />}
+        {responsive ? <MobilePlanning /> : <Schedule />}
       </div>
     </Layout>
   );

@@ -31,3 +31,10 @@
 
     }
 }
+
+@media screen and (max-width: 600px) {
+    .wrapper {
+        bottom: 5%;
+        width: 90vw;
+    }
+  }
