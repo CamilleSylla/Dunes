@@ -288,11 +288,14 @@ export default function Planning({ trainings, currentWeek }) {
       <div>
         {planning.map((el, i) => {
           const fullLetterDay = el.day;
+          const date = new Date(el.full_date);
+    const month = date.getUTCMonth() + 1;
+    const currentDay = date.getUTCDate();
           return (
             <Accordion className={style.accordion}>
               <AccordionItem>
                 <AccordionItemHeading>
-                  <AccordionItemButton>{fullLetterDay}</AccordionItemButton>
+                  <AccordionItemButton><span style={{textTransform : "capitalize"}}>{fullLetterDay + "   " + `${currentDay} / ${month}`}</span></AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                   {el.trainings.map((training, i) => {

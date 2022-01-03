@@ -6,6 +6,16 @@
     height: 6.5vh;
     width: 100%;
     z-index: 200;
+    img {
+        position: absolute;
+        left: 5%;
+        height: 80%;
+        bottom: 0;
+        // top: 50%;
+        // transform: translate3d(0, -50%, 0);
+        z-index: 20;
+        cursor: pointer;
+    }
     .menu {
         position: absolute;
         right: 0;
@@ -109,14 +119,29 @@
     
 }
 .list {
-    position: absolute;
+    position: fixed;
     top: 7vh;
     left: 0;
-    border-top: 2px solid var(--dark);
+    border-top: 2px solid #207fc3;
     height: 93vh;
     width: 100%;
     background: var(--font-primary);
     transition: transform ease .5s;
     transform: translate3d(-100%, 0, 0);
     z-index: 100;
+    li {
+        color: #207fc3;
+        font-family: 'Antonio', sans-serif;
+        text-transform: uppercase;
+        padding: 3vh 0 3vh 0;
+        letter-spacing: 3px;
+        font-weight: bolder;
+        width: 100%;
+        list-style: none;
+        border-bottom: 1px solid #207fc3;
+        p {
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
 }

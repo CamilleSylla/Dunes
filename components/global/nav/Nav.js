@@ -53,6 +53,9 @@ export default function Nav () {
     const DefaultNav = () => {
         return (
 <nav className={style.wrapper}>
+    <Link href="/">
+    <img src="/assets/logo/logo.svg"/>
+    </Link>
             <div className={style.menu}>
                 <ul>
                     {navContent.map((el, i) => {
@@ -92,17 +95,23 @@ export default function Nav () {
         )
     }
     useEffect(() => {
-        setResponsive(userDevice())
-        getCurrentUser(setUser)
+        if (!responsive) {
+            setResponsive(userDevice())
+        }
+        if (!user) {
+            getCurrentUser(setUser)
+        }
+        if (open === "" && listRef.current) {
+            console.log(open);
+            listRef.current.style.transform = "translate3d(0,0,0)"
+        } 
         
-    }, [])
+    }, [open])
 
-    function slideList () {
+    const slideList = () => {
         if (open === "") {
-            listRef.current.style.transform = "translate3d(-100%,0,0)"
             setOpen(1)
         } else if (open === 1) {
-            listRef.current.style.transform = "translate3d(0,0,0)"
             setOpen("")
         }
     }
@@ -112,9 +121,10 @@ export default function Nav () {
         return (
             <nav className={style.mobile_wrapper}>
                 <div className={style.container}>
-                    <p>Logo</p>
+                <Link href="/">
+    <img src="/assets/logo/logo.svg"/>
+    </Link>
                     <Hamburger/>
-                    <img src='/assets/icon/user.svg'/>
                 </div>
             </nav>
         )
@@ -122,8 +132,17 @@ export default function Nav () {
     
     const List = () => {
         return (
-            <div ref={listRef} className={style.list}>
-            </div>
+            <ul ref={listRef} className={style.list}>
+                {navContent.map((el, i) => {
+                    return (
+                        <Link key={i} href={el.link}>
+                                <li>
+                                    <p>{el.label}</p>
+                                </li>
+                            </Link>
+                    )
+                })}
+            </ul>
         )
     }
     
