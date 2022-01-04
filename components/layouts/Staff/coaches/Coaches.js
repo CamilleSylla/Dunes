@@ -105,7 +105,6 @@ export default function Coaches() {
 
 
   return (
-    // <Layout height="auto">
     <div
     ref={wrapper}
       style={{ background: "#F2F2F2" }}
@@ -114,6 +113,5 @@ export default function Coaches() {
       <Title />
       <CardsGrid />
     </div>
-    // </Layout>
   );
 }

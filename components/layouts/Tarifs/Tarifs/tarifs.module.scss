@@ -60,3 +60,34 @@
         
     }
 }
+
+@media screen and (max-width: 600px) {
+    .wrapper {
+        width: 100%;
+        padding: 10vh 0 5vh 0;
+        display: block;
+        .title, .asterix {
+            position: initial;
+            width: 90%;
+            margin: 0 auto;
+        }
+        .title {
+            padding: 0 0 2vh 0;
+        }
+        .asterix {
+            padding: 0 0 5vh 0;
+        }
+        .cardWrapper {
+            position: initial;
+            transform: translate3d(0,0,0);
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+        .card {
+            width: 100%;
+            height: 35vh;
+            margin-bottom: 5vh;
+        }
+        }
+    }
+  }
