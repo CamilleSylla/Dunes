@@ -12,8 +12,8 @@ export default function Complexe () {
           desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
           img: "/assets/img/global.jpg",
           button: {
-            link: "",
-            label: "Reserver mon spot",
+            link: "/planning",
+            label: "Le planning",
           },
           left: false,
         },
@@ -22,8 +22,8 @@ export default function Complexe () {
           desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
           img: "/assets/img/assault.jpg",
           button: {
-            link: "",
-            label: "Reserver mon spot",
+            link: "/planning",
+            label: "Le planning",
           },
           left: true,
         },
@@ -32,8 +32,8 @@ export default function Complexe () {
           desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
           img: "/assets/img/power.jpg",
           button: {
-            link: "",
-            label: "Reserver mon spot",
+            link: "/planning",
+            label: "Le planning",
           },
           left: false,
         },
@@ -42,8 +42,8 @@ export default function Complexe () {
           desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
           img: "/assets/img/mobility.jpg",
           button: {
-            link: "",
-            label: "Reserver mon spot",
+            link: "/planning",
+            label: "Le planning",
           },
           left: true,
         },
@@ -52,8 +52,8 @@ export default function Complexe () {
           desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
           img: "/assets/img/elastic.jpg",
           button: {
-            link: "",
-            label: "Reserver mon spot",
+            link: "/planning",
+            label: "Le planning",
           },
           left: false,
         },
@@ -62,8 +62,8 @@ export default function Complexe () {
           desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
           img: "/assets/img/anneau.jpg",
           button: {
-            link: "",
-            label: "Reserver mon spot",
+            link: "/planning",
+            label: "Le planning",
           },
           left: true,
         },
@@ -85,7 +85,7 @@ export default function Complexe () {
               img={el.img}
               title={el.title}
               desc={el.desc}
-              buttonString={el.button.label}
+              button={el.button}
             />
           ) : (
             <RightLayout
@@ -93,7 +93,7 @@ export default function Complexe () {
               img={el.img}
               title={el.title}
               desc={el.desc}
-              buttonString={el.button.label}
+              button={el.button}
             />
           );
         })}

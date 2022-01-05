@@ -8,104 +8,54 @@ export default function Programmes () {
 
     const layouts = [
         {
-          title: "Cross <span>training</span>",
-          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
-          img: "/assets/img/intensity.jpeg",
+          title: "Functional <span>training</span>",
+          desc: "Développe les compétences fondamentales de la motricité sportive (endurance cardio-vasculaire, endurance musculaire, vitesse, coordination, agilité, souplesse, mobilité, puissance, force). Ces entraînements sont accessibles à tous et à tous les niveaux comme chacun de nos programmes.",
+          img: "/assets/img/intensity.webp",
           button: {
-            link: "",
+            link: "/plannings",
             label: "Reserver mon spot",
           },
           left: false,
         },
         {
-          title: "Haltero",
-          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
-          img: "/assets/img/intensity.jpeg",
+          title: "Haltérophilie <span>&</span> Gym",
+          desc: "Tu désire améliorer tes entraînements functionnal? Ces classes te permettront d’accélérer ton processus d’apprentissage dans ces deux domaines fondamentaux des entraînements fonctionnels.",
+          img: "/assets/img/intensity.webp",
           button: {
-            link: "",
+            link: "/plannings",
             label: "Reserver mon spot",
           },
           left: true,
         },
         {
           title: "Personal <span>trainer</span>",
-          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
-          img: "/assets/img/intensity.jpeg",
+          desc: "Ce programme te permet d’être encadré en individuel par nos coachs, un programme personnalisé sera établi en accord avec tes objectifs (performance, réhabilitation ou sport santé).",
+          img: "/assets/img/intensity.webp",
           button: {
-            link: "",
+            link: "/plannings",
             label: "Reserver mon spot",
           },
           left: false,
-        },
-        {
-          title: "Rehab",
-          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
-          img: "/assets/img/intensity.jpeg",
-          button: {
-            link: "",
-            label: "Reserver mon spot",
-          },
-          left: true,
         },
         {
           title: "Fit <span>&</span> Healthy",
-          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
-          img: "/assets/img/intensity.jpeg",
+          desc: "Si perdre du poids est ta priorité,tu as choisis le programme par excellence pour perdre du poids tout en gagnant en masse musculaire. Ce programme est composé de renforcement musculaire et d' exercice Cardio à haute intensité. Pour ceux qui le désirent nous vous guidons sur la phase alimentaire via nos partenaires nutrition.",
+          img: "/assets/img/intensity.webp",
           button: {
-            link: "",
-            label: "Reserver mon spot",
-          },
-          left: false,
-        },
-        {
-          title: "Gym",
-          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
-          img: "/assets/img/intensity.jpeg",
-          button: {
-            link: "",
+            link: "/plannings",
             label: "Reserver mon spot",
           },
           left: true,
         },
         {
           title: "Open <span>training</span>",
-          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
-          img: "/assets/img/intensity.jpeg",
+          desc: "Ces créneaux sont ouverts aux personnes qui maîtrisent les fondamentaux,l’accès à ces créneaux doit être validé par nos coachs. Une fois validé, vous aurait donc libre accès à la salle. ",
+          img: "/assets/img/intensity.webp",
           button: {
-            link: "",
+            link: "/plannings",
             label: "Reserver mon spot",
           },
           left: false,
-        },
-        {
-          title: "Kids <span>3 - 5ans</span>",
-          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
-          img: "/assets/img/intensity.jpeg",
-          button: {
-            link: "",
-            label: "Reserver mon spot",
-          },
-          left: true,
-        },
-        {
-          title: "Functional <span>Bodybuilding</span>",
-          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
-          img: "/assets/img/intensity.jpeg",
-          button: {
-            link: "",
-            label: "Reserver mon spot",
-          },
-          left: false,
-        },
-        {
-          title: "Cross <span>Team</span>",
-          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis. Quisque lacinia sem nec turpis fermentum gravida. Integer faucibus iaculis suscipit. In aliquet eleifend lacus sed laoreet. Aliquam consectetur, ipsum sodales pellentesque auctor, libero ligula suscipit ipsum, eu vehicula ex ipsum sit amet ipsum. Donec volutpat risus placerat lorem faucibus malesuada",
-          img: "/assets/img/intensity.jpeg",
-          button: {
-            link: "",
-            label: "Reserver mon spot",
-          },
-          left: true,
         },
       ];
   
@@ -126,7 +76,7 @@ export default function Programmes () {
               img={el.img}
               title={el.title}
               desc={el.desc}
-              buttonString={el.button.label}
+              button={el.button}
             />
           ) : (
             <RightLayout
@@ -134,7 +84,7 @@ export default function Programmes () {
               img={el.img}
               title={el.title}
               desc={el.desc}
-              buttonString={el.button.label}
+              button={el.button}
             />
           );
         })}

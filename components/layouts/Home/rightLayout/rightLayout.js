@@ -7,7 +7,7 @@ import Spacing from "../../../global/Spacing";
 import Layout from "../../../global/wrappers/Layout/Layout";
 import style from "./rightLayout.module.scss";
 
-export default function RightLayout({ i ,img, title, desc, buttonString }) {
+export default function RightLayout({ i ,img, title, desc, button }) {
   const contentRef = useRef();
   const start = useRef();
 
@@ -23,7 +23,7 @@ export default function RightLayout({ i ,img, title, desc, buttonString }) {
           <Spacing height="1vh" />
           <p>{desc}</p>
           <Spacing height="3vh" />
-          <Button text={buttonString} />
+          <Button text={button.label} link={button.link}/>
         </div>
       </article>
     );

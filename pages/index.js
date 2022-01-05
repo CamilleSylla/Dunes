@@ -10,7 +10,7 @@ export default function Home() {
       desc: "Tu veux perdre du poids? Tu veux prendre de la masse musculaire? Tu veux passer un cap dans ta pratique sportive ? Tu désires découvrir les entraînements fonctionnels ?",
       img: "/assets/img/intensity.webp",
       button: {
-        link: "",
+        link: "/programmes",
         label: "Nos programmes",
       },
       left: false,
@@ -20,7 +20,7 @@ export default function Home() {
       desc: "Nos coachs vous accompagnent lors des classes afin de vous aider à atteindre vos objectifs grâce à leur méthode unique sur la ville de Saint-Quentin.",
       img: "/assets/img/staff.webp",
       button: {
-        link: "",
+        link: "/staff",
         label: "Voir le staff",
       },
       left: true,
@@ -31,7 +31,7 @@ export default function Home() {
       desc: "Dunes vous accueille du lundi au samedi, dans un espace de 200 m2. Un lieu chaleureux,familial où vous pourrez développer et découvrir votre plein potentiel.",
       img: "/assets/img/complexe.webp",
       button: {
-        link: "",
+        link: "/complexe",
         label: "Le complexe",
       },
       left: false,
@@ -41,7 +41,7 @@ export default function Home() {
       desc: "Dunes propose à ses adhérents des forfait adapté en fonction des seances que vous voulez effectuez dans la semaine. Qu'attendez vous pour atteindre vos objectifs ?",
       img: "/assets/img/prix.webp",
       button: {
-        link: "",
+        link: "/tarifs",
         label: "Decouvrir nos forfaits",
       },
       left: true,
@@ -65,7 +65,7 @@ export default function Home() {
               img={el.img}
               title={el.title}
               desc={el.desc}
-              buttonString={el.button.label}
+              button={el.button}
             />
           ) : (
             <RightLayout
@@ -73,7 +73,7 @@ export default function Home() {
               img={el.img}
               title={el.title}
               desc={el.desc}
-              buttonString={el.button.label}
+              button={el.button}
             />
           );
         })}

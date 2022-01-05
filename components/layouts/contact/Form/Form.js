@@ -12,8 +12,8 @@ export default function Form () {
             <select>
                 <option>Selectionnez un sujet</option>
                 <option>Reserver mon essaie gratuit</option>
+                <option>Inscription</option>
                 <option>Informations</option>
-                <option>Souscription</option>
                 <option>Recrutement</option>
                 <option>Autre</option>
             </select>

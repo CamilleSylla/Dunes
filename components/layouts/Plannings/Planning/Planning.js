@@ -90,7 +90,7 @@ export default function Planning({ trainings, currentWeek }) {
       );
       // location.reload();
     } else {
-      Router.push("/connection");
+      Router.push("/connexion");
     }
   }
   function bookingLimit(active_reservations) {

@@ -11,7 +11,7 @@ export default function Nav () {
 
     const [user, setUser] = useContext(UserContext)
     const [responsive, setResponsive] = useState(null)
-    const [open, setOpen] = useState("")
+    const [open, setOpen] = useState(1)
     const listRef = useRef()
     const navContent  = [
         {
@@ -70,7 +70,7 @@ export default function Nav () {
 
                 </ul>
                 <div className={style.login}>
-                 {user ? user.prenom + " " + user.nom  : <Link href="/connection"><p>Connexion</p></Link>}
+                 {user ? user.prenom + " " + user.nom  : <Link href="/connexion"><p>Connexion</p></Link>}
                  {user ?
                  (
                      <div onClick={() => logOut()} className={style.logout}>
@@ -133,6 +133,9 @@ export default function Nav () {
     const List = () => {
         return (
             <ul ref={listRef} className={style.list}>
+                {user ? (
+            <li className={style.user}>{user.prenom + " " + user.nom}</li>
+            ) : null}
                 {navContent.map((el, i) => {
                     return (
                         <Link key={i} href={el.link}>
@@ -142,6 +145,10 @@ export default function Nav () {
                             </Link>
                     )
                 })}
+{user ? (
+<li className={style.deco} onClick={() => logOut()}>Déconnexion</li>
+) : <Link href="/connexion"><li className={style.user} >Connexion</li></Link>}
+
             </ul>
         )
     }

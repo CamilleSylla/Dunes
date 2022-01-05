@@ -40,8 +40,12 @@
                 cursor: pointer;
                 text-align: center;
                 font-family: 'Antonio', sans-serif;
-                -webkit-text-stroke: .7px var(--dark);
                 font-weight: 600;
+                -webkit-text-stroke: .7px var(--dark);
+                &:hover {
+                    color: var(--font-primary);
+                    -webkit-text-stroke: 0px;
+                }
             }
         }
         .login {
@@ -129,6 +133,17 @@
     transition: transform ease .5s;
     transform: translate3d(-100%, 0, 0);
     z-index: 100;
+    .user {
+        background: #207fc3;
+        color: var(--font-primary);
+        text-align: center;
+    }
+    .deco {
+        background: red;
+        color: var(--font-primary);
+        text-align: center;
+        border: none;
+    }
     li {
         color: #207fc3;
         font-family: 'Antonio', sans-serif;
