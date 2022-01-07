@@ -4,6 +4,7 @@ import style from "./welcome.module.scss";
 import Link from "next/link";
 import gsap from "gsap";
 import { WelcomeContext } from "../../../../context/WelcomeContext";
+import NotificationWrapper from "../Wrapper/Wrapper";
 
 export default function Welcome() {
   const [user, setUser] = useContext(UserContext);
@@ -11,7 +12,7 @@ export default function Welcome() {
 
   const notifRef = useRef()
 
-  const onClose = () => {
+  const onClose = () => { 
       gsap.to(notifRef.current, {
           x : "100%",
           opacity : 0,
@@ -24,7 +25,7 @@ export default function Welcome() {
 
   const Notif = () => {
     return (
-      <div ref={notifRef} className={style.wrapper}>
+      <NotificationWrapper ref={notifRef}>
         <h1>
           Ca fait plaisir de te revoir <span>{user.prenom}</span>
         </h1>
@@ -36,7 +37,7 @@ export default function Welcome() {
           tes prochains spots !
         </p>
         <p onClick={onClose} className={style.close}>FERMER</p>
-      </div>
+      </NotificationWrapper>
     );
   };
 

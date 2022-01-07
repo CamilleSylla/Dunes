@@ -63,6 +63,7 @@ export default function Nav () {
                             <Link key={i} href={el.link}>
                                 <li>
                                     {el.label}
+                                    <div className={style.cursor}/>
                                 </li>
                             </Link>
                         )

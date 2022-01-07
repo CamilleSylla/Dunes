@@ -22,7 +22,6 @@ import { WelcomeProvider } from "../context/WelcomeContext";
 import FreeUser from "../components/global/freeUser/FreeUser";
 import { FreeReservationsProvider } from "../context/FreeReservation";
 import { PlanningProvider } from "../context/PlanningContext";
-import Cursor from "../components/global/cursor/Cursor";
 import { ResponsiveProvider } from "../context/MobileContext";
 import { userDevice } from "../tools/global";
 
@@ -32,6 +31,8 @@ function MyApp({ Component, pageProps }) {
   Router.events.on("routeChangeStart", nProgress.start);
   Router.events.on("routeChangeError", nProgress.done);
   Router.events.on("routeChangeComplete", nProgress.done);
+
+  let activepage;
 
   useEffect(() => {
     const isMobile = userDevice()
@@ -49,6 +50,7 @@ function MyApp({ Component, pageProps }) {
         });
       });
     }
+    console.log(route.asPath)
     
   }, [route]);
 
@@ -61,7 +63,6 @@ function MyApp({ Component, pageProps }) {
         <PromoteProvider>
           <PresentationProvider>
             <Nav />
-            {/* <Cursor/> */}
             <Promote />
             <FreeUser/>
             <Social />
