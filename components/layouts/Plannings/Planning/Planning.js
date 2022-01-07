@@ -9,7 +9,7 @@ import {
 import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "../../../../context/UserContext";
 import gsap from "gsap";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import Spacing from "../../../global/Spacing";
 import Button from "../../../global/button/Button";
 import { FreeReservationsContext } from "../../../../context/FreeReservation";
@@ -35,6 +35,7 @@ export default function Planning({ trainings, currentWeek }) {
   const [active, setActive] = useContext(FreeReservationsContext);
   const [responsive, setResponsive] = useContext(ResponsiveContext);
   const [mobileDaySelection, setMobileDaySelection] = useState([]);
+  const router = useRouter()
 
   const targetSpot = (training) => {
     const spot = {
@@ -63,6 +64,8 @@ export default function Planning({ trainings, currentWeek }) {
         );
         console.log(err);
       });
+      router.reload(window.location.pathname)
+
     return addNewCreneau;
   }
 
@@ -88,6 +91,8 @@ export default function Planning({ trainings, currentWeek }) {
           }
         }
       );
+      router.reload(window.location.pathname)
+
       // location.reload();
     } else {
       Router.push("/connexion");
@@ -163,6 +168,9 @@ export default function Planning({ trainings, currentWeek }) {
     const date = new Date(day.full_date);
     const month = date.getUTCMonth() + 1;
     const currentDay = date.getUTCDate();
+    if (day.trainings.length == 0) {
+      return null
+    }
     return (
       <div key={i} className={style.days}>
         <h1 style={{ position: "fixed" }}>
@@ -291,6 +299,9 @@ export default function Planning({ trainings, currentWeek }) {
           const date = new Date(el.full_date);
     const month = date.getUTCMonth() + 1;
     const currentDay = date.getUTCDate();
+    if (el.trainings.length == 0 ) {
+      return null
+    }
           return (
             <Accordion className={style.accordion}>
               <AccordionItem>

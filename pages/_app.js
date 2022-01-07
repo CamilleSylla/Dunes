@@ -72,7 +72,7 @@ function MyApp({ Component, pageProps }) {
                 <Component {...pageProps} />
               </Transition>
             </AnimatePresence>
-            {/* <Footer /> */}
+            <Footer />
           </PresentationProvider>
         </PromoteProvider>
       </WelcomeProvider>

@@ -27,13 +27,6 @@ export default function Coaches() {
       profile_url: "/assets/img/eddy.png",
     },
     {
-      id: 3,
-      name: "Sylvain",
-      role: "Fondateur de Dunes",
-      carrere: "Ancien joueur proffessionel de basket-ball",
-      profile_url: "/assets/img/sylvain.png",
-    },
-    {
       id: 4,
       name: "Quentin",
       role: "Fondateur de Dunes",
