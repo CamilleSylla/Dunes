@@ -5,10 +5,12 @@ import Link from "next/link";
 import gsap from "gsap";
 import { WelcomeContext } from "../../../../context/WelcomeContext";
 import NotificationWrapper from "../Wrapper/Wrapper";
+import { useRouter } from "next/router";
 
 export default function Welcome() {
   const [user, setUser] = useContext(UserContext);
   const [close, setClose] = useContext(WelcomeContext)
+  const path = useRouter().asPath
 
   const notifRef = useRef()
 
@@ -48,5 +50,5 @@ export default function Welcome() {
         })
   }, [close])
 
-  return <>{!close && user? <Notif /> : null}</>;
+  return <>{!close && user && path !== "/plannings"? <Notif /> : null}</>;
 }

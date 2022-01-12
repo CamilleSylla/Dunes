@@ -7,13 +7,12 @@
     transform: translate3d(0, 100%,0);
     transition: all ease .5s;
     z-index: 200;
-    button {
+    .button {
         transition: all ease .5s;
         position: absolute;
-        left: 50%;
-        transform: translate3d(-50%, -99%,0);
+        left: 5%;
+        transform: translate3d(0, -99%,0);
         border: none;
-        padding: 1vh 2vw 1vh 2vw;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         background: var(--ocean-blue);
@@ -22,6 +21,11 @@
         border-left: 2px solid var(--flashy-blue);
         border-right: 2px solid var(--flashy-blue);
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        p {
+            margin-left: 2vw;
+        }
         &:hover {
             background: var(--font-primary);
             color: var(--flashy-blue);

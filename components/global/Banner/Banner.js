@@ -1,6 +1,7 @@
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
-import { useEffect, useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
+import { UserContext } from '../../../context/UserContext'
 import { userDevice } from '../../../tools/global'
 import Button from '../button/Button'
 import Spacing from '../Spacing'
@@ -8,7 +9,7 @@ import Layout from '../wrappers/Layout/Layout'
 import style from './banner.module.scss'
 
 export default function Banner ({videoSrc, imgSrc, title}) {
-
+    const [user, setUser] = useContext(UserContext)
     const wrapper = useRef()
     const video = useRef()
 
@@ -21,7 +22,7 @@ export default function Banner ({videoSrc, imgSrc, title}) {
                     <Spacing height="1vh"/>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam.</p>
                     <Spacing height="2.5vh"/>
-                    <Button text="Reserver un spot"/>
+                    <Button text="Reserver un spot" link={user ? "/plannings" : "/contact"}/>
                 </div>
 
             </div>

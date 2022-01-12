@@ -25,7 +25,7 @@ export default function Home() {
           title="Le mot de <span>Darnell</span>"
           button={{label : "La programmation", link: "/plannings"}}
           desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis."
-          img="/assets/img/darnell.webp"
+          img="/staff/darnell-mot.webp"
         />
         <Coaches />
         <PageEnd

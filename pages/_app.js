@@ -5,7 +5,6 @@ import { useContext, useEffect, useState } from "react";
 import "../styles/globals.css";
 import Footer from "../components/global/footer/Footer";
 import Nav from "../components/global/nav/Nav";
-import Social from "../components/global/social/Social";
 import Promote from "../components/global/Promote/promote";
 import { PromoteProvider } from "../context/PromoteContext";
 import Router from "next/router";
@@ -16,7 +15,7 @@ import Transition from "../components/global/Transition/Transition";
 import { AnimatePresence } from "framer-motion";
 import { PresentationProvider } from "../context/PresentationContext";
 import Presentation from "../components/layouts/Staff/presentation/Presentation";
-import { UserContext, UserProvider } from "../context/UserContext";
+import { UserProvider } from "../context/UserContext";
 import Welcome from "../components/global/Notifications/Welcome.js/Welcome";
 import { WelcomeProvider } from "../context/WelcomeContext";
 import FreeUser from "../components/global/freeUser/FreeUser";
@@ -31,8 +30,6 @@ function MyApp({ Component, pageProps }) {
   Router.events.on("routeChangeStart", nProgress.start);
   Router.events.on("routeChangeError", nProgress.done);
   Router.events.on("routeChangeComplete", nProgress.done);
-
-  let activepage;
 
   useEffect(() => {
     const isMobile = userDevice()
@@ -50,7 +47,6 @@ function MyApp({ Component, pageProps }) {
         });
       });
     }
-    console.log(route.asPath)
     
   }, [route]);
 
@@ -65,7 +61,6 @@ function MyApp({ Component, pageProps }) {
             <Nav />
             <Promote />
             <FreeUser/>
-            <Social />
             <Welcome />
             <Presentation />
             <AnimatePresence exitBeforeEnter>

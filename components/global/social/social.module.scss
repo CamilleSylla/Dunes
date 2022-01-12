@@ -1,12 +1,8 @@
 .wrapper {
-    position: fixed;
-    bottom: 2vh;
-    left: 2vh;
     width: 8vw;
-    height:3.5vh;
-    background: var(--font-primary);
-    border-radius: 50px;
-    z-index: 200;
+    height:4vh;
+    margin-left: 2vh;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;

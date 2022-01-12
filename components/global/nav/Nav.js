@@ -6,6 +6,7 @@ import { getCurrentUser } from '../../../tools/user'
 import { ResponsiveContext } from '../../../context/MobileContext'
 import { userDevice } from '../../../tools/global'
 import gsap from 'gsap'
+import { useRouter } from 'next/router'
 
 export default function Nav () {
 
@@ -13,6 +14,7 @@ export default function Nav () {
     const [responsive, setResponsive] = useState(null)
     const [open, setOpen] = useState(1)
     const listRef = useRef()
+    const path = useRouter().asPath
     const navContent  = [
         {
             label: "accueil",
@@ -48,7 +50,6 @@ export default function Nav () {
         localStorage.clear()
         location.reload()
     }
-
     
     const DefaultNav = () => {
         return (
@@ -61,7 +62,7 @@ export default function Nav () {
                     {navContent.map((el, i) => {
                         return (
                             <Link key={i} href={el.link}>
-                                <li>
+                                <li style={{color: `${path == el.link ? "var(--flashy-blue)" : "var(--font-primary)"}`}}>
                                     {el.label}
                                     <div className={style.cursor}/>
                                 </li>

@@ -1,5 +1,6 @@
 import style from './footer.module.scss'
 import Link from 'next/link'
+import Social from '../../../components/global/social/Social'
 import { useEffect, useRef, useState } from 'react'
 
 export default function Footer () {
@@ -15,7 +16,7 @@ export default function Footer () {
     },[open])
     return (
         <footer ref={wrapperRef} className={style.wrapper}>
-            <button onClick={() => setOpen(!open)}>Pied de page</button>
+            <div className={style.button} onClick={() => setOpen(!open)}> <p>Pied de page</p> <Social/></div>
             <div className={style.container}>
             <p>© {new Date().getFullYear()} Dunes GST | powered by Modular Studio</p>
             <p className={style.middle}>Mentions légales</p>

@@ -11,22 +11,20 @@
         transform: translate3d(0, -50%, 0);
     }
     .grid {
-        width: 75%;
+        width: 100%;
         overflow: hidden;
-        height: 80vh;
+        height: 100%;
         position: absolute;
         top: 50%;
-        left: 25%;
+        left: 0;
         transform: translate3d(0,-50%,0);
         display: flex;
-        gap: 2rem;
         .card {
             background: var(--font-primary);
             width: 10%;
             height: 100%;
             flex-grow: 1;
             transition: width 300ms ease;
-            border-radius: 10px;
             overflow: hidden;
             position: relative;
             .title {

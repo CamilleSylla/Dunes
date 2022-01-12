@@ -17,29 +17,57 @@ export default function Coaches() {
       name: "Darnell",
       role: "Fondateur de Dunes",
       carrere: "Ancien joueur proffessionel de basket-ball",
-      profile_url: "/assets/img/darnell.png",
+      profile_url: "/staff/darnell.webp",
     },
     {
       id: 2,
       name: "Eddy",
-      role: "Co-fondateur et coach pour Dunes",
+      role: "Co-fondateur et coach",
       carrere: "Ancien joueur proffessionel de basket-ball",
-      profile_url: "/assets/img/eddy.png",
+      profile_url: "/staff/eddy.webp",
+    },
+    {
+      id: 3,
+      name: "Ousmane",
+      role: "Coach",
+      carrere: "Ancien joueur proffessionel de basket-ball",
+      profile_url: "/staff/ousmane.webp",
     },
     {
       id: 4,
+      name: "Armel",
+      role: "Coach",
+      carrere: "Ancien joueur proffessionel de basket-ball",
+      profile_url: "/staff/armel.webp",
+    },
+    {
+      id: 5,
+      name: "Julien",
+      role: "Responsable cryotéhrapie",
+      carrere: "Ancien joueur proffessionel de basket-ball",
+      profile_url: "/staff/cryo.webp",
+    },
+    {
+      id: 6,
+      name: "Corentin",
+      role: "Directeur Artistique - Community Manager",
+      carrere: "Ancien joueur proffessionel de basket-ball",
+      profile_url: "/staff/corentin.webp",
+    },
+    {
+      id: 7,
+      name: "Camille",
+      role: "Ingénieur - Développeur web",
+      carrere: "Ancien joueur proffessionel de basket-ball",
+      profile_url: "/staff/camille-sylla.webp",
+    },
+    {
+      id: 8,
       name: "Quentin",
       role: "Fondateur de Dunes",
       carrere: "Ancien joueur proffessionel de basket-ball",
       profile_url: "/assets/img/quentin.png",
     },
-    {
-      id: 5,
-      name: "Yannis",
-      role: "Fondateur de Dunes",
-      carrere: "Ancien joueur proffessionel de basket-ball",
-      profile_url: "/assets/img/yannis.png",
-    }
   ];
 
   const Title = () => {
@@ -60,7 +88,7 @@ export default function Coaches() {
     return (
       <article onClick={() => setPresentationTargetContext(target)} className={style.card}>
         <p className={style.title} dangerouslySetInnerHTML={{ __html: name }} />
-        <img src={imgSrc} />
+        <img rel="preload" src={imgSrc} />
         <div className={style.profileBtn}>
           <p>Voir profile</p>
         </div>
@@ -85,9 +113,7 @@ export default function Coaches() {
     gsap.registerPlugin(ScrollTrigger)
 
     gsap.from(coachesRef.current.children, {
-        opacity: 0,
-        scale: .8,
-        x : "+=20%",
+        x : "-=100%",
         stagger: .3,
         scrollTrigger: {
             trigger: wrapper.current,
