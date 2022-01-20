@@ -138,26 +138,29 @@ export default function Planning({ trainings, currentWeek }) {
               ? newCreaneau(training)
               : deletePracticeOrRedirect(isAlreadyTook);
           }}
+          style={{ background: training.color ? training.color : "var(--dark)"}}
           key={i}
           className={style.card}
         >
-          <h1
-            style={{ color: training.color ? training.color : "var(--dark)" }}
-          >
+          <div className={style.spacing}>
+          <h1>
             {training.nom}
           </h1>
+          <p style={{ fontWeight: "bold", fontSize: "1.25rem" }}>{formatTime}</p>
           <p>Eddy</p>
-          <p style={{ fontWeight: "bold" }}>{formatTime}</p>
           <p>60 min</p>
           {isAlreadyTook.length ? (
             <div className={style.reservation_marker}>Réserve</div>
           ) : null}
           {user ? bookingLimit(training.active_reservations) : null}
-          {isAlreadyTook.length ? (
-            <div className={style.reservation_annuler}>
-              Annuler ma réservation
+            <div className={style.reservation_annuler} style={{background: isAlreadyTook.length ? "orange" : "#1196F5" }}>
+              <p>
+            {isAlreadyTook.length ? "Annuler ma réservation" : "Reservé mon spot"}
+              </p>
+              
             </div>
-          ) : null}
+          
+          </div>
         </article>
       );
     }
@@ -175,7 +178,8 @@ export default function Planning({ trainings, currentWeek }) {
       <div key={i} className={style.days}>
         <h1 style={{ position: "fixed" }}>
           {i == 0 ? "Aujourd'hui, " : null}
-          {formattedDay + "   " + `${currentDay} / ${month}`}
+          <span>{formattedDay}</span>
+          { "   " + `${currentDay} / ${month}`}
         </h1>
         {responsive ? null : <Spacing height="5vh" />}
         {day.trainings.map((training, i) => {
