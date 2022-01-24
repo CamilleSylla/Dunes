@@ -57,7 +57,7 @@ export default function Home() {
       </Head>
 
       <main id="scroll">
-        <Banner videoSrc="/assets/video/complexe.mp4"/>
+        <Banner videoSrc="/assets/video/DunesPromo.mp4"/>
         {layouts.map((el, i) => {
           return el.left ? (
             <LeftLayout
