@@ -85,7 +85,7 @@ export default function FreeUser() {
           }}>
               {
               planning ? planning.map((el, i) => {
-                  return <option value={el.day}>{el.day}</option>
+                  return <option key={i} value={el.day}>{el.day}</option>
               }) 
               : null}
           </select>

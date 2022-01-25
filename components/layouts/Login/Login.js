@@ -36,7 +36,7 @@ export default function Login () {
                 <p>Connecte toi afin de pouvoir reserver ton spot pour ton prochain entrainement</p>
                 <form>
                     <div>
-                    <label for="email">Votre adresse email</label>
+                    <label>Votre adresse email</label>
                     <input name="email" ref={mailInput} type="email" placeholder="noah_verneau@email.fr"/>
                     </div>
                     <div>
