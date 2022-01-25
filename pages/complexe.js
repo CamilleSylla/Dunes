@@ -81,6 +81,7 @@ export default function Complexe () {
         {layouts.map((el, i) => {
           return el.left ? (
             <LeftLayout
+            key={i}
               i={i}
               img={el.img}
               title={el.title}
@@ -89,6 +90,7 @@ export default function Complexe () {
             />
           ) : (
             <RightLayout
+            key={i}
               i={i}
               img={el.img}
               title={el.title}

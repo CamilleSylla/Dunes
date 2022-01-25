@@ -32,7 +32,7 @@ export default function Banner ({videoSrc, imgSrc, title}) {
     const Video = () => {
 
         return (
-<video ref={video} loop="true" autoplay="autoplay" muted className={style.video} >
+<video ref={video} loop autoPlay muted className={style.video} >
             <source src={videoSrc}
             type="video/mp4"/>
             </video>

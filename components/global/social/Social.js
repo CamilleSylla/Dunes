@@ -21,7 +21,7 @@ export default function Social () {
     return (
         <div className={style.wrapper}>
             {images.map((el, i) => {
-                return <img onClick={() => window.open(el.url)} src={el.src}/>
+                return <img  key={i} onClick={() => window.open(el.url)} src={el.src}/>
             })}
         </div>
     )

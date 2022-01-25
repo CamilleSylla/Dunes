@@ -19,7 +19,7 @@ export default function Tarif () {
       <main id="scroll">
         <Banner title="tarifs ajusté pour tous" imgSrc="/assets/img/staffbanner.webp"/>
         {bareme.map((el, i) => {
-          return <Tarifs data={el} i={i}/>
+          return <Tarifs key={i} data={el} i={i}/>
         })}
         <PageEnd video_url='/assets/video/tarif.mp4' desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis.' title="Reservez votre essaie gratuit"/>
       </main>

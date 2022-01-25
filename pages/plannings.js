@@ -7,8 +7,6 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
 export default function Plannings ({trainings, currentWeek}) {
-
-  const [user, setUser] = useContext(UserContext)
   
   return (
     <div>

@@ -32,8 +32,8 @@ export default function PageEnd ({video_url, title, desc}) {
     return (
       <video
         ref={video}
-        loop="true"
-        autoplay="autoplay"
+        loop
+        autoPlay
         muted
         className={style.video}
       >

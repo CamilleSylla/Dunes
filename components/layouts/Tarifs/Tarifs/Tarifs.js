@@ -44,7 +44,7 @@ export default function Tarifs({ data, i }) {
     return (
       <div ref={cardsRef} className={style.cardWrapper}>
         {data.tarifs.map((el, i) => {
-          return <Card cardColor={cardColor} data={el} i={i} />;
+          return <Card key={i} cardColor={cardColor} data={el} i={i} />;
         })}
       </div>
     );

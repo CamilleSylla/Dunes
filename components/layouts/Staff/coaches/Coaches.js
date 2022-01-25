@@ -102,7 +102,7 @@ export default function Coaches() {
     return (
       <div ref={coachesRef} className={style.grid}>
         {coaches.map((el, i) => {
-          return <Card target={el} name={el.name} imgSrc={el.profile_url} />;
+          return <Card key={i} target={el} name={el.name} imgSrc={el.profile_url} />;
         })}
       </div>
     );

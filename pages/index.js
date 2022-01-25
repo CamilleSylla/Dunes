@@ -61,6 +61,7 @@ export default function Home() {
         {layouts.map((el, i) => {
           return el.left ? (
             <LeftLayout
+            key={i}
               i={i}
               img={el.img}
               title={el.title}
@@ -69,6 +70,7 @@ export default function Home() {
             />
           ) : (
             <RightLayout
+            key={i}
               i={i}
               img={el.img}
               title={el.title}

@@ -72,6 +72,7 @@ export default function Programmes () {
         {layouts.map((el, i) => {
           return el.left ? (
             <LeftLayout
+            key={i}
               i={i}
               img={el.img}
               title={el.title}
@@ -81,6 +82,7 @@ export default function Programmes () {
           ) : (
             <RightLayout
               i={i}
+              key={i}
               img={el.img}
               title={el.title}
               desc={el.desc}

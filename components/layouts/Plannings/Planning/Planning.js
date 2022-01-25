@@ -35,7 +35,7 @@ export default function Planning({ trainings, currentWeek }) {
   const [active, setActive] = useContext(FreeReservationsContext);
   const [responsive, setResponsive] = useContext(ResponsiveContext);
   const [mobileDaySelection, setMobileDaySelection] = useState([]);
-  const router = useRouter()
+  const router = useRouter();
 
   const targetSpot = (training) => {
     const spot = {
@@ -64,7 +64,7 @@ export default function Planning({ trainings, currentWeek }) {
         );
         console.log(err);
       });
-      router.reload(window.location.pathname)
+    router.reload(window.location.pathname);
 
     return addNewCreneau;
   }
@@ -91,7 +91,7 @@ export default function Planning({ trainings, currentWeek }) {
           }
         }
       );
-      router.reload(window.location.pathname)
+      router.reload(window.location.pathname);
 
       // location.reload();
     } else {
@@ -138,28 +138,35 @@ export default function Planning({ trainings, currentWeek }) {
               ? newCreaneau(training)
               : deletePracticeOrRedirect(isAlreadyTook);
           }}
-          style={{ background: training.color ? training.color : "var(--dark)"}}
+          style={{
+            background: training.color ? training.color : "var(--dark)",
+          }}
           key={i}
           className={style.card}
         >
           <div className={style.spacing}>
-          <h1>
-            {training.nom}
-          </h1>
-          <p style={{ fontWeight: "bold", fontSize: "1.25rem" }}>{formatTime}</p>
-          <p>Eddy</p>
-          <p>60 min</p>
-          {isAlreadyTook.length ? (
-            <div className={style.reservation_marker}>Réserve</div>
-          ) : null}
-          {user ? bookingLimit(training.active_reservations) : null}
-            <div className={style.reservation_annuler} style={{background: isAlreadyTook.length ? "orange" : "#1196F5" }}>
+            <h1>{training.nom}</h1>
+            <p style={{ fontWeight: "bold", fontSize: "1.25rem" }}>
+              {formatTime}
+            </p>
+            <p>Eddy</p>
+            <p>60 min</p>
+            {isAlreadyTook.length ? (
+              <div className={style.reservation_marker}>Réserve</div>
+            ) : null}
+            {user ? bookingLimit(training.active_reservations) : null}
+            <div
+              className={style.reservation_annuler}
+              style={{
+                background: isAlreadyTook.length ? "orange" : "#1196F5",
+              }}
+            >
               <p>
-            {isAlreadyTook.length ? "Annuler ma réservation" : "Reservé mon spot"}
+                {isAlreadyTook.length
+                  ? "Annuler ma réservation"
+                  : "Reservé mon spot"}
               </p>
-              
             </div>
-          
           </div>
         </article>
       );
@@ -172,19 +179,24 @@ export default function Planning({ trainings, currentWeek }) {
     const month = date.getUTCMonth() + 1;
     const currentDay = date.getUTCDate();
     if (day.trainings.length == 0) {
-      return null
+      return null;
     }
     return (
       <div key={i} className={style.days}>
         <h1 style={{ position: "fixed" }}>
           {i == 0 ? "Aujourd'hui, " : null}
           <span>{formattedDay}</span>
-          { "   " + `${currentDay} / ${month}`}
+          {"   " + `${currentDay} / ${month}`}
         </h1>
         {responsive ? null : <Spacing height="5vh" />}
         {day.trainings.map((training, i) => {
           return (
-            <Card training={training} reservation_date={day.full_date} i={i} />
+            <Card
+              key={i}
+              training={training}
+              reservation_date={day.full_date}
+              i={i}
+            />
           );
         })}
       </div>
@@ -195,7 +207,7 @@ export default function Planning({ trainings, currentWeek }) {
     return (
       <div className={style.schedule}>
         {planning.map((el, i) => {
-          return <Day day={el} i={i} />;
+          return <Day key={i} day={el} i={i} />;
         })}
       </div>
     );
@@ -301,21 +313,26 @@ export default function Planning({ trainings, currentWeek }) {
         {planning.map((el, i) => {
           const fullLetterDay = el.day;
           const date = new Date(el.full_date);
-    const month = date.getUTCMonth() + 1;
-    const currentDay = date.getUTCDate();
-    if (el.trainings.length == 0 ) {
-      return null
-    }
+          const month = date.getUTCMonth() + 1;
+          const currentDay = date.getUTCDate();
+          if (el.trainings.length == 0) {
+            return null;
+          }
           return (
-            <Accordion className={style.accordion}>
+            <Accordion key={i} className={style.accordion}>
               <AccordionItem>
                 <AccordionItemHeading>
-                  <AccordionItemButton><span style={{textTransform : "capitalize"}}>{fullLetterDay + "   " + `${currentDay} / ${month}`}</span></AccordionItemButton>
+                  <AccordionItemButton>
+                    <span style={{ textTransform: "capitalize" }}>
+                      {fullLetterDay + "   " + `${currentDay} / ${month}`}
+                    </span>
+                  </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                   {el.trainings.map((training, i) => {
                     return (
                       <Card
+                        key={i}
                         training={training}
                         reservation_date={el.full_date}
                         i={i}
