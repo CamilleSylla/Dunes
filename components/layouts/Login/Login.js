@@ -40,7 +40,7 @@ export default function Login () {
                     <input name="email" ref={mailInput} type="email" placeholder="noah_verneau@email.fr"/>
                     </div>
                     <div>
-                    <label for="password">Mot de passe</label>
+                    <label >Mot de passe</label>
                     <input ref={passwordInput} name="password" type="password"/>
                     </div>
                     <input onClick={onConnection} className={style.submit} type="button" value="Connection"/>
