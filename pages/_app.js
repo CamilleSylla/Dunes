@@ -5,7 +5,6 @@ import { useContext, useEffect, useState } from "react";
 import "../styles/globals.css";
 import Footer from "../components/global/footer/Footer";
 import Nav from "../components/global/nav/Nav";
-import Promote from "../components/global/Promote/promote";
 import { PromoteProvider } from "../context/PromoteContext";
 import Router from "next/router";
 import nProgress, { set } from "nprogress";
@@ -23,6 +22,7 @@ import { FreeReservationsProvider } from "../context/FreeReservation";
 import { PlanningProvider } from "../context/PlanningContext";
 import { ResponsiveProvider } from "../context/MobileContext";
 import { userDevice } from "../tools/global";
+import Promote from '../components/global/Promote/Promote'
 
 function MyApp({ Component, pageProps }) {
   const route = useRouter();
@@ -59,7 +59,7 @@ function MyApp({ Component, pageProps }) {
         <PromoteProvider>
           <PresentationProvider>
             <Nav />
-            <Promote />
+            <Promote/>
             <FreeUser/>
             <Welcome />
             <Presentation />
