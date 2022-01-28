@@ -8,7 +8,7 @@ export default function Layout ({children, height}) {
 
     useEffect(()=> {
         if (userDevice() != null) {
-            setResponsive("auto")
+            setResponsive("100vh")
         }
     },[])
 

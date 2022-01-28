@@ -23,7 +23,9 @@
     align-items: center;
     text-align: center;
     h1 {
-        font-size: 8rem;
+        width: 100%;
+        text-align: center;
+        font-size:4.5rem;
     }
     p {
         text-align: center;
@@ -33,3 +35,9 @@
         height: 50vh;
     }
 }
+// @media screen and (max-width: 600px) {
+//     .content {
+//         height: 100vh;
+//     }
+    
+// }
