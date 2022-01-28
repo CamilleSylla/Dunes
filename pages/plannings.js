@@ -3,8 +3,6 @@ import Head from "next/head";
 import Banner from "../components/global/Banner/Banner";
 import Planning from "../components/layouts/Plannings/Planning/Planning";
 import axios from "axios";
-import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
 
 export default function Plannings ({trainings, currentWeek}) {
   

@@ -57,15 +57,19 @@ export default function Planning({ trainings, currentWeek }) {
         targetSpot(training),
         config
       )
-      .then((res) => (res.status !== 500 ? setValidation(res.data) : null))
+      .then((res) => {
+        res.status !== 500 ? setValidation(res.data) : null;
+        const addReservation = [...userReservation, res.data];
+        setUserReservation(addReservation);
+        alert("Votre créneaux viens d'être enregistré !")
+      })
       .catch((err) => {
         alert(
           "Une erreur c'est produite, assurez vous de ne pas deja avoir reserver cette entrainement ou de ne pas avoir depasser votre limite de séance par semaine"
         );
         console.log(err);
+        return false;
       });
-    router.reload(window.location.pathname);
-
     return addNewCreneau;
   }
 
@@ -76,24 +80,14 @@ export default function Planning({ trainings, currentWeek }) {
       },
     };
     if (isTaken.length > 0) {
-      // console.log({id : isTaken[0].id});
       const deleteReservation = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/annulation`,
         { id: isTaken[0].id },
         token
-      );
-
-      const deleteFromUserReservation = userReservation.filter(
-        (reservation, i) => {
-          if (reservation.id === isTaken[0].id) {
-            userReservation.splice(i, 1);
-            isTaken = [];
-          }
-        }
-      );
-      router.reload(window.location.pathname);
-
-      // location.reload();
+        )
+        .then(res => alert(res.data))
+        localStorage.setItem('dunes_planning_refresh', true)
+        location.reload()
     } else {
       Router.push("/connexion");
     }
@@ -299,17 +293,17 @@ export default function Planning({ trainings, currentWeek }) {
     };
     setConfig(config);
 
-    if (user) {
+    if (user && !userReservation) {
       const allUserReservation = axios
         .get(`${process.env.NEXT_PUBLIC_API_URL}/reservations`, config)
         .then((res) => setUserReservation(res.data));
     }
     setResponsive(userDevice());
-  }, [validation, user]);
+  }, [validation, user, userReservation]);
 
   const MobilePlanning = () => {
     return (
-      <div>
+      <div style={{paddingBottom : "5vh", background: "var(--font-primary)"}}>
         {planning.map((el, i) => {
           const fullLetterDay = el.day;
           const date = new Date(el.full_date);

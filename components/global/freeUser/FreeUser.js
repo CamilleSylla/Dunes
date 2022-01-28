@@ -6,6 +6,7 @@ import { PlanningContext } from "../../../context/PlanningContext";
 import Button from "../button/Button";
 import style from "./freeuser.module.scss";
 import { Formik, Field, Form } from "formik";
+import NotificationWrapper from "../Notifications/Wrapper/Wrapper";
 // import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 
 export default function FreeUser() {
@@ -13,7 +14,7 @@ export default function FreeUser() {
   const [planning, setPlanning] = useContext(PlanningContext);
   const [form, setForm] = useState({
     selectedDayTraings: [],
-    nom: null
+    nom: null,
   });
   // const [freeInfo, setFreeInfo] = useState({captcha : false})
   const wrapperRef = useRef();
@@ -50,48 +51,61 @@ export default function FreeUser() {
     );
   };
 
-  async function onSubmit () {
-      const req = {
-          nom: nameInput.current.value + " " + lastnameInput.current.value,
-          email: mailInput.current.value,
-          spot_id : spotRef.current.value
-      }
+  async function onSubmit() {
+    const req = {
+      nom: nameInput.current.value + " " + lastnameInput.current.value,
+      email: mailInput.current.value,
+      spot_id: spotRef.current.value,
+    };
 
-      const post = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/reservation-essaies`, req)
-      .then(res => res.data)
+    const post = await axios
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/reservation-essaies`, req)
+      .then((res) => res.data);
 
-      if (typeof post === 'object') {
-          console.log("save");
-      } else {
-          alert(post)
-      }
+    if (typeof post === "object") {
+      console.log("save");
+    } else {
+      alert(post);
+    }
   }
 
   const WindowRight = () => {
     return (
       <div className={style.right}>
-          <div className={style.container}>
-          <input type="text" placeholder="Nom" ref={nameInput}/>
-          <input type="text" placeholder="Prénom" ref={lastnameInput}/>
-          <input type="email" placeholder="Votre adresse Email" ref={mailInput}/>
-          <select onChange={e => {
-              const Daytrainings = planning.filter(el => el.day == e.target.value)
-                const createOptions = Daytrainings[0].trainings.map((el, i) => {
-                    const options = document.createElement('option')
-                    options.innerHTML = el.nom + " - " + el.start
-                    options.value = el.id
-                    spotRef.current.appendChild(options)
+        <div className={style.container}>
+          <input type="text" placeholder="Nom" ref={nameInput} />
+          <input type="text" placeholder="Prénom" ref={lastnameInput} />
+          <input
+            type="email"
+            placeholder="Votre adresse Email"
+            ref={mailInput}
+          />
+          <select
+            onChange={(e) => {
+              const Daytrainings = planning.filter(
+                (el) => el.day == e.target.value
+              );
+              const createOptions = Daytrainings[0].trainings.map((el, i) => {
+                const options = document.createElement("option");
+                options.innerHTML = el.nom + " - " + el.start;
+                options.value = el.id;
+                spotRef.current.appendChild(options);
+              });
+            }}
+          >
+            {planning
+              ? planning.map((el, i) => {
+                  return (
+                    <option key={i} value={el.day}>
+                      {el.day}
+                    </option>
+                  );
                 })
-          }}>
-              {
-              planning ? planning.map((el, i) => {
-                  return <option key={i} value={el.day}>{el.day}</option>
-              }) 
               : null}
           </select>
-          <select ref={spotRef}/>
+          <select ref={spotRef} />
           <button onClick={() => onSubmit()}>Reserver mon essaie</button>
-          </div>
+        </div>
       </div>
     );
   };
@@ -103,7 +117,6 @@ export default function FreeUser() {
   };
 
   useEffect(() => {
-    // loadCaptchaEnginge(6)
     if (active) {
       gsap.from(wrapperRef.current, {
         opacity: 0,
@@ -112,16 +125,11 @@ export default function FreeUser() {
   }, [active]);
   const Form = () => {
     return (
-<div ref={wrapperRef} className={style.wrapper}>
+      <div ref={wrapperRef} className={style.wrapper}>
         <Windows />
         <CloseBtn />
       </div>
-    )
-  }
-  return (
-    <>
-      {active !== true ? null : <Form/>}
-      
-    </>
-  );
+    );
+  };
+  return <>{active !== true ? null : <Form />}</>;
 }

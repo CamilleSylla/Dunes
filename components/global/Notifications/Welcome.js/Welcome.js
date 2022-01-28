@@ -6,10 +6,12 @@ import gsap from "gsap";
 import { WelcomeContext } from "../../../../context/WelcomeContext";
 import NotificationWrapper from "../Wrapper/Wrapper";
 import { useRouter } from "next/router";
+import { calculateBetweenDateTime } from "../../../../tools/user";
 
 export default function Welcome() {
   const [user, setUser] = useContext(UserContext);
   const [close, setClose] = useContext(WelcomeContext)
+  const [refresh, setRefresh] = useState(null)
   const path = useRouter().asPath
 
   const notifRef = useRef()
@@ -48,7 +50,16 @@ export default function Welcome() {
             x : "100%",
             opacity : 0
         })
-  }, [close])
+        const isARefresh = localStorage.getItem('dunes_planning_refresh')
+        const lastConnexion = localStorage.getItem('dunes_session')
+        if (lastConnexion) {
+          const diffInMs = new Date () - new Date(lastConnexion)
+          const diffInDays = diffInMs / ( 1000 * 60 * 60 *24 )
+          if (diffInDays > 1 ) {
+            setRefresh(diffInDays)
+          }
+        }
+  }, [close, refresh])
 
-  return <>{!close && user && path !== "/plannings"? <Notif /> : null}</>;
+  return <>{!close && user && refresh ?  <Notif /> : null}</>;
 }

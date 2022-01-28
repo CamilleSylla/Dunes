@@ -57,7 +57,10 @@ export default function Home() {
       </Head>
 
       <main id="scroll">
-        <Banner videoSrc="/assets/video/DunesPromo.mp4"/>
+        <Banner 
+        phrase="Sale de sport situé a Saint-Quentin dans l'aisne, Venez atteindre vos objectifs grace a nos programmes d'entrainements adapté à chacun"
+        videoSrc="/assets/video/DunesPromo.mp4"
+        />
         {layouts.map((el, i) => {
           return el.left ? (
             <LeftLayout

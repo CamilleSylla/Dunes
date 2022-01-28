@@ -19,13 +19,19 @@ export default function Login () {
                     identifier : mailInput.current.value,
                     password : passwordInput.current.value
                 }
-        const { data, status } = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/local`, loginInfos)
-        if (status === 200) {
-            localStorage.setItem('dunes_token', data.jwt);
-            data.user.jwt = data.jwt
-            Router.push('/plannings')
-            setUser(data.user)
-        }
+                try {
+                    const { data, status } = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/local`, loginInfos)
+                    if (status === 200) {
+                        localStorage.setItem('dunes_token', data.jwt);
+                        localStorage.setItem('dunes_session', new Date())
+                        data.user.jwt = data.jwt
+                        Router.push('/plannings')
+                        setUser(data.user)
+                    } 
+                } catch (err) {
+                    alert("Une erreur est survenue durant votre identification. \nAssurez vous de nous avoir transmis les bon indentifiants.\n\n Un problème avec vos identifiants ?\nMerci de vous rendre directement en salle ou de nous contacter via notre formulaire.  ")
+                }
+        
     }
 
     const Form = () => {

@@ -3,6 +3,7 @@ import axios from "axios"
 
 export async function getCurrentUser ( setUser ) {
     const userJWT = localStorage.getItem('dunes_token')
+    const connectionTime = localStorage.setItem('dunes_session', new Date())
     if (userJWT) {
         let config = {
             headers: {

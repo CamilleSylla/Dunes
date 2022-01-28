@@ -22,7 +22,7 @@ import { FreeReservationsProvider } from "../context/FreeReservation";
 import { PlanningProvider } from "../context/PlanningContext";
 import { ResponsiveProvider } from "../context/MobileContext";
 import { userDevice } from "../tools/global";
-import Promote from '../components/global/Promote/Promote'
+import Promote from "../components/global/Promote/Promote";
 
 function MyApp({ Component, pageProps }) {
   const route = useRouter();
@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }) {
   Router.events.on("routeChangeComplete", nProgress.done);
 
   useEffect(() => {
-    const isMobile = userDevice()
+    const isMobile = userDevice();
     gsap.registerPlugin(ScrollTrigger);
     if (isMobile == null) {
       const mainChildrens = [
@@ -47,34 +47,33 @@ function MyApp({ Component, pageProps }) {
         });
       });
     }
-    
   }, [route]);
 
   return (
     <ResponsiveProvider>
-    <UserProvider>
-      <PlanningProvider>
-      <FreeReservationsProvider>
-      <WelcomeProvider>
-        <PromoteProvider>
-          <PresentationProvider>
-            <Nav />
-            <Promote/>
-            <FreeUser/>
-            <Welcome />
-            <Presentation />
-            <AnimatePresence exitBeforeEnter>
-              <Transition>
-                <Component {...pageProps} />
-              </Transition>
-            </AnimatePresence>
-            <Footer />
-          </PresentationProvider>
-        </PromoteProvider>
-      </WelcomeProvider>
-      </FreeReservationsProvider>
-      </PlanningProvider>
-    </UserProvider>
+      <UserProvider>
+        <PlanningProvider>
+          <FreeReservationsProvider>
+            <WelcomeProvider>
+              <PromoteProvider>
+                <PresentationProvider>
+                  <Nav />
+                  <Promote />
+                  <FreeUser />
+                  <Welcome />
+                  <Presentation />
+                  <AnimatePresence exitBeforeEnter>
+                    <Transition>
+                      <Component {...pageProps} />
+                    </Transition>
+                  </AnimatePresence>
+                  <Footer />
+                </PresentationProvider>
+              </PromoteProvider>
+            </WelcomeProvider>
+          </FreeReservationsProvider>
+        </PlanningProvider>
+      </UserProvider>
     </ResponsiveProvider>
   );
 }

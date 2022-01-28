@@ -12,6 +12,7 @@ export default function Nav () {
 
     const [user, setUser] = useContext(UserContext)
     const [responsive, setResponsive] = useState(null)
+    const [display, setDisplay] = useState(null)
     const [open, setOpen] = useState(1)
     const listRef = useRef()
     const path = useRouter().asPath
