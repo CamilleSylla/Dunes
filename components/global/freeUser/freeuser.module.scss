@@ -9,11 +9,12 @@
   z-index: 200;
   .closeBtn {
     position: absolute;
-    width: 2vh;
-    height: 2vh;
-    top: 5%;
+    width: auto;
+    height: auto;
+    top: 2%;
     right: 5%;
     background: red;
+    padding: 5px 10px 5px 10px;
   }
   .window {
     position: absolute;

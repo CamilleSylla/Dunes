@@ -1,22 +1,21 @@
 export default async function (req, res) {
   let nodemailer = require('nodemailer')
   require('dotenv').config()
-  console.log(req.body)
   const PASSWORD = process.env.MAIL_PASS
   const transporter = nodemailer.createTransport({
-    port: 465,
-    host: "smtp.gmail.com",
+    port: 587,
+    host: "ssl0.ovh.net",
     auth: {
-      user: 'camillesylla.web@gmail.com',
+      user: 'support@dunesgst.fr',
       pass: PASSWORD,
     },
-    secure: true,
+    secure: false,
   })
   await new Promise((resolve, reject) => {
     // verify connection configuration
     transporter.verify(function (error, success) {
         if (error) {
-            console.log(error);
+            console.log(error, 1);
             reject(error);
         } else {
             console.log("Server is ready to take our messages");
@@ -25,8 +24,8 @@ export default async function (req, res) {
     });
 });
   const mailData = {
-    from: 'camillesylla.web@gmail.com',
-    to: process.env.MAIL_TO,
+    from: 'support@dunesgst.fr',
+    to: 'carmelosylla@gmail.com',
     subject: `Nouvelle demande d'essai ${req.body.nom} !`,
     text: `Bonjour,
     Vous avez recu une nouvelle demande de reservation d'essai : \n

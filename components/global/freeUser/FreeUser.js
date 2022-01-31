@@ -46,7 +46,9 @@ export default function FreeUser() {
             SI vous avez besoin de plus amples informations, n'hesitez pas à
             nous contacter !
           </p>
-          <Button text="Nous contacter" />
+          <div onClick={() => setActive(null)}>
+          <Button text="Nous contacter" link="/contact"/>
+          </div>
         </div>
       </article>
     );
@@ -108,7 +110,7 @@ export default function FreeUser() {
 
   const CloseBtn = () => {
     return (
-      <div onClick={() => setActive(null)} className={style.closeBtn}></div>
+      <div onClick={() => setActive(null)} className={style.closeBtn}>Fermer</div>
     );
   };
 

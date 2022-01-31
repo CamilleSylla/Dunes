@@ -58,7 +58,7 @@ export default function Home() {
 
       <main id="scroll">
         <Banner 
-        phrase="Sale de sport situé a Saint-Quentin dans l'aisne, Venez atteindre vos objectifs grace a nos programmes d'entrainements adapté à chacun"
+        phrase="Salle de sport situé à Saint-Quentin dans l'aisne, venez atteindre vos objectifs grâce à nos programmes d'entrainements adapté à chacun"
         videoSrc="/assets/video/DunesPromo.mp4"
         />
         {layouts.map((el, i) => {

@@ -5,13 +5,13 @@ export default async function (req, res) {
   console.log(req.body)
   const PASSWORD = process.env.MAIL_PASS
   const transporter = nodemailer.createTransport({
-    port: 465,
-    host: "smtp.gmail.com",
+    port: 587,
+    host: "ssl0.ovh.net",
     auth: {
-      user: 'camillesylla.web@gmail.com',
+      user: 'support@dunesgst.fr',
       pass: PASSWORD,
     },
-    secure: true,
+    secure: false,
   })
   await new Promise((resolve, reject) => {
     // verify connection configuration
@@ -26,7 +26,7 @@ export default async function (req, res) {
     });
 });
   const mailData = {
-    from: 'camillesylla.web@gmail.com',
+    from: 'support@dunesgst.fr',
     to: req.body.user_mail,
     subject: `Dunes GST : Confirmation de votre reservation pour l'entrainement ${req.body.training_name} le ${req.body.training_day} à ${req.body.training_start}`,
     text: `Bonjour ${req.body.user_name},
@@ -36,7 +36,7 @@ export default async function (req, res) {
     Jour : ${req.body.traning_day}
     Heure : ${req.body.traning_start}\n\n
 
-    Dans le cas ou vous ne pouvez pas etre present, merci de bien vouloir annuler l'entrainement directement depuis notre site internet ou de venir directement nous en informer en salle.
+    Dans le cas ou vous ne pouvez pas être present, merci de bien vouloir annuler l'entrainement directement depuis notre site internet ou de venir directement nous en informer en salle.
     `,
    }
 
