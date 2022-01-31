@@ -40,7 +40,7 @@ export default async function (req, res) {
     transporter.sendMail(mailData, function (err, info) {
       if (err) {
         console.error(err);
-        res.status(400).send(`${req.body.nom.value}, une erreur c'est produite, veuillez recommencer ulterieurement`)
+        res.status(400).send(`${req.body.nom}, une erreur c'est produite, veuillez recommencer ulterieurement`)
         reject(err);
     } else {
         console.log(info);

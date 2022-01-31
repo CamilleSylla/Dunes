@@ -64,11 +64,18 @@ export default function FreeUser() {
       req.email.length &&
       req.phone.length
       ) {
-        console.log(req)
         const post = await axios
-          .post(`/api/mailer`, req)
-          .then((res) => res.data);
+          .post(`/api/freereservation`, req)
+          .then((res) => {
+            if (res.status === 200) {
+              setActive(null)
+              alert('Votre demande nous a bien été envoyé !\nNous vous recontacterons dans les plus bref delais !')
+            } else {
+              alert("UNe erreur c'est produite, veuillez rééssayer ultérieurement")
+            }
+          });
       } else {
+        location.reload()
         alert("Une erreur c'est produite, assurez-vous de bien avoir remplir le fomulaire")
         return false
       }

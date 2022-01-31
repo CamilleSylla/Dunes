@@ -12,6 +12,7 @@ export async function getCurrentUser ( setUser ) {
           };
         const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users/me`, config)
         data.jwt = userJWT
+        console.log(data);
         setUser(data)
     }
 }

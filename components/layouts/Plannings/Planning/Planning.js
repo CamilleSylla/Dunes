@@ -62,6 +62,7 @@ export default function Planning({ trainings, currentWeek }) {
         const addReservation = [...userReservation, res.data];
         setUserReservation(addReservation);
         alert("Votre créneaux viens d'être enregistré !")
+        return true
       })
       .catch((err) => {
         alert(
@@ -70,6 +71,12 @@ export default function Planning({ trainings, currentWeek }) {
         console.log(err);
         return false;
       });
+      if (addNewCreneau === true) {
+        const req = targetSpot(training)
+        req.user_mail = user.email
+        const sendNotifMail = axios.post('/api/reservationConfirm', req)
+        .then(res => console.log(res.data))
+      }
     return addNewCreneau;
   }
 
