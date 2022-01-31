@@ -36,13 +36,13 @@ export default function FreeUser() {
     return (
       <article className={style.left}>
         <div className={style.content}>
-          <h1>Reservation d'essais</h1>
+          <h1>Reservation d'essai</h1>
           <p>
             Venez vous faire votre propre avis gratuitement en reservant une
             séance.
           </p>
           <p>
-            SI vous avez besoin de plus amples informations, n'hesitez pas a
+            SI vous avez besoin de plus amples informations, n'hesitez pas à
             nous contacter !
           </p>
           <Button text="Nous contacter" />
@@ -75,36 +75,16 @@ export default function FreeUser() {
         <div className={style.container}>
           <input type="text" placeholder="Nom" ref={nameInput} />
           <input type="text" placeholder="Prénom" ref={lastnameInput} />
+          <input type="phone" placeholder="Téléphone" ref={lastnameInput} />
           <input
             type="email"
             placeholder="Votre adresse Email"
             ref={mailInput}
           />
-          <select
-            onChange={(e) => {
-              const Daytrainings = planning.filter(
-                (el) => el.day == e.target.value
-              );
-              const createOptions = Daytrainings[0].trainings.map((el, i) => {
-                const options = document.createElement("option");
-                options.innerHTML = el.nom + " - " + el.start;
-                options.value = el.id;
-                spotRef.current.appendChild(options);
-              });
-            }}
-          >
-            {planning
-              ? planning.map((el, i) => {
-                  return (
-                    <option key={i} value={el.day}>
-                      {el.day}
-                    </option>
-                  );
-                })
-              : null}
-          </select>
-          <select ref={spotRef} />
-          <button onClick={() => onSubmit()}>Reserver mon essaie</button>
+          <p>
+            En validant ce formulaire, vous acceptez que dunesgst.fr puisse vous recontacter à des fins commerciales et concerve vos données.
+          </p>
+          <button onClick={() => onSubmit()}>Valider ma demande</button>
         </div>
       </div>
     );
