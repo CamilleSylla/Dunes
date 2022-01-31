@@ -1,10 +1,14 @@
 import Head from "next/head";
+import { useContext } from "react";
 import Banner from "../components/global/Banner/Banner";
 import PageEnd from "../components/global/pageEnd/PageEnd";
 import LeftLayout from "../components/layouts/Home/leftLayoiut/LeftLayout";
 import RightLayout from "../components/layouts/Home/rightLayout/rightLayout";
+import { FreeReservationsContext } from "../context/FreeReservation";
 
 export default function Programmes () {
+  const [active, setActive] = useContext(FreeReservationsContext);
+
 
     const layouts = [
         {
@@ -19,7 +23,7 @@ export default function Programmes () {
         },
         {
           title: "Haltérophilie <span>&</span> Gym",
-          desc: "Tu désire améliorer tes entraînements functionnal? Ces classes te permettront d’accélérer ton processus d’apprentissage dans ces deux domaines fondamentaux des entraînements fonctionnels.",
+          desc: "Tu désires améliorer tes entraînements functionnal? Ces classes te permettront d’accélérer ton processus d’apprentissage dans ces deux domaines fondamentaux des entraînements fonctionnels.",
           img: "/assets/img/intensity.webp",
           button: {
             link: "/plannings",
@@ -29,7 +33,7 @@ export default function Programmes () {
         },
         {
           title: "Personal <span>trainer</span>",
-          desc: "Ce programme te permet d’être encadré en individuel par nos coachs, un programme personnalisé sera établi en accord avec tes objectifs (performance, réhabilitation ou sport santé).",
+          desc: "Ce programme te permet d’être encadré individuellement par nos coachs, un programme personnalisé sera établi en accord avec tes objectifs (performance, réhabilitation ou sport santé).",
           img: "/assets/img/intensity.webp",
           button: {
             link: "/plannings",
@@ -39,7 +43,7 @@ export default function Programmes () {
         },
         {
           title: "Fit <span>&</span> Healthy",
-          desc: "Si perdre du poids est ta priorité,tu as choisis le programme par excellence pour perdre du poids tout en gagnant en masse musculaire. Ce programme est composé de renforcement musculaire et d' exercice Cardio à haute intensité. Pour ceux qui le désirent nous vous guidons sur la phase alimentaire via nos partenaires nutrition.",
+          desc: "Si perdre du poids est ta priorité, tu as choisis le programme par excellence pour perdre du poids tout en gagnant en masse. Ce programme est composé de renforcement musculaire et d' exercices d'endurance à haute intensité. Pour ceux qui le désirent nous pouvons vous guider sur votre alimention via nos partenaires nutrition.",
           img: "/assets/img/intensity.webp",
           button: {
             link: "/plannings",
@@ -49,7 +53,7 @@ export default function Programmes () {
         },
         {
           title: "Open <span>training</span>",
-          desc: "Ces créneaux sont ouverts aux personnes qui maîtrisent les fondamentaux,l’accès à ces créneaux doit être validé par nos coachs. Une fois validé, vous aurait donc libre accès à la salle. ",
+          desc: "Ces créneaux sont ouverts aux personnes qui maîtrisent les fondamentaux, l’accès à ces créneaux doit être validé par nos coachs. Une fois validé, vous aurez donc libre accès à la salle. ",
           img: "/assets/img/intensity.webp",
           button: {
             link: "/plannings",
@@ -90,7 +94,9 @@ export default function Programmes () {
             />
           );
         })}
-        <PageEnd video_url='/assets/video/tarif.mp4' desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis.' title="Reservez votre essaie gratuit"/>
+        <div onClick={() => setActive(true)}>
+        <PageEnd video_url='/assets/video/tarif.mp4' desc="N'hésitez pas à venir tester notre salle en faisant une demande de réservation via notre formulaire" title="Reservez votre essai gratuit"/>
+        </div>
       </main>
     </div>
   );

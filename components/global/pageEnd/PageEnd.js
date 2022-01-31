@@ -12,7 +12,9 @@ export default function PageEnd ({video_url, title, desc}) {
   const [active, setActive] = useContext(FreeReservationsContext)
     const video = useRef();
 
-  const Content = () => {
+  const 
+  
+  Content = () => {
 
     return (
         <article className={style.content}>

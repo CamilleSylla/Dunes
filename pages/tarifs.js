@@ -3,11 +3,9 @@ import Banner from "../components/global/Banner/Banner";
 import PageEnd from "../components/global/pageEnd/PageEnd";
 import Coaches from "../components/layouts/Staff/coaches/Coaches";
 import Tarifs from "../components/layouts/Tarifs/Tarifs/Tarifs";
-import bareme from '../tarif.json'
+import bareme from "../tarif.json";
 
-export default function Tarif () {
-  
-
+export default function Tarif() {
   return (
     <div>
       <Head>
@@ -17,11 +15,18 @@ export default function Tarif () {
       </Head>
 
       <main id="scroll">
-        <Banner title="tarifs ajusté pour tous" imgSrc="/assets/img/staffbanner.webp"/>
+        <Banner
+          title="tarifs ajusté pour tous"
+          imgSrc="/assets/img/staffbanner.webp"
+        />
         {bareme.map((el, i) => {
-          return <Tarifs key={i} data={el} i={i}/>
+          return <Tarifs key={i} data={el} i={i} />;
         })}
-        <PageEnd video_url='/assets/video/tarif.mp4' desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis.' title="Reservez votre essaie gratuit"/>
+        <PageEnd
+          video_url="/assets/video/tarif.mp4"
+          desc="N'hésitez pas à venir tester notre salle en faisant une demande de réservation via notre formulaire"
+          title="Reservez votre essai gratuit"
+        />
       </main>
     </div>
   );

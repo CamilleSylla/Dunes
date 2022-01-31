@@ -7,7 +7,7 @@ export default function Home() {
   const layouts = [
     {
       title: "Accompagnement vers <span>vos objectifs</span>",
-      desc: "Tu veux perdre du poids? Tu veux prendre de la masse musculaire? Tu veux passer un cap dans ta pratique sportive ? Tu désires découvrir les entraînements fonctionnels ?",
+      desc: "Tu veux perdre du poids ? Tu veux prendre de la masse musculaire ? Tu veux passer un cap dans ta pratique sportive ? Tu désires découvrir les entraînements fonctionnels ?",
       img: "/assets/img/intensity.webp",
       button: {
         link: "/programmes",
@@ -28,7 +28,7 @@ export default function Home() {
 
     {
       title: "Notre <span>complexe</span>",
-      desc: "Dunes vous accueille du lundi au samedi, dans un espace de 200 m2. Un lieu chaleureux,familial où vous pourrez développer et découvrir votre plein potentiel.",
+      desc: "Dunes vous accueille du lundi au samedi, dans un espace de 200 m². Un lieu chaleureux, familial où vous pourrez développer et découvrir votre plein potentiel.",
       img: "/assets/img/complexe.webp",
       button: {
         link: "/complexe",
@@ -38,7 +38,7 @@ export default function Home() {
     },
     {
       title: "prix <br/><span>flexibles</span>",
-      desc: "Dunes propose à ses adhérents des forfait adapté en fonction des seances que vous voulez effectuez dans la semaine. Qu'attendez vous pour atteindre vos objectifs ?",
+      desc: "Dunes propose à ses adhérents des forfaits adaptés en fonction des seances que vous voulez effectuer dans la semaine. Qu'attendez vous pour atteindre vos objectifs ?",
       img: "/assets/img/prix.webp",
       button: {
         link: "/tarifs",
@@ -58,7 +58,7 @@ export default function Home() {
 
       <main id="scroll">
         <Banner 
-        phrase="Salle de sport situé à Saint-Quentin dans l'aisne, venez atteindre vos objectifs grâce à nos programmes d'entrainements adapté à chacun"
+        phrase="Salle de sport située à Saint-Quentin dans l'Aisne, venez atteindre vos objectifs grâce à nos programmes d'entrainements adaptés à chacun."
         videoSrc="/assets/video/DunesPromo.mp4"
         />
         {layouts.map((el, i) => {
