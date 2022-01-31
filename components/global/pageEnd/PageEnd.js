@@ -7,14 +7,13 @@ import Spacing from "../Spacing";
 import Layout from "../wrappers/Layout/Layout";
 import style from './pageend.module.scss'
 
-export default function PageEnd ({video_url, title, desc}) {
+export default function PageEnd ({video_url, title, desc, url}) {
 
   const [active, setActive] = useContext(FreeReservationsContext)
     const video = useRef();
 
-  const 
   
-  Content = () => {
+  const Content = () => {
 
     return (
         <article className={style.content}>
@@ -23,8 +22,8 @@ export default function PageEnd ({video_url, title, desc}) {
             <Spacing height="2vh"/>
             <p>{desc}</p>
             <Spacing height="4vh"/>
-            <div onClick={() => setActive(true)}>
-            <Button text="Réserver"/>
+            <div>
+            <Button text="Réserver" link={url ? url : '/'}/>
             </div>    
                 </div>
         </article>

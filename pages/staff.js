@@ -30,8 +30,9 @@ export default function Home() {
         <Coaches />
         <PageEnd
           video_url="/assets/video/staff.mp4"
-          desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis."
+          desc="Joignez-vous à notre équipe pour nous apporter votre connaissance et nous aider à développer nous athlètes !"
           title="Rejoignez l'équipe"
+          url="/contact"
         />
       </main>
     </div>

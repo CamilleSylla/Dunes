@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useContext, useEffect, useRef } from "react";
+import { useState } from "react/cjs/react.development";
 import { PresentationContext } from "../../../../context/PresentationContext";
 import Footer from "../../../global/footer/Footer";
 import Layout from "../../../global/wrappers/Layout/Layout";
@@ -9,8 +10,11 @@ import style from "./coaches.module.scss";
 export default function Coaches() {
 
   const [presentation, setPresentation] = useContext(PresentationContext)
+  const [loaded, setLoaded] = useState({loaded: 0})
   const coachesRef = useRef();
   const wrapper = useRef();
+  const imagesRef = useRef()
+  
   const coaches = [
     {
       id: 1,
@@ -34,18 +38,18 @@ export default function Coaches() {
       profile_url: "/staff/ousmane.webp",
     },
     {
-      id: 4,
-      name: "Armel",
-      role: "Coach",
-      carrere: "Ancien joueur proffessionel de basket-ball",
-      profile_url: "/staff/armel.webp",
-    },
-    {
       id: 5,
-      name: "Julien",
+      name: "Tommy",
       role: "Responsable cryotéhrapie",
       carrere: "Ancien joueur proffessionel de basket-ball",
       profile_url: "/staff/cryo.webp",
+    },
+    {
+      id: 4,
+      name: "Aimel",
+      role: "Coach",
+      carrere: "Ancien joueur proffessionel de basket-ball",
+      profile_url: "/staff/armel.webp",
     },
     {
       id: 6,
@@ -82,13 +86,26 @@ export default function Coaches() {
   const setPresentationTargetContext = e => {
     setPresentation(e)
   }
+  function handleImageLoaded (loadIncrement) {
+    if (!loaded.loaded) {
+      setLoaded({loaded : loadIncrement})
+    }
+  }
 
-  const Card = ({target, name, imgSrc }) => {
+  useEffect(() => {
+    const img = imagesRef.current;
+    if (img&&img.complete) {
+
+    }
+  }, [])
+
+  const Card = ({target,role, name, imgSrc }) => {
 
     return (
-      <article onClick={() => setPresentationTargetContext(target)} className={style.card}>
+      <article  className={style.card}>
         <p className={style.title} dangerouslySetInnerHTML={{ __html: name }} />
-        <img rel="preload" src={imgSrc} />
+        <p style={{left: "40%",width:"100%",textAlign: "left", fontSize: "1rem"}}className={style.title} dangerouslySetInnerHTML={{ __html: role }}/>
+        <img onLoad={handleImageLoaded} ref={imagesRef} rel="preload" src={imgSrc} />
         <div className={style.profileBtn}>
           <p>Voir profile</p>
         </div>
@@ -102,25 +119,25 @@ export default function Coaches() {
     return (
       <div ref={coachesRef} className={style.grid}>
         {coaches.map((el, i) => {
-          return <Card key={i} target={el} name={el.name} imgSrc={el.profile_url} />;
+          return <Card key={i} role={el.role} target={el} name={el.name} imgSrc={el.profile_url} />;
         })}
       </div>
     );
   };
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    gsap.registerPlugin(ScrollTrigger)
+  //   gsap.registerPlugin(ScrollTrigger)
 
-    gsap.from(coachesRef.current.children, {
-        x : "-=100%",
-        stagger: .3,
-        scrollTrigger: {
-            trigger: wrapper.current,
-            start: "top-=20% top",
-        }
-    })
-  },[])
+  //   gsap.from(coachesRef.current.children, {
+  //       x : "-=100%",
+  //       stagger: .3,
+  //       scrollTrigger: {
+  //           trigger: wrapper.current,
+  //           start: "top-=20% top",
+  //       }
+  //   })
+  // },[])
 
 
   return (

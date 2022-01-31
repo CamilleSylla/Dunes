@@ -25,7 +25,6 @@ export default function FreeUser() {
   const lastnameInput = useRef();
   const phoneInput = useRef();
   const mailInput = useRef();
-  const spotRef = useRef();
 
   const Windows = () => {
     return (
@@ -91,6 +90,9 @@ export default function FreeUser() {
     return (
       <div className={style.right}>
         <div className={style.container}>
+          <div className={style.sended}>
+            
+          </div>
           <input type="text" placeholder="Nom*" ref={nameInput} />
           <input type="text" placeholder="Prénom*" ref={lastnameInput} />
           <input type="phone" placeholder="Téléphone*" ref={phoneInput} />
