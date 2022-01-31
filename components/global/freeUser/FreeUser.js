@@ -20,6 +20,7 @@ export default function FreeUser() {
   const wrapperRef = useRef();
   const nameInput = useRef();
   const lastnameInput = useRef();
+  const phoneInput = useRef();
   const mailInput = useRef();
   const spotRef = useRef();
 
@@ -52,37 +53,45 @@ export default function FreeUser() {
   };
 
   async function onSubmit() {
+    const url = window.location.host
     const req = {
       nom: nameInput.current.value + " " + lastnameInput.current.value,
       email: mailInput.current.value,
-      spot_id: spotRef.current.value,
+      phone: phoneInput.current.value,
     };
 
-    const post = await axios
-      .post(`${process.env.NEXT_PUBLIC_API_URL}/reservation-essaies`, req)
-      .then((res) => res.data);
-
-    if (typeof post === "object") {
-      console.log("save");
-    } else {
-      alert(post);
-    }
+    if ( req.nom.length &&
+      req.email.length &&
+      req.phone.length
+      ) {
+        console.log(req)
+        const post = await axios
+          .post(`/api/mailer`, req)
+          .then((res) => res.data);
+      } else {
+        alert("Une erreur c'est produite, assurez-vous de bien avoir remplir le fomulaire")
+        return false
+      }
+      console.log(url)
   }
 
   const WindowRight = () => {
     return (
       <div className={style.right}>
         <div className={style.container}>
-          <input type="text" placeholder="Nom" ref={nameInput} />
-          <input type="text" placeholder="Prénom" ref={lastnameInput} />
-          <input type="phone" placeholder="Téléphone" ref={lastnameInput} />
+          <input type="text" placeholder="Nom*" ref={nameInput} />
+          <input type="text" placeholder="Prénom*" ref={lastnameInput} />
+          <input type="phone" placeholder="Téléphone*" ref={phoneInput} />
           <input
             type="email"
-            placeholder="Votre adresse Email"
+            placeholder="Email*"
             ref={mailInput}
           />
           <p>
-            En validant ce formulaire, vous acceptez que dunesgst.fr puisse vous recontacter à des fins commerciales et concerve vos données.
+            * : champs obligatoire
+          </p>
+          <p>
+            En validant ce formulaire, vous confirmer que les informations envoyés sont réel et vous acceptez que dunesgst.fr puisse vous recontacter à des fins commerciales et concerve vos données.
           </p>
           <button onClick={() => onSubmit()}>Valider ma demande</button>
         </div>
