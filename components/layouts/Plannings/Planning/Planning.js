@@ -74,7 +74,7 @@ export default function Planning({ trainings, currentWeek }) {
       if (addNewCreneau === true) {
         const req = targetSpot(training)
         req.user_mail = user.email
-        const sendNotifMail = axios.post('/api/reservationConfirm', req)
+        const sendNotifMail = await axios.post('/api/reservationConfirm', req)
         .then(res => console.log(res.data))
       }
     return addNewCreneau;
