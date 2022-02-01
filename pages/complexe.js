@@ -10,7 +10,7 @@ export default function Complexe () {
         {
           title: "120m² de <span>Workout</span>",
           desc: "",
-          img: "/assets/img/global.jpg",
+          img: "/assets/img/global.webp",
           button: {
             link: "/planning",
             label: "Le planning",
@@ -20,7 +20,7 @@ export default function Complexe () {
         {
           title: "Cardio",
           desc: "",
-          img: "/assets/img/assault.jpg",
+          img: "/assets/img/assault.webp",
           button: {
             link: "/planning",
             label: "Le planning",
@@ -30,7 +30,7 @@ export default function Complexe () {
         {
           title: " Strength & <span>Power</span>",
           desc: "",
-          img: "/assets/img/power.jpg",
+          img: "/assets/img/power.webp",
           button: {
             link: "/planning",
             label: "Le planning",
@@ -40,7 +40,7 @@ export default function Complexe () {
         {
           title: "Mobility & <span>Explosiveness</span>",
           desc: "",
-          img: "/assets/img/mobility.jpg",
+          img: "/assets/img/mobility.webp",
           button: {
             link: "/planning",
             label: "Le planning",
@@ -50,7 +50,7 @@ export default function Complexe () {
         {
           title: "isolation & <span>stretching</span>",
           desc: "",
-          img: "/assets/img/elastic.jpg",
+          img: "/assets/img/elastic.webp",
           button: {
             link: "/planning",
             label: "Le planning",
@@ -60,7 +60,7 @@ export default function Complexe () {
         {
           title: "Specific",
           desc: "",
-          img: "/assets/img/anneau.jpg",
+          img: "/assets/img/anneau.webp",
           button: {
             link: "/planning",
             label: "Le planning",
@@ -77,7 +77,7 @@ export default function Complexe () {
       </Head>
 
       <main id="scroll">
-        <Banner title="Environnement de qualité" imgSrc="/assets/img/complexe.jpg"/>
+        <Banner title="Environnement de qualité" imgSrc="/assets/img/complexe.webp"/>
         {layouts.map((el, i) => {
           return el.left ? (
             <LeftLayout

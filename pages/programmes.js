@@ -14,7 +14,7 @@ export default function Programmes () {
         {
           title: "Functional <span>training</span>",
           desc: "Développe les compétences fondamentales de la motricité sportive (endurance cardio-vasculaire, endurance musculaire, vitesse, coordination, agilité, souplesse, mobilité, puissance, force). Ces entraînements sont accessibles à tous et à tous les niveaux comme chacun de nos programmes.",
-          img: "/assets/img/intensity.webp",
+          img: "/assets/img/aimel.webp",
           button: {
             link: "/plannings",
             label: "Reserver mon spot",
@@ -24,7 +24,7 @@ export default function Programmes () {
         {
           title: "Haltérophilie <span>&</span> Gym",
           desc: "Tu désires améliorer tes entraînements functionnal? Ces classes te permettront d’accélérer ton processus d’apprentissage dans ces deux domaines fondamentaux des entraînements fonctionnels.",
-          img: "/assets/img/intensity.webp",
+          img: "/assets/img/box.webp",
           button: {
             link: "/plannings",
             label: "Reserver mon spot",
@@ -34,7 +34,7 @@ export default function Programmes () {
         {
           title: "Personal <span>trainer</span>",
           desc: "Ce programme te permet d’être encadré individuellement par nos coachs, un programme personnalisé sera établi en accord avec tes objectifs (performance, réhabilitation ou sport santé).",
-          img: "/assets/img/intensity.webp",
+          img: "/assets/img/ousmane.webp",
           button: {
             link: "/plannings",
             label: "Reserver mon spot",
@@ -44,7 +44,7 @@ export default function Programmes () {
         {
           title: "Fit <span>&</span> Healthy",
           desc: "Si perdre du poids est ta priorité, tu as choisis le programme par excellence pour perdre du poids tout en gagnant en masse. Ce programme est composé de renforcement musculaire et d' exercices d'endurance à haute intensité. Pour ceux qui le désirent nous pouvons vous guider sur votre alimention via nos partenaires nutrition.",
-          img: "/assets/img/intensity.webp",
+          img: "/assets/img/programmes.webp",
           button: {
             link: "/plannings",
             label: "Reserver mon spot",
@@ -54,7 +54,7 @@ export default function Programmes () {
         {
           title: "Open <span>training</span>",
           desc: "Ces créneaux sont ouverts aux personnes qui maîtrisent les fondamentaux, l’accès à ces créneaux doit être validé par nos coachs. Une fois validé, vous aurez donc libre accès à la salle. ",
-          img: "/assets/img/intensity.webp",
+          img: "/assets/img/papy.webp",
           button: {
             link: "/plannings",
             label: "Reserver mon spot",
@@ -72,7 +72,7 @@ export default function Programmes () {
       </Head>
 
       <main id="scroll">
-        <Banner imgSrc="/assets/img/programmes.webp" title="Adaptée votre entrainement" />
+        <Banner imgSrc="/assets/img/box.webp" title="Adaptée votre entrainement" />
         {layouts.map((el, i) => {
           return el.left ? (
             <LeftLayout

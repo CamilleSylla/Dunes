@@ -15,7 +15,7 @@ export default function Plannings ({trainings, currentWeek}) {
           </Head>
     
           <main id="scroll">
-            <Banner imgSrc="/assets/img/plannings.jpg" title="plannifier vos séances"/>
+            <Banner imgSrc="/assets/img/plannings.webp" title="plannifier vos séances"/>
             <Planning currentWeek={currentWeek} data={planning_data} trainings={trainings}/>
           </main>
         </div>
