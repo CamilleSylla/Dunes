@@ -26,6 +26,7 @@ export default function Tarif() {
           video_url="/assets/video/tarif.mp4"
           desc="N'hésitez pas à venir tester notre salle en faisant une demande de réservation via notre formulaire"
           title="Reservez votre essai gratuit"
+          url="/contact"
         />
       </main>
     </div>

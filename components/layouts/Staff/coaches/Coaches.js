@@ -42,14 +42,14 @@ export default function Coaches() {
     {
       id: 5,
       name: "Tommy",
-      role: "Responsable cryotéhrapie",
+      role: "Pôle récupération",
       carrere: "Ancien joueur proffessionel de basket-ball",
       profile_url: "/staff/cryo.webp",
     },
     {
       id: 4,
       name: "Aimel",
-      role: "Coach",
+      role: "Stagiaire Coach",
       carrere: "Ancien joueur proffessionel de basket-ball",
       profile_url: "/staff/armel.webp",
     },
@@ -74,7 +74,7 @@ export default function Coaches() {
     {
       id: 8,
       name: "Quentin",
-      role: "Fondateur de Dunes",
+      role: "Responsable formation et préparation physique",
       carrere: "Ancien joueur proffessionel de basket-ball",
       profile_url: "/assets/img/quentin.png",
     },

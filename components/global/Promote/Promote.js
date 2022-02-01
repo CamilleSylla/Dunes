@@ -22,11 +22,7 @@ export default function Promote() {
       <NotificationWrapper>
         <div className={style.container}>
 
-          <h1>Reserver mon essaie gratuit</h1>
-          <p style={{marginBottom : "2vh"}}>
-            Venez tester notre efficacité en toute simplicité en reservant
-            directement en ligne
-          </p>
+          <h1 style={{marginBottom: "2vh"}}>Reserver mon essai gratuit</h1>
           <div className={style.action}>
             <div onClick={() => setActive(true)} className={style.btn_wrapper}>
             <p>Reserver</p>
