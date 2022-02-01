@@ -11,10 +11,9 @@ import style from "./coaches.module.scss";
 export default function Coaches() {
 
   const [presentation, setPresentation] = useContext(PresentationContext)
-  const [loaded, setLoaded] = useState({loaded: 0})
+
   const coachesRef = useRef();
   const wrapper = useRef();
-  const imagesRef = useRef()
   
   const coaches = [
     {
@@ -94,18 +93,7 @@ export default function Coaches() {
     setPresentation(e)
     console.log(e);
   }
-  function handleImageLoaded (loadIncrement) {
-    if (!loaded.loaded) {
-      setLoaded({loaded : loadIncrement})
-    }
-  }
 
-  useEffect(() => {
-    const img = imagesRef.current;
-    if (img&&img.complete) {
-
-    }
-  }, [])
 
   const Card = ({target,role, name, imgSrc }) => {
 
