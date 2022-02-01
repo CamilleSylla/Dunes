@@ -20,7 +20,7 @@ export default function Footer () {
             <div className={style.container}>
             <p>© {new Date().getFullYear()} Dunes GST | powered by Modular Studio</p>
             <p className={style.middle}>Mentions légales</p>
-            <Link href="/contact"><p>Contact</p></Link>
+            <Link href="/contact"><p style={{cursor: "pointer", fontWeight: "bold"}}>Contact</p></Link>
             </div>
         </footer>
     )

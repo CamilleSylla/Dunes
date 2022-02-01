@@ -61,7 +61,7 @@ export default function Planning({ trainings, currentWeek }) {
         res.status !== 500 ? setValidation(res.data) : null;
         const addReservation = [...userReservation, res.data];
         setUserReservation(addReservation);
-        alert("Votre créneaux viens d'être enregistré !")
+        alert("Merci. Votre place a bien été enregistré !")
         return true
       })
       .catch((err) => {

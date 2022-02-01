@@ -7,6 +7,7 @@
     transform: translate3d(0, 100%,0);
     transition: all ease .5s;
     z-index: 200;
+    background: var(--font-primary);
     .button {
         transition: all ease .5s;
         position: absolute;
@@ -32,8 +33,7 @@
         }
     }
     .container {
-        background: var(--font-primary);
-        width: 100%;
+        width: 80%;
         padding: 2.5vh 0 2.5vh 0;
         margin: 0 auto;
         display: flex;
@@ -47,11 +47,15 @@
 }
 @media screen and (max-width: 600px) {
     .wrapper {
+        height: auto;
         .button {
             width: 80%;
             left: 50%;
             justify-content: space-evenly;
             transform: translate3d(-50%,-99%,0);
+        }
+        .container {
+            display: block;
         }
     }
   }
