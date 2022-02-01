@@ -5,16 +5,6 @@ import style from './presentation.module.scss'
 export default function Presentation () {
     const [presentation, setPresentation] = useContext(PresentationContext)
 
-    const Head = () => {
-        return (
-            <div className={style.head}>
-                <h1 dangerouslySetInnerHTML={{ __html: presentation.name }} />
-                <img src={presentation.profile_url}/>
-                <Close/>
-
-            </div>
-        )
-    }
     const Close = () => {
         return <span onClick={() => setPresentation(null)} className={style.ferme}>Ferme</span>
     }
@@ -24,7 +14,14 @@ export default function Presentation () {
         return (
             <article className={style.wrapper}>
                 <div className={style.container}>
-                    <Head/>
+                <img src={presentation.profile_url}/>
+                    <div className={style.content}>
+                        <h1 dangerouslySetInnerHTML={{ __html: presentation.name }} />
+                        <h2 dangerouslySetInnerHTML={{ __html: presentation.role }}/>
+                        <h3 className={style.slogan} dangerouslySetInnerHTML={{ __html: presentation.slogan }}/>
+                        <p style={{whiteSpace: "pre-line"}}>{presentation.bio}</p>
+                    </div>
+                <Close/>
                 </div>
             </article>
         )

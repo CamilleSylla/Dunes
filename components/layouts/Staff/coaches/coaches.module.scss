@@ -1,6 +1,8 @@
 .wrapper {
     height: 100vh;
-    background: #F2F2F2;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: var(--dark);
     overflow: hidden;
     h1 {
         color: var(--dark);
@@ -11,19 +13,21 @@
         transform: translate3d(0, -50%, 0);
     }
     .grid {
-        width: 100%;
+        width: 70%;
         overflow: hidden;
-        height: 100%;
+        height: auto;
         position: absolute;
         top: 50%;
-        left: 0;
-        transform: translate3d(0,-50%,0);
+        left: 50%;
+        transform: translate3d(-50%,-50%,0);
         display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
         .card {
-            background: var(--font-primary);
-            width: 10%;
-            height: 100%;
-            flex-grow: 1;
+            cursor: pointer;
+            width: 25vh;
+            height: 25vh;
+            flex: 0 0 33.333333%;
             transition: width 300ms ease;
             overflow: hidden;
             position: relative;
@@ -31,10 +35,8 @@
                 position: absolute;
                 bottom: 2rem;
                 font-weight: 800;
-                transform: rotate(-90deg);
                 left: 5%;
-                font-size: 3rem;
-                transform-origin:20% 40%;
+                font-size: 2rem;
                 color: var(--font-primary);
                 z-index: 3;
                 transition: transform 300ms ease;
@@ -52,11 +54,25 @@
                 height: 100%;
                 background: linear-gradient(0deg, #042136 0%, rgba(0,0,0,0) 75%);
             }
+            .profileBtn {
+                position: absolute;
+                width: 100%;
+                z-index: 3;
+                bottom: 0;
+                height: 30%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: var(--flashy-blue);
+                transform: translate3d(0, 102%,0);
+                transition: all ease .5s;
+                color: var(--dark);
+                font-weight: 800;
+                text-transform: uppercase;
+            }
             &:hover {
-                width: 33%;
-                .title {
-                    transform: rotate(0deg);
-
+                .profileBtn {
+                    transform: translate3d(0,0,0);
                 }
             }
         }
@@ -75,6 +91,7 @@
             transform: translate3d(0,0,0);
             text-align: center;
             width: 100%;
+            color: var(--font-primary);
         }
         .grid {
             display: block;

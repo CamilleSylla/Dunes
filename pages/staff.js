@@ -24,7 +24,7 @@ export default function Home() {
           i="1"
           title="Le mot de <span>Darnell</span>"
           button={{label : "La programmation", link: "/plannings"}}
-          desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis lorem quam. Nullam velit ante, scelerisque nec velit a, imperdiet pretium ipsum. Sed aliquam dui velit, ac finibus tellus vehicula quis."
+          desc={` Dunes n'est pas qu'une Salle du Sport !\nC'est un état d'esprit, c'est un style de vie, c'est votre témoignage ayant le monde pour temoin.\n\nDUNESGST SUIVEZ LE MOUVEMENT !`}
           img="/staff/darnell-mot.webp"
         />
         <Coaches />

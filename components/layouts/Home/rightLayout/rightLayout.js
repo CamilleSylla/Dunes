@@ -21,7 +21,7 @@ export default function RightLayout({ i ,img, title, desc, button }) {
         >
           <h1 dangerouslySetInnerHTML={{ __html: title }} />
           <Spacing height="1vh" />
-          <p>{desc}</p>
+          <p style={{whiteSpace: "pre-line"}}>{desc}</p>
           <Spacing height="3vh" />
           <Button text={button.label} link={button.link}/>
         </div>
