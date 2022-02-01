@@ -29,6 +29,11 @@
             width: 70%;
             font-size: 1rem;
         }
+        img  {
+            width: 5vh;
+            animation: 1s ease-in 1s infinite both running arrowDown;
+            filter: invert(81%) sepia(49%) saturate(5409%) hue-rotate(155deg) brightness(103%) contrast(103%);
+        }
     }
 }
 .filter {
@@ -41,6 +46,18 @@
     background: black;
     opacity: .5;
 }
+
+@keyframes arrowDown {
+    from {
+      transform: translate3d(0,0,0);
+      opacity: 1;
+    }
+  
+    to {
+        transform: translate3d(0,200%,0);
+        opacity: 0;
+    }
+  }
 
 @media screen and (max-width: 600px) {
     .content_wrapper {
