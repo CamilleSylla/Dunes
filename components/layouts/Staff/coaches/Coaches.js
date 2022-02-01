@@ -126,9 +126,11 @@ export default function Coaches() {
       <div ref={coachesRef} className={style.grid}>
         {coaches.map((el, i) => {
           return (
+            <div key={i}>
             <LazyLoadComponent>
-          <Card key={i} role={el.role} target={el} name={el.name} imgSrc={el.profile_url} />
+          <Card role={el.role} target={el} name={el.name} imgSrc={el.profile_url} />
           </LazyLoadComponent>
+          </div>
           );
         })}
       </div>
