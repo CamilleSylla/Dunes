@@ -111,6 +111,10 @@ export default function Planning({ trainings, currentWeek }) {
       return <p>Places : {8 - active_reservations}</p>;
     }
   }
+  async function getReservationById () {
+
+    const result = await axios.post('')
+  }
 
   const Card = ({ training, i, reservation_date }) => {
     const formatTime = training.start.substring(0, 5);
@@ -118,6 +122,7 @@ export default function Planning({ trainings, currentWeek }) {
     const trainingStart = new Date("1970-01-01 " + training.start).getHours();
     const currentTime = new Date().getHours();
     const parentDay = training.day.toLowerCase();
+    const getReservationNumberByID = await 
     const today = new Date().toLocaleDateString("fr", { weekday: "long" });
     let isAlreadyTook = [];
     if (userReservation) {
