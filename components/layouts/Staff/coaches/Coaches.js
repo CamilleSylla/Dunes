@@ -23,7 +23,7 @@ export default function Coaches() {
       carrere: "Ancien joueur proffessionel de basket-ball",
       profile_url: "/staff/darnell.webp",
       slogan: "BECOME GREAT, BECOME LEGEND, BECOME YOU",
-      bio: `- Je ne me suis pas fait tout seul mais j'ai suivis mes propres choix.\n\n- De accepter dans aucun lycée à 18 ans de basketteur professionel\n\n- De grandir dans un environement pauvre à la reussite de mes entreprise.\n\n -Je crois en MOI à n'importe quel moment`
+      bio: `- Not self made but self driven....\n\n- From no high-school basketball to 18 years professional career\n\n- From growing up poor to ownling successful business.\n\n -Believin in ME all times`
     },
     {
       id: 2,
