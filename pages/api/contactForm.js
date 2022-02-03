@@ -6,7 +6,7 @@ export default async function (req, res) {
       port: 587,
       host: "ssl0.ovh.net",
       auth: {
-        user: 'support@dunesgst.fr',
+        user: 'contact@dunesgst.fr',
         pass: PASSWORD,
       },
       secure: false,
@@ -24,8 +24,8 @@ export default async function (req, res) {
       });
   });
     const mailData = {
-      from: 'support@dunesgst.fr',
-      to: 'support@dunesgst.fr',
+      from: 'contact@dunesgst.fr',
+      to: 'contact@dunesgst.fr',
       subject: `Nouveau message du site internet de ${req.body.nom} !`,
       text: `Bonjour,
       Information : \n
