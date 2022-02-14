@@ -13,7 +13,7 @@ export default function Programmes () {
     const layouts = [
         {
           title: "Functional <span>training</span>",
-          desc: "Développe les compétences fondamentales de la motricité sportive (endurance cardio-vasculaire, endurance musculaire, vitesse, coordination, agilité, souplesse, mobilité, puissance, force). Ces entraînements sont accessibles à tous et à tous les niveaux comme chacun de nos programmes.",
+          desc: "Développer les compétences fondamentales de la motricité sportive (endurance cardio-vasculaire, endurance musculaire, vitesse, coordination, agilité, souplesse, mobilité, puissance, force). Ces entraînements sont accessibles à tous et à tous les niveaux comme chacun de nos programmes.",
           img: "/assets/img/aimel.webp",
           button: {
             link: "/plannings",
@@ -23,7 +23,7 @@ export default function Programmes () {
         },
         {
           title: "Haltérophilie <span>&</span> Gym",
-          desc: "Tu désires améliorer tes entraînements functionnal? Ces classes te permettront d’accélérer ton processus d’apprentissage dans ces deux domaines fondamentaux des entraînements fonctionnels.",
+          desc: "Tu désires améliorer tes entraînements functionnal ? Ces classes te permettront d’accélérer ton processus d’apprentissage dans ces deux domaines fondamentaux des entraînements fonctionnels.",
           img: "/assets/img/box.webp",
           button: {
             link: "/plannings",

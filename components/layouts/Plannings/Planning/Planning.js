@@ -53,6 +53,7 @@ export default function Planning({ trainings, currentWeek }) {
   async function newCreaneau(training) {
     const addNewCreneau = await axios
       .post(
+        // `${process.env.NEXT_PUBLIC_API_URL}/reservations`,
         `${process.env.NEXT_PUBLIC_API_URL}/reservations`,
         targetSpot(training),
         config
@@ -61,12 +62,17 @@ export default function Planning({ trainings, currentWeek }) {
         res.status !== 500 ? setValidation(res.data) : null;
         const addReservation = [...userReservation, res.data];
         setUserReservation(addReservation);
-        alert("Merci. Votre place a bien été enregistré !")
+        alert("Merci. Votre place à bien été enregistré !")
         return true
       })
       .catch((err) => {
         alert(
-          "Une erreur c'est produite, assurez vous de ne pas deja avoir reserver cette entrainement ou de ne pas avoir depasser votre limite de séance par semaine"
+          `Oups, quelque chose ne c'est pas passé comme prevue...
+Assurez-vous de ne pas avoir dépassé votre limite de séances par semaine.
+
+Merci de rééssayer ultérieurement. 
+Si le problème persiste, envoyez nous un mail à l'adresse suivante : 
+contac@dunesgst.fr          `
         );
         console.log(err);
         return false;

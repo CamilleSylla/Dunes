@@ -17,7 +17,7 @@ export default function Home() {
     },
     {
       title: "staff de <span>qualité</span>",
-      desc: "Nos coachs vous accompagnent lors des classes afin de vous aider à atteindre vos objectifs grâce à leur méthode unique sur la ville de Saint-Quentin.",
+      desc: "Nos coachs vous accompagnent lors des séances afin de vous aider à atteindre vos objectifs grâce à leur méthode unique sur la ville de Saint-Quentin.",
       img: "/assets/img/staff.webp",
       button: {
         link: "/staff",

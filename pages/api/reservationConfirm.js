@@ -31,7 +31,7 @@ export default async function (req, res) {
     subject: `Dunes GST : Confirmation de votre reservation pour l'entrainement ${req.body.traning_name}  ${req.body.traning_day} prochain à ${req.body.traning_start}`,
     text: `Bonjour ${req.body.user_name},
     Nous vous confirmons la reservation de votre entrainement : \n
-    Réservé le : ${new Date(req.body.reservation_le).toLocaleDateString()},
+    Réservé le : ${new Date(req.body.reservation_le).toLocaleDateString('fr')},
     Entrainement : ${req.body.traning_name},
     Jour : ${req.body.traning_day}
     Heure : ${req.body.traning_start}\n\n
