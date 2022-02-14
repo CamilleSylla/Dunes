@@ -26,13 +26,12 @@ export default async function (req, res) {
     const mailData = {
       from: 'support@dunesgst.fr',
       to: 'contact@dunesgst.fr',
-      subject: `Nouveau message du site internet de ${req.body.nom} !`,
+      subject: `${req.body.subject}`,
       text: `Bonjour,
-      Information : \n
-      Nom : ${req.body.nom},
+      ${req.body.name} souhaite être recontacter pour l'événement du Samedi 29 mars : \n
+      Nom : ${req.body.name},
       Email : ${req.body.email},
-      Subject : ${req.body.subject}
-      Message : ${req.body.msg}
+    Tel : ${req.body.tel}
       `,
      }
   
