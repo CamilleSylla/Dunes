@@ -25,7 +25,7 @@ export default async function (req, res) {
   });
     const mailData = {
       from: 'support@dunesgst.fr',
-      to: 'carmelosylla@gmail.com',
+      to: 'contact@dunesgst.fr',
       subject: `${req.body.subject}`,
       text: `Bonjour,
       ${req.body.name} souhaite être recontacter pour l'événement du Samedi 29 mars : \n
