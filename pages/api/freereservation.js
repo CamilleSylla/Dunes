@@ -25,7 +25,7 @@ export default async function (req, res) {
 });
   const mailData = {
     from: 'support@dunesgst.fr',
-    to: 'carmelosylla@gmail.com',
+    to: 'contact@dunesgst.fr',
     subject: `Nouvelle demande d'essai ${req.body.nom} !`,
     text: `Bonjour,
     Vous avez recu une nouvelle demande de reservation d'essai : \n

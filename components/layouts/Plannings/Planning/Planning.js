@@ -122,7 +122,6 @@ export default function Planning({ trainings, currentWeek }) {
     const trainingStart = new Date("1970-01-01 " + training.start).getHours();
     const currentTime = new Date().getHours();
     const parentDay = training.day.toLowerCase();
-    const getReservationNumberByID = await 
     const today = new Date().toLocaleDateString("fr", { weekday: "long" });
     let isAlreadyTook = [];
     if (userReservation) {

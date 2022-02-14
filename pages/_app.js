@@ -23,6 +23,7 @@ import { PlanningProvider } from "../context/PlanningContext";
 import { ResponsiveProvider } from "../context/MobileContext";
 import { userDevice } from "../tools/global";
 import Promote from "../components/global/Promote/Promote";
+import Add from "../components/global/add/Add";
 
 function MyApp({ Component, pageProps }) {
   const route = useRouter();
@@ -64,6 +65,7 @@ function MyApp({ Component, pageProps }) {
                   <Presentation />
                   <AnimatePresence exitBeforeEnter>
                     <Transition>
+                      <Add />
                       <Component {...pageProps} />
                     </Transition>
                   </AnimatePresence>
