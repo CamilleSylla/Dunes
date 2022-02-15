@@ -51,6 +51,16 @@ export default function Planning({ trainings, currentWeek }) {
   };
 
   async function newCreaneau(training) {
+    if (training.active_reservations >= 8 ) {
+alert(
+`Oups,
+
+Il n'y a plus de place disponible...
+`
+      )
+      return false
+    }
+
     const addNewCreneau = await axios
       .post(
         // `${process.env.NEXT_PUBLIC_API_URL}/reservations`,
@@ -140,42 +150,42 @@ contac@dunesgst.fr          `
     } else {
       return (
         <article
-          onClick={() => {
-            user && isAlreadyTook.length == 0
-              ? newCreaneau(training)
-              : deletePracticeOrRedirect(isAlreadyTook);
-          }}
-          style={{
-            background: training.color ? training.color : "var(--dark)",
-          }}
-          key={i}
-          className={style.card}
+        onClick={() => {   
+          user && isAlreadyTook.length == 0
+          ? newCreaneau(training)
+            : deletePracticeOrRedirect(isAlreadyTook)
+        }}
+        style={{
+          background: training.color ? training.color : "var(--dark)",
+        }}
+        key={i}
+        className={style.card}
         >
-          <div className={style.spacing}>
-            <h1>{training.nom}</h1>
-            <p style={{ fontWeight: "bold", fontSize: "1.25rem" }}>
-              {formatTime}
-            </p>
-            <p>Eddy</p>
-            <p>60 min</p>
-            {isAlreadyTook.length ? (
-              <div className={style.reservation_marker}>Réserve</div>
-            ) : null}
-            {user ? bookingLimit(training.active_reservations) : null}
-            <div
-              className={style.reservation_annuler}
-              style={{
-                background: isAlreadyTook.length ? "orange" : "#1196F5",
-              }}
+        <div className={style.spacing}>
+          <h1>{training.nom}</h1>
+          <p style={{ fontWeight: "bold", fontSize: "1.25rem" }}>
+            {formatTime}
+          </p>
+          <p>Eddy</p>
+          <p>60 min</p>
+          {isAlreadyTook.length ? (
+            <div className={style.reservation_marker}>Réserve</div>
+          ) : null}
+          {user ? bookingLimit(training.active_reservations) : null}
+          <div
+            className={style.reservation_annuler}
+            style={{
+              background: isAlreadyTook.length ? "orange" : "#1196F5",
+            }}
             >
-              <p>
-                {isAlreadyTook.length
-                  ? "Annuler ma réservation"
-                  : "Reservé mon spot"}
-              </p>
-            </div>
+            <p>
+              {isAlreadyTook.length
+                ? "Annuler ma réservation"
+                : "Reservé mon spot"}
+            </p>
           </div>
-        </article>
+        </div>
+      </article>
       );
     }
   };
