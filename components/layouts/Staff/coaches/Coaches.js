@@ -37,7 +37,7 @@ export default function Coaches() {
       name: "Ousmane",
       role: "Coach",
       carrere: "Ancien joueur proffessionel de basket-ball",
-      profile_url: "/staff/ousmane.webp",
+      profile_url: "/staff/ousmane1.webp",
     },
     {
       id: 5,
