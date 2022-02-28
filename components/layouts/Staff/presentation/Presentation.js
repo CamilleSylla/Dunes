@@ -6,7 +6,7 @@ export default function Presentation () {
     const [presentation, setPresentation] = useContext(PresentationContext)
 
     const Close = () => {
-        return <span onClick={() => setPresentation(null)} className={style.ferme}>Ferme</span>
+        return <span onClick={() => setPresentation(null)} className={style.ferme}>Fermer</span>
     }
 
     const Content = () => {

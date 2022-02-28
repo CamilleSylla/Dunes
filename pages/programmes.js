@@ -23,7 +23,7 @@ export default function Programmes () {
         },
         {
           title: "Haltérophilie <span>&</span> Gym",
-          desc: "Tu désires améliorer tes entraînements functionnal ? Ces classes te permettront d’accélérer ton processus d’apprentissage dans ces deux domaines fondamentaux des entraînements fonctionnels.",
+          desc: "Tu désires améliorer tes entraînements functionnels. Ces classes te permettront d’accélérer ton processus d’apprentissage dans ces deux domaines fondamentaux des entraînements fonctionnels.",
           img: "/assets/img/box.webp",
           button: {
             link: "/plannings",
@@ -43,7 +43,7 @@ export default function Programmes () {
         },
         {
           title: "Fit <span>&</span> Healthy",
-          desc: "Si perdre du poids est ta priorité, tu as choisis le programme par excellence pour perdre du poids tout en gagnant en masse. Ce programme est composé de renforcement musculaire et d' exercices d'endurance à haute intensité. Pour ceux qui le désirent nous pouvons vous guider sur votre alimention via nos partenaires nutrition.",
+          desc: "Si perdre du poids est ta priorité, tu as choisi le programme par excellence pour perdre du poids tout en gagnant en masse. Ce programme est composé de renforcement musculaire et d'exercices d'endurance à haute intensité. Pour ceux qui le désirent nous pouvons vous guider sur votre alimentation via nos partenaires nutrition.",
           img: "/assets/img/programmes.webp",
           button: {
             link: "/plannings",
@@ -68,7 +68,7 @@ export default function Programmes () {
 
       <Header/>
       <main id="scroll">
-        <Banner imgSrc="/assets/img/box.webp" title="Adaptée votre entrainement" />
+        <Banner imgSrc="/assets/img/box.webp" title="ADAPTER VOTRE ENTRAINEMENT" />
         {layouts.map((el, i) => {
           return el.left ? (
             <LeftLayout

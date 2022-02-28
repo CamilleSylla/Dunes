@@ -72,17 +72,17 @@ Il n'y a plus de place disponible...
         res.status !== 500 ? setValidation(res.data) : null;
         const addReservation = [...userReservation, res.data];
         setUserReservation(addReservation);
-        alert("Merci. Votre place à bien été enregistré !")
+        alert("Merci. Votre place a bien été enregistrée !")
         return true
       })
       .catch((err) => {
         alert(
-          `Oups, quelque chose ne c'est pas passé comme prevue...
-Assurez-vous de ne pas avoir dépassé votre limite de séances par semaine.
-
-Merci de rééssayer ultérieurement. 
-Si le problème persiste, envoyez nous un mail à l'adresse suivante : 
-contac@dunesgst.fr          `
+          `Oups, quelque chose ne ce n'est pas passé comme prévu...
+          Assurez-vous de ne pas avoir dépassé votre limite de séances par semaine.
+          
+          Merci de réessayer ultérieurement. 
+          Si le problème persiste, envoyez-nous un mail à l'adresse suivante :  
+          contact@dunesgst.fr          `
         );
         console.log(err);
         return false;
@@ -124,7 +124,7 @@ contac@dunesgst.fr          `
         </p>
       );
     } else {
-      return <p>Places : {8 - active_reservations}</p>;
+      return null;
     }
   }
 
@@ -169,7 +169,7 @@ contac@dunesgst.fr          `
           <p>Eddy</p>
           <p>60 min</p>
           {isAlreadyTook.length ? (
-            <div className={style.reservation_marker}>Réserve</div>
+            <div className={style.reservation_marker}>Réservé</div>
           ) : null}
           {user ? bookingLimit(training.active_reservations) : null}
           <div
@@ -181,7 +181,7 @@ contac@dunesgst.fr          `
             <p>
               {isAlreadyTook.length
                 ? "Annuler ma réservation"
-                : "Reservé mon spot"}
+                : "Réserver mon spot"}
             </p>
           </div>
         </div>

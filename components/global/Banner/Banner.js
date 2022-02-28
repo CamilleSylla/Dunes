@@ -22,7 +22,7 @@ export default function Banner ({videoSrc, imgSrc, title, phrase}) {
                     <Spacing height="1vh"/>
                     <p>{phrase ? phrase : null}</p>
                     <Spacing height="2.5vh"/>
-                    <Button text="Reserver un spot" link={user ? "/plannings" : "/contact"}/>
+                    <Button text="Réserver un spot" link={user ? "/plannings" : "/contact"}/>
                     <Spacing height="2.5vh"/>
                     <div onClick={e => window.scrollTo(0, 500)} style={{height: '5vh', cursor: "pointer"}}>
                     <img className={style.icon}  src="/assets/icon/arrow.svg"/>

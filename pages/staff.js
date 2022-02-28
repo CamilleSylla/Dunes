@@ -17,7 +17,7 @@ export default function Home() {
           i="1"
           title="Le mot de <span>Darnell</span>"
           button={{label : "La programmation", link: "/plannings"}}
-          desc={` Dunes n'est pas qu'une Salle du Sport !\nC'est un état d'esprit, c'est un style de vie, c'est votre témoignage ayant le monde pour temoin.\n\nDUNESGST SUIVEZ LE MOUVEMENT !`}
+          desc={` Dunes n'est pas qu'une Salle du Sport !\nC'est un état d'esprit, c'est un style de vie, c'est vous challenger vous même pour atteindre vos objectifs.\n\nDUNESGST SUIVEZ LE MOUVEMENT !`}
           img="/staff/darnell-mot.webp"
         />
         <Coaches />

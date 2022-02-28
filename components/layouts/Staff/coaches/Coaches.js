@@ -20,7 +20,7 @@ export default function Coaches() {
       id: 1,
       name: "Darnell",
       role: "Fondateur de Dunes",
-      carrere: "Ancien joueur proffessionel de basket-ball",
+      carrere: "Ancien joueur professionel de basket-ball",
       profile_url: "/staff/darnell.webp",
       slogan: "BECOME GREAT, BECOME LEGEND, BECOME YOU",
       bio: `- Not self made but self driven....\n\n- From no high-school basketball to 18 years professional career\n\n- From growing up poor to ownling successful business.\n\n -Believin in ME all times`
@@ -29,38 +29,38 @@ export default function Coaches() {
       id: 2,
       name: "Eddy",
       role: "Directeur et coach",
-      carrere: "Ancien joueur proffessionel de basket-ball",
+      carrere: "Ancien joueur professionel de basket-ball",
       profile_url: "/staff/eddy.webp",
     },
     {
       id: 3,
       name: "Ousmane",
       role: "Coach",
-      carrere: "Ancien joueur proffessionel de basket-ball",
+      carrere: "Ancien joueur professionel de basket-ball",
       profile_url: "/staff/ousmane1.webp",
     },
     {
       id: 5,
       name: "Tommy",
       role: "Pôle récupération",
-      carrere: "Ancien joueur proffessionel de basket-ball",
+      carrere: "Ancien joueur professionel de basket-ball",
       profile_url: "/staff/cryo.webp",
     },
     {
       id: 4,
       name: "Aimel",
       role: "Stagiaire Coach",
-      carrere: "Ancien joueur proffessionel de basket-ball",
+      carrere: "Ancien joueur professionel de basket-ball",
       profile_url: "/staff/armel.webp",
     },
     {
       id: 6,
       name: "Corentin",
       role: "Directeur Artistique - Community Manager",
-      carrere: "Ancien joueur proffessionel de basket-ball",
+      carrere: "Ancien joueur professionel de basket-ball",
       profile_url: "/staff/corentin.webp",
-      slogan: "Il n’y a pas qu’aux États Unis que tout est possible ! ",
-      bio: `Photographe professionnel et diplômé d’un double Master en Management et Business International, j’ai décidé mettre à profit mes aptitudes et mon expérience dans ce projet Dunes afin d’aider à développer l’image du sport dans cette ville dont je suis originaire et qui en 2011 avait été élu « Ville la plus sportive de France » par le quotidien sportif l’équipe.`
+      slogan: "Il n’y a pas qu’aux États-Unis que tout est possible ! ",
+      bio: `Photographe professionnel et diplômé d’un double master en management et business International, j’ai décidé de mettre à profit mes aptitudes et mon expérience dans ce projet Dunes afin d’aider à développer l’image du sport dans cette ville dont je suis originaire et qui en 2011 avait été élu « Ville la plus sportive de France » par le quotidien sportif l’équipe.`
     },
     {
       id: 7,
@@ -68,8 +68,8 @@ export default function Coaches() {
       role: "Développeur web",
       carrere: "Ancien joueur proffessionel de basket-ball",
       profile_url: "/staff/camille-sylla.webp",
-      slogan: "Certain veulent que ça arrive. D'autres aimeraient que ca arrive. Les autres font que ça arrive. ",
-      bio: `Dunes vous offre l'opportunité d'accomplir vos objectifs physiques. De la remise en forme à la performance vous êtes au bonne endroit !\n\nSe surpasser physiquement c'est ce renforcer mentalement !`
+      slogan: "Certains veulent que ça arrive. D'autres aimeraient que ça arrive. Les autres font que ça arrive.",
+      bio: `Dunes vous offre l'opportunité d'accomplir vos objectifs physiques. De la remise en forme à la performance vous êtes à bon port !\n\nSe surpasser physiquement c'est se renforcer mentalement !`
     },
     {
       id: 8,
@@ -91,7 +91,6 @@ export default function Coaches() {
 
   const setPresentationTargetContext = e => {
     setPresentation(e)
-    console.log(e);
   }
 
 

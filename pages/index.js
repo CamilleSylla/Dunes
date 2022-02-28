@@ -38,7 +38,7 @@ export default function Home() {
     },
     {
       title: "prix <br/><span>flexibles</span>",
-      desc: "Dunes propose à ses adhérents des forfaits adaptés en fonction des seances que vous voulez effectuer dans la semaine. Qu'attendez vous pour atteindre vos objectifs ?",
+      desc: "Dunes propose à ses adhérents des forfaits adaptés en fonction des séances que vous voulez effectuer dans la semaine. Qu'attendez-vous pour atteindre vos objectifs ?",
       img: "/assets/img/prix.webp",
       button: {
         link: "/tarifs",
@@ -53,7 +53,7 @@ export default function Home() {
       <Header/>
       <main id="scroll">
         <Banner 
-        phrase="Salle de sport située à Saint-Quentin dans l'Aisne, venez atteindre vos objectifs grâce à nos programmes d'entrainements adaptés à chacun."
+        phrase="Centre de fitness situé à Saint-Quentin dans l'Aisne, venez accomplir vos objectifs grâce à nos programmes d'entraînement adaptés à chacun."
         videoSrc="/assets/video/DunesPromo.mp4"
         />
         {layouts.map((el, i) => {

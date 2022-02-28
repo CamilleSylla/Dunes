@@ -13,7 +13,7 @@
     "formik": "^2.2.9",
     "framer-motion": "^5.3.3",
     "gsap": "^3.8.0",
-    "next": "12.0.4",
+    "next": "^12.1.0",
     "nodemailer": "^6.7.2",
     "nprogress": "^0.2.0",
     "react": "17.0.2",
