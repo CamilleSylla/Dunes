@@ -49,7 +49,7 @@ export default function Login () {
                     <label >Mot de passe</label>
                     <input ref={passwordInput} name="password" type="password"/>
                     </div>
-                    <input onClick={onConnection} className={style.submit} type="button" value="Connection"/>
+                    <input onClick={onConnection} className={style.submit} type="button" value="Connexion"/>
                 </form>
             </div>
         )
