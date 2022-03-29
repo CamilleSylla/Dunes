@@ -167,7 +167,7 @@ Il n'y a plus de place disponible...
             {formatTime}
           </p>
           <p>Eddy</p>
-          <p>60 min</p>
+          <p>{training.nom == "Fast Workout" ? "40" : "60"}min</p>
           {isAlreadyTook.length ? (
             <div className={style.reservation_marker}>Réservé</div>
           ) : null}
