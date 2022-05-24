@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import style from './add.module.scss'
 
 export default function Add () {
-    const [display, setDisplay] = useState(true)
+    const [display, setDisplay] = useState(false)
 
     const Announcement = () => {
 
