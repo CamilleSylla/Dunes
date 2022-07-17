@@ -8,7 +8,7 @@ export default function Home() {
     {
       title: "Accompagnement vers <span>vos objectifs</span>",
       desc: "Tu veux perdre du poids ? Tu veux prendre de la masse musculaire ? Tu veux passer un cap dans ta pratique sportive ? Tu désires découvrir les entraînements fonctionnels ?",
-      img: "/assets/img/intensity.webp",
+      img: "https://frozen-atoll-08461.herokuapp.com/uploads/large_DSC_08056_min_3479232ad1.jpg?115444.69999998808",
       button: {
         link: "/programmes",
         label: "Nos programmes",
@@ -18,7 +18,7 @@ export default function Home() {
     {
       title: "staff de <span>qualité</span>",
       desc: "Nos coachs vous accompagnent lors des séances afin de vous aider à atteindre vos objectifs grâce à leur méthode unique sur la ville de Saint-Quentin.",
-      img: "/assets/img/staff.webp",
+      img: "https://frozen-atoll-08461.herokuapp.com/uploads/large_DSC_01390_min_2414f61bc0.jpg?115445.60000002384",
       button: {
         link: "/staff",
         label: "Voir le staff",
@@ -29,7 +29,7 @@ export default function Home() {
     {
       title: "Notre <span>complexe</span>",
       desc: "Dunes vous accueille du lundi au samedi, dans un espace de 200 m². Un lieu chaleureux, familial où vous pourrez développer et découvrir votre plein potentiel.",
-      img: "/assets/img/complexe.webp",
+      img: "https://frozen-atoll-08461.herokuapp.com/uploads/large_DSC_08040_min_b5722b2573.jpg?306307.40000003576",
       button: {
         link: "/complexe",
         label: "Le complexe",
@@ -39,7 +39,7 @@ export default function Home() {
     {
       title: "prix <br/><span>flexibles</span>",
       desc: "Dunes propose à ses adhérents des forfaits adaptés en fonction des séances que vous voulez effectuer dans la semaine. Qu'attendez-vous pour atteindre vos objectifs ?",
-      img: "/assets/img/prix.webp",
+      img: "https://frozen-atoll-08461.herokuapp.com/uploads/large_DSC_09206_min_c65412ada3.jpeg?115446.40000003576",
       button: {
         link: "/tarifs",
         label: "Decouvrir nos forfaits",
