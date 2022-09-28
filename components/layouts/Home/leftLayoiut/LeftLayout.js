@@ -7,7 +7,7 @@ import Spacing from "../../../global/Spacing";
 import Layout from "../../../global/wrappers/Layout/Layout";
 import style from "./leftLayout.module.scss";
 
-export default function LeftLayout({ i, img, title, desc, button }) {
+export default function LeftLayout({ i, img, title, desc, button, buttonActive }) {
   const contentRef = useRef();
   const start = useRef();
 
@@ -23,7 +23,7 @@ export default function LeftLayout({ i, img, title, desc, button }) {
           <Spacing height="1vh" />
           <p>{desc}</p>
           <Spacing height="3vh" />
-          <Button text={button.label} link={button.link} />
+          {buttonActive ? <Button text={button.label} link={button.link}/> : null}
         </div>
       </article>
     );

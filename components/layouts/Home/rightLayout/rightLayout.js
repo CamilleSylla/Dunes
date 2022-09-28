@@ -7,7 +7,7 @@ import Spacing from "../../../global/Spacing";
 import Layout from "../../../global/wrappers/Layout/Layout";
 import style from "./rightLayout.module.scss";
 
-export default function RightLayout({ i ,img, title, desc, button }) {
+export default function RightLayout({ i ,img, title, desc, button, buttonActive }) {
   const contentRef = useRef();
   const start = useRef();
 
@@ -23,7 +23,8 @@ export default function RightLayout({ i ,img, title, desc, button }) {
           <Spacing height="1vh" />
           <p style={{whiteSpace: "pre-line"}}>{desc}</p>
           <Spacing height="3vh" />
-          <Button text={button.label} link={button.link}/>
+          {buttonActive ? <Button text={button.label} link={button.link}/> : null}
+          
         </div>
       </article>
     );

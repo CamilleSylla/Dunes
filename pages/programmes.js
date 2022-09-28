@@ -22,6 +22,16 @@ export default function Programmes () {
           left: false,
         },
         {
+          title: "Sand<span>Fit</span>",
+          desc: "Bientot disponible",
+          img: "/assets/img/home_first.png",
+          button: {
+            link: "#",
+            label: "Reserver mon spot",
+          },
+          left: true,
+        },
+        {
           title: "Haltérophilie <span>&</span> Gym",
           desc: "Tu désires améliorer tes entraînements functionnels. Ces classes te permettront d’accélérer ton processus d’apprentissage dans ces deux domaines fondamentaux des entraînements fonctionnels.",
           img: "/assets/img/prog_one.png",
@@ -29,7 +39,7 @@ export default function Programmes () {
             link: "/plannings",
             label: "Reserver mon spot",
           },
-          left: true,
+          left: false,
         },
         {
           title: "Personal <span>trainer</span>",
@@ -39,7 +49,7 @@ export default function Programmes () {
             link: "/plannings",
             label: "Reserver mon spot",
           },
-          left: false,
+          left: true,
         },
         {
           title: "Fit <span>&</span> Healthy",
@@ -49,7 +59,7 @@ export default function Programmes () {
             link: "/plannings",
             label: "Reserver mon spot",
           },
-          left: true,
+          left: false,
         },
         {
           title: "Open <span>training</span>",
@@ -59,7 +69,7 @@ export default function Programmes () {
             link: "/plannings",
             label: "Reserver mon spot",
           },
-          left: false,
+          left: true,
         },
       ];
   
@@ -78,6 +88,7 @@ export default function Programmes () {
               title={el.title}
               desc={el.desc}
               button={el.button}
+              buttonActive={false}
             />
           ) : (
             <RightLayout
@@ -87,6 +98,7 @@ export default function Programmes () {
               title={el.title}
               desc={el.desc}
               button={el.button}
+              buttonActive={false}
             />
           );
         })}

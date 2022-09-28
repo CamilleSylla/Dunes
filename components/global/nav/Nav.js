@@ -42,6 +42,10 @@ export default function Nav () {
             link: "/tarifs"
         },
         {
+            label: "crossFit Saint-Quentin",
+            link: "https://www.instagram.com/dunes_gst/"
+        },
+        {
             label: "contact",
             link: "/contact"
         },
